@@ -1,0 +1,329 @@
+/* ============
+   Theme Styles
+   ============ */
+
+/* ===========================
+   1. CSS Variables & Themes
+   =========================== */
+
+:root { /* Standard Theme (Light) */
+  --font-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --line-height: 1.6;
+  --radius: 0.5rem; /* 8px */
+  --transition: 0.3s ease-in-out;
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+  --max-width: 1200px;
+
+  /* Light Theme Colors */
+  --clr-header-bg: #2c3e50;
+  --clr-footer-bg: #34495e;
+  --clr-primary: #2c3e50;
+  --clr-secondary: #3498db;
+  --clr-accent: #27ae60;
+  --clr-bg: #ecf0f1;
+  --clr-bg-secondary: #f8f9fa;
+  --clr-card: #ffffff;
+  --clr-text: #2c3e50;
+  --clr-text-primary: #2c3e50;
+  --clr-text-secondary: #555;
+  --clr-text-light: #555;
+  --clr-border: #dce0e1;
+  --clr-primary-rgb: 44, 62, 80;
+  --clr-header-text: #ffffff;
+  --clr-footer-text: #ffffff;
+  --clr-button-text: #ffffff;
+  --clr-input-bg: #ffffff;
+  --clr-input-text: #2c3e50;
+  --clr-feedback-correct: var(--clr-accent);
+  --clr-feedback-incorrect: #e74c3c;
+  --clr-feedback-text: #ffffff;
+  --clr-gold: #ffd700;
+  --clr-silver: #c0c0c0;
+  --clr-bronze: #cd7f32;
+}
+
+body.theme-dark {
+  --clr-header-bg: #2d3748;
+  --clr-footer-bg: #4a5568;
+  --clr-primary: #4a5568;
+  --clr-secondary: #4299e1;
+  --clr-accent: #48bb78;
+  --clr-bg: #1a202c;
+  --clr-bg-secondary: #2d3748;
+  --clr-card: #2d3748;
+  --clr-text: #e2e8f0;
+  --clr-text-primary: #e2e8f0;
+  --clr-text-secondary: #a0aec0;
+  --clr-text-light: #a0aec0;
+  --clr-border: #4a5568;
+  --clr-primary-rgb: 74, 85, 104;
+  --clr-header-text: #e2e8f0;
+  --clr-footer-text: #e2e8f0;
+  --clr-button-text: #ffffff;
+  --clr-input-bg: #4a5568;
+  --clr-input-text: #e2e8f0;
+  --clr-feedback-correct: var(--clr-accent);
+  --clr-feedback-incorrect: #c53030;
+  --clr-feedback-text: #ffffff;
+  --clr-gold: #f9a825;
+  --clr-silver: #9e9e9e;
+  --clr-bronze: #a1887f;
+}
+
+
+
+/* Theme-specific overrides that aren't just variable changes */
+
+/* Standard theme hero - ensure Earth panorama displays with vibrant, light overlay */
+body.theme-standard .hero,
+body:not(.theme-dark) .hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)),
+                url('../assets/images/design/4k-earth-panorama-8l3t9nkefmdx7jfo.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+}
+
+/* Light overlay for standard theme */
+body.theme-standard .hero::before,
+body:not(.theme-dark) .hero::before {
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.15) 70%);
+}
+
+/* Standard theme section headers - attractive blue backgrounds with proper styling */
+body.theme-standard .quiz-header,
+body.theme-standard .learn-header,
+body.theme-standard .leaderboard-header,
+body.theme-standard .admin-header,
+body:not(.theme-dark) .quiz-header,
+body:not(.theme-dark) .learn-header,
+body:not(.theme-dark) .leaderboard-header,
+body:not(.theme-dark) .admin-header {
+    background: linear-gradient(135deg, var(--clr-secondary) 0%, #2980b9 100%);
+    color: #ffffff;
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add subtle overlay pattern for visual depth */
+body.theme-standard .quiz-header::before,
+body.theme-standard .learn-header::before,
+body.theme-standard .leaderboard-header::before,
+body.theme-standard .admin-header::before,
+body:not(.theme-dark) .quiz-header::before,
+body:not(.theme-dark) .learn-header::before,
+body:not(.theme-dark) .leaderboard-header::before,
+body:not(.theme-dark) .admin-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at top right, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Ensure content appears above the overlay */
+body.theme-standard .quiz-header > *,
+body.theme-standard .learn-header > *,
+body.theme-standard .leaderboard-header > *,
+body.theme-standard .admin-header > *,
+body:not(.theme-dark) .quiz-header > *,
+body:not(.theme-dark) .learn-header > *,
+body:not(.theme-dark) .leaderboard-header > *,
+body:not(.theme-dark) .admin-header > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Section header text - white text on blue backgrounds for excellent contrast */
+body.theme-standard .quiz-header h2,
+body.theme-standard .learn-header h2,
+body.theme-standard .leaderboard-header h2,
+body.theme-standard .admin-header h2,
+body:not(.theme-dark) .quiz-header h2,
+body:not(.theme-dark) .learn-header h2,
+body:not(.theme-dark) .leaderboard-header h2,
+body:not(.theme-dark) .admin-header h2 {
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+body.theme-standard .quiz-header p,
+body.theme-standard .learn-header p,
+body.theme-standard .leaderboard-header p,
+body.theme-standard .admin-header p,
+body:not(.theme-dark) .quiz-header p,
+body:not(.theme-dark) .learn-header p,
+body:not(.theme-dark) .leaderboard-header p,
+body:not(.theme-dark) .admin-header p {
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+/* Standard theme content headers - light blue backgrounds with white text */
+body.theme-standard .content-header,
+body:not(.theme-dark) .content-header {
+    background: linear-gradient(135deg, var(--clr-secondary) 0%, #2980b9 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.2) !important;
+}
+
+body.theme-standard .content-header h4,
+body:not(.theme-dark) .content-header h4 {
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+body.theme-standard .content-header p,
+body:not(.theme-dark) .content-header p {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+
+
+
+
+
+
+
+
+/* Button overrides for different themes */
+body.theme-dark .btn-back { background: #4a5568; }
+body.theme-dark .btn:disabled { background-color: #4a5568; color: #a0aec0; filter: none; }
+
+/* Dark theme specific overrides - balanced for Earth panorama visibility */
+body.theme-dark .hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+                url('../assets/images/design/4k-earth-panorama-8l3t9nkefmdx7jfo.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+}
+
+/* Balanced overlay for dark theme - darker than standard but still shows Earth beauty */
+body.theme-dark .hero::before {
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 70%);
+}
+
+/* Dark theme section headers - styled to match dark theme aesthetics */
+body.theme-dark .quiz-header,
+body.theme-dark .learn-header,
+body.theme-dark .leaderboard-header,
+body.theme-dark .admin-header {
+    background: linear-gradient(135deg, var(--clr-bg-secondary) 0%, rgba(var(--clr-primary-rgb), 0.15) 100%);
+    color: var(--clr-text-primary);
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Dark theme header overlay for subtle depth */
+body.theme-dark .quiz-header::before,
+body.theme-dark .learn-header::before,
+body.theme-dark .leaderboard-header::before,
+body.theme-dark .admin-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at top right, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Dark theme header content positioning */
+body.theme-dark .quiz-header > *,
+body.theme-dark .learn-header > *,
+body.theme-dark .leaderboard-header > *,
+body.theme-dark .admin-header > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Dark theme header text styling */
+body.theme-dark .quiz-header h2,
+body.theme-dark .learn-header h2,
+body.theme-dark .leaderboard-header h2,
+body.theme-dark .admin-header h2 {
+    color: var(--clr-text-primary);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+body.theme-dark .quiz-header p,
+body.theme-dark .learn-header p,
+body.theme-dark .leaderboard-header p,
+body.theme-dark .admin-header p {
+    color: var(--clr-text-secondary);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+/* Dark theme content headers - maintain original dark theme styling */
+body.theme-dark .content-header {
+    background: linear-gradient(135deg, var(--clr-bg-secondary) 0%, rgba(var(--clr-primary-rgb), 0.1) 100%) !important;
+    color: var(--clr-text-primary) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4), 0 1px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+body.theme-dark .content-header h4 {
+    color: var(--clr-text-primary) !important;
+}
+
+body.theme-dark .content-header p {
+    color: var(--clr-text-secondary) !important;
+}
+
+/* Header button styling for both themes */
+.quiz-header .btn-back,
+.learn-header .btn-back,
+.leaderboard-header .btn-back,
+.admin-header .btn-back {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 1rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.quiz-header .btn-back:hover,
+.learn-header .btn-back:hover,
+.leaderboard-header .btn-back:hover,
+.admin-header .btn-back:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+body.theme-dark .leaderboard-item:nth-child(odd) {
+     background-color: rgba(255, 255, 255, 0.03);
+}
+
+body.theme-dark .learn-card img {
+    background-color: var(--clr-primary);
+}
+
+body.theme-dark .setting-item input[type="checkbox"] {
+    background-color: #4a5568;
+}
+

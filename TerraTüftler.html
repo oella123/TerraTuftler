@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>TerraTüftler – Geographie Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===========================
+           CSS Variables & Base Styles
+           =========================== */
+        :root { /* Standard Theme (Light) */
+            /* Typography */
+            --font-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --line-height: 1.6;
+
+            /* Layout & Spacing */
+            --radius: 0.5rem; /* 8px */
+            --transition: 0.3s ease-in-out;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+            --max-width: 1200px;
+            --container-padding: 1rem;
+            --section-margin-bottom: 2rem;
+
+            /* Light Theme Colors */
+            --clr-header-bg: #2c3e50;
+            --clr-footer-bg: #34495e;
+            --clr-primary: #2c3e50;   /* Main primary color */
+            --clr-secondary: #3498db; /* Accent blue */
+            --clr-accent: #27ae60;   /* Accent green */
+            --clr-bg: #ecf0f1;       /* Page background */
+            --clr-card: #ffffff;     /* Card background */
+            --clr-text: #2c3e50;     /* Default text on light backgrounds */
+            --clr-text-light: #555;  /* Lighter text on light backgrounds */
+            --clr-text-on-dark: #ffffff; /* Text on dark backgrounds (header, footer, buttons) */
+            --clr-border: #dce0e1;
+            --clr-input-bg: #ffffff;
+            --clr-input-text: #2c3e50;
+            --clr-feedback-correct: var(--clr-accent);
+            --clr-feedback-incorrect: #e74c3c;
+            --clr-feedback-text: #ffffff;
+            --clr-button-back: #7f8c8d;
+            --clr-button-disabled-bg: #bdc3c7;
+            --clr-button-disabled-text: #7f8c8d;
+        }
+
+        body.theme-dark {
+            --clr-header-bg: #1a202c; /* Darker header */
+            --clr-footer-bg: #2d3748; /* Slightly lighter footer */
+            --clr-primary: #4a5568;   /* Main primary */
+            --clr-secondary: #4299e1; /* Lighter blue */
+            --clr-accent: #48bb78;   /* Lighter green */
+            --clr-bg: #1a202c;       /* Page background */
+            --clr-card: #2d3748;     /* Card background */
+            --clr-text: #e2e8f0;     /* Default text on dark */
+            --clr-text-light: #a0aec0; /* Lighter text on dark */
+            --clr-text-on-dark: #e2e8f0; /* Text on dark backgrounds */
+            --clr-border: #4a5568;
+            --clr-input-bg: #4a5568;
+            --clr-input-text: #e2e8f0;
+            --clr-feedback-correct: var(--clr-accent);
+            --clr-feedback-incorrect: #c53030; /* Darker red */
+            --clr-feedback-text: #ffffff;
+            --clr-button-back: #4a5568;
+            --clr-button-disabled-bg: #4a5568;
+            --clr-button-disabled-text: #a0aec0;
+        }
+
+
+
+        /* Global Resets and Box Sizing */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: var(--font-base);
+            line-height: var(--line-height);
+            background-color: var(--clr-bg);
+            color: var(--clr-text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: background-color var(--transition), color var(--transition); /* Smooth theme transition */
+        }
+
+        /* Basic Element Styling */
+        a {
+            text-decoration: none;
+            color: var(--clr-secondary);
+            transition: color var(--transition);
+        }
+        a:hover {
+            filter: brightness(0.9);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: var(--radius); /* Rounded corners for images */
+        }
+
+        /* Accessibility Focus Styles */
+        :focus-visible {
+            outline: 3px solid var(--clr-secondary);
+            outline-offset: 2px;
+            border-radius: var(--radius);
+        }
+        /* Remove default outline when :focus-visible is supported */
+        *:focus:not(:focus-visible) {
+             outline: none;
+        }
+
+
+        /* ============
+           Header & Nav
+           ============ */
+        header {
+            background: var(--clr-header-bg);
+            color: var(--clr-text-on-dark);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+            transition: background var(--transition);
+        }
+
+
+        nav {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--clr-text-on-dark); /* Ensure logo text is visible */
+        }
+        .logo img {
+            width: 2.5rem; height: 2.5rem;
+            margin-right: 0.5rem;
+            border-radius: 50%;
+            background: var(--clr-secondary);
+            transition: background var(--transition);
+            padding: 4px;
+            object-fit: cover; /* Ensure logo fits well */
+        }
+
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+        .nav-links a {
+            color: var(--clr-text-on-dark);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius);
+            transition: background var(--transition), transform var(--transition), color var(--transition);
+            font-weight: 600;
+            display: block; /* Ensure padding applies correctly */
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: var(--clr-secondary);
+            transform: translateY(-2px);
+            color: var(--clr-text-on-dark); /* Ensure text remains visible */
+        }
+
+
+        /* Burger Menu Button */
+        .burger {
+            display: none; /* Hidden by default, shown via media query */
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1100; /* Above nav links */
+            padding: 0;
+            position: relative; /* Needed for z-index */
+        }
+        .burger .bar {
+            width: 100%;
+            height: 3px;
+            background: var(--clr-text-on-dark); /* Visible on header */
+            border-radius: 2px;
+            transition: all 0.3s ease-in-out;
+            transform-origin: center;
+        }
+        /* Burger -> X Animation */
+        .burger.change .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .burger.change .bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .burger.change .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+
+        /* ========
+           Buttons
+           ======== */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--clr-accent);
+            color: var(--clr-text-on-dark);
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: background var(--transition), transform var(--transition), box-shadow var(--transition), filter var(--transition);
+            text-align: center;
+            font-family: inherit; /* Ensure font consistency */
+            font-size: 1rem; /* Default font size */
+        }
+        .btn:hover {
+            filter: brightness(0.9);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .btn-secondary { background: var(--clr-secondary); }
+        .btn-back { background: var(--clr-button-back); }
+
+        .btn:disabled {
+            background: var(--clr-button-disabled-bg);
+            color: var(--clr-button-disabled-text);
+            opacity: 0.7;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+            filter: none; /* Reset filter */
+        }
+
+
+        /* ==========
+           Layout Utils
+           ========== */
+        main {
+            flex: 1; /* Ensure main content takes available space */
+            width: 100%; /* Prevent shrinking */
+        }
+        .container {
+            max-width: var(--max-width);
+            margin: var(--section-margin-bottom) auto;
+            padding: 0 var(--container-padding);
+        }
+        /* Section Title Styling */
+        .container > h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            color: var(--clr-primary); /* Use primary color for titles */
+        }
+
+
+        /* Headings */
+        h1, h2, h3, h4 {
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            color: var(--clr-text); /* Use theme text color */
+        }
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 1.8rem; }
+        h3 { font-size: 1.4rem; }
+        h4 { font-size: 1.1rem; }
+
+        /* Paragraphs */
+        p {
+            margin-bottom: 1rem;
+            color: var(--clr-text-light); /* Use lighter text color */
+        }
+
+
+        /* ============
+           Page Sections
+           ============ */
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem var(--container-padding);
+            text-align: center;
+            color: #fff; /* Always white text for contrast */
+            border-radius: 0 0 var(--radius) var(--radius);
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                        url('https://placehold.co/1200x400/2c3e50/ecf0f1?text=TerraTüftler+Hero') center/cover no-repeat;
+            animation: fadeIn 1s ease-out both;
+            margin-bottom: var(--section-margin-bottom);
+            overflow: hidden; /* Contain background */
+        }
+
+        body.theme-dark .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                        url('https://placehold.co/1200x400/1a202c/a0aec0?text=Hero+Dark') center/cover no-repeat;
+        }
+        .hero h1 { color: #fff; } /* Ensure white text */
+        .hero p { font-size: 1.1rem; max-width: 700px; margin: 1rem auto 2rem; color: #fff;} /* Ensure white text */
+
+        /* Features Section */
+        .features {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            animation: fadeIn 1s 0.3s ease-out both;
+        }
+        .feature-card {
+            background: var(--clr-card);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: transform var(--transition), box-shadow var(--transition);
+            border: 1px solid var(--clr-border);
+            display: flex; /* Use flexbox for alignment */
+            flex-direction: column; /* Stack content vertically */
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        .feature-card h3 { color: var(--clr-secondary); margin-bottom: 0.5rem; }
+        .feature-card p { color: var(--clr-text-light); flex-grow: 1; margin-bottom: 1.5rem; } /* Allow p to grow */
+        .feature-card .btn { margin-top: auto; } /* Push button to bottom */
+
+
+
+
+        /* Quiz, Learn, Settings Containers (Shared Styling) */
+        .quiz-container, .learn-container, .settings-container {
+            background: var(--clr-card);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            animation: fadeIn 1s ease-out both;
+            margin-bottom: var(--section-margin-bottom);
+            border: 1px solid var(--clr-border);
+        }
+        .quiz-header, .learn-header { /* Header within containers */
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--clr-border); /* Add separator */
+            padding-bottom: 1rem;
+        }
+        .quiz-header h2, .learn-header h2 {
+            color: var(--clr-primary); /* Use primary color */
+            margin-bottom: 0.5rem; /* Less space below header h2 */
+        }
+        .quiz-header p, .learn-header p {
+            color: var(--clr-text-light);
+            margin-top: 0.5rem;
+        }
+        .quiz-header .btn-back, .learn-header .btn-back {
+             margin-top: 1rem; /* Space above back button */
+        }
+
+
+        /* Quiz Mode/Category Options */
+        .quiz-options {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+        .quiz-option {
+            background: var(--clr-secondary);
+            color: var(--clr-text-on-dark);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            text-align: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: transform var(--transition), box-shadow var(--transition), filter var(--transition), border-color var(--transition);
+            border: 2px solid transparent;
+        }
+        .quiz-option:hover {
+            filter: brightness(0.9);
+            transform: scale(1.03);
+            box-shadow: var(--shadow-md);
+            border-color: var(--clr-primary);
+        }
+        .quiz-option h3 { color: inherit; margin-bottom: 0.5rem; }
+        .quiz-option p { color: inherit; opacity: 0.9; font-size: 0.9rem; }
+
+
+
+
+        /* Quiz Game Area */
+        .question-container h3 { /* Question Text */
+            color: var(--clr-primary);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .question-image { /* Image in Quiz */
+            max-height: 300px; /* Limit image height */
+            width: auto; /* Maintain aspect ratio */
+            max-width: 100%; /* Ensure it doesn't overflow */
+            border-radius: var(--radius);
+            margin: 0 auto 1.5rem auto; /* Center and add bottom margin */
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--clr-border);
+            object-fit: contain; /* Ensure whole image is visible */
+        }
+
+
+        /* Answer Options */
+        .answer-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .answer-option {
+            background: var(--clr-bg);
+            padding: 1rem;
+            border-radius: var(--radius);
+            border: 2px solid var(--clr-border);
+            cursor: pointer;
+            text-align: center;
+            font-weight: 600;
+            transition: background var(--transition), transform var(--transition), border-color var(--transition), color var(--transition);
+            color: var(--clr-text);
+        }
+        .answer-option:hover {
+            background: var(--clr-secondary);
+            color: var(--clr-text-on-dark);
+            border-color: var(--clr-secondary);
+            transform: translateY(-2px);
+        }
+
+
+        /* Answer Option States */
+        .answer-option.selected {
+            background-color: var(--clr-secondary);
+            color: var(--clr-text-on-dark);
+            border-color: var(--clr-primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .answer-option.correct {
+            background-color: var(--clr-feedback-correct);
+            color: var(--clr-feedback-text);
+            border-color: var(--clr-feedback-correct);
+            animation: pulse 0.5s ease-in-out;
+        }
+        .answer-option.incorrect {
+            background-color: var(--clr-feedback-incorrect);
+            color: var(--clr-feedback-text);
+            border-color: var(--clr-feedback-incorrect);
+            animation: shake 0.5s ease-in-out;
+        }
+        /* Disable hover effects when showing correct/incorrect */
+        .answer-option.correct:hover,
+        .answer-option.incorrect:hover {
+            transform: none;
+            filter: none;
+            cursor: default; /* Indicate non-interactive */
+        }
+
+        /* Feedback Message */
+        #feedback {
+            padding: 1rem;
+            border-radius: var(--radius);
+            color: var(--clr-feedback-text);
+            margin: 1rem 0;
+            display: none; /* Controlled by JS */
+            animation: fadeIn 0.5s ease-out both;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        /* Timer Display */
+        .timer {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: none; /* Controlled by JS */
+            animation: fadeIn 0.5s ease-out both;
+            text-align: center;
+            color: var(--clr-primary);
+        }
+        .timer span {
+            color: var(--clr-secondary);
+            min-width: 2ch; /* Ensure space for two digits */
+            display: inline-block;
+        }
+
+
+        /* Quiz Controls */
+        .quiz-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .quiz-controls button {
+            min-width: 120px;
+        }
+
+        /* Learn Section Grid */
+        .learn-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+        .learn-card {
+            background: var(--clr-card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden; /* Keep image contained */
+            display: flex;
+            flex-direction: column;
+            transition: transform var(--transition), box-shadow var(--transition);
+            border: 1px solid var(--clr-border);
+        }
+        .learn-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        .learn-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: #eee; /* Placeholder color */
+            border-radius: var(--radius) var(--radius) 0 0; /* Round top corners only */
+        }
+        body.theme-dark .learn-card img { background-color: var(--clr-primary); }
+        .learn-card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .learn-card h3 { color: var(--clr-secondary); margin-bottom: 0.5rem; }
+        .learn-card p { color: var(--clr-text-light); flex-grow: 1; margin-bottom: 1rem; }
+        .learn-card .btn { margin-top: auto; } /* Push button to bottom */
+
+
+
+        /* Learn Detail Styles */
+        #learn-detail { display: none; } /* Controlled by JS */
+        #learn-detail-content h3 { margin-top: 2rem; margin-bottom: 1rem; color: var(--clr-primary); border-bottom: 2px solid var(--clr-secondary); padding-bottom: 0.5rem; }
+        #learn-detail-content h4 { margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--clr-secondary); }
+        #learn-detail-content p { color: var(--clr-text-light); }
+        #learn-detail-content .learn-grid { margin-top: 1.5rem; } /* Reuse grid */
+
+
+        /* Scoreboard */
+        #scoreboard {
+            text-align: center;
+            padding: 2rem;
+            display: none; /* Controlled by JS */
+            animation: fadeIn 1s ease-out both;
+        }
+        #scoreboard h3 { color: var(--clr-primary); margin-bottom: 1rem; }
+        #score { font-size: 2.5rem; color: var(--clr-accent); font-weight: 700; margin-bottom: 0.5rem; }
+        #score-message { color: var(--clr-text-light); margin-bottom: 2rem; font-size: 1.1rem; }
+        #scoreboard .btn { margin: 0.5rem; } /* Space out scoreboard buttons */
+
+        /* Settings */
+        .settings-options {
+            display: grid;
+            gap: 1.5rem;
+            max-width: 400px;
+            margin: 1rem auto; /* Center the options */
+        }
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--clr-border);
+            padding-bottom: 1rem;
+        }
+        .setting-item label {
+            font-weight: 600;
+            color: var(--clr-primary);
+            margin-right: 1rem;
+            flex-shrink: 0; /* Prevent label from shrinking */
+        }
+        .setting-item select,
+        .setting-item input[type="checkbox"] {
+            padding: 0.5rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--clr-border);
+            background: var(--clr-input-bg);
+            color: var(--clr-input-text);
+            transition: border-color var(--transition), background-color var(--transition), color var(--transition);
+        }
+        .setting-item select {
+            cursor: pointer;
+            min-width: 130px;
+            flex-grow: 1; /* Allow select to take space */
+            text-align: right;
+        }
+        /* Toggle Switch Styling */
+        .setting-item input[type="checkbox"] {
+            appearance: none;
+            width: 50px; height: 26px;
+            background-color: var(--clr-border); /* Use border color as default off */
+            border-radius: 13px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border: 1px solid var(--clr-border);
+            flex-shrink: 0; /* Prevent switch from shrinking */
+        }
+        body.theme-dark .setting-item input[type="checkbox"] { background-color: #4a5568; }
+
+        .setting-item input[type="checkbox"]::before {
+            content: '';
+            position: absolute;
+            width: 20px; height: 20px;
+            border-radius: 50%;
+            background-color: white;
+            top: 2px; left: 3px;
+            transition: transform 0.3s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .setting-item input[type="checkbox"]:checked { background-color: var(--clr-accent); }
+        .setting-item input[type="checkbox"]:checked::before { transform: translateX(24px); }
+
+        /* Footer */
+        footer {
+            background: var(--clr-footer-bg);
+            color: var(--clr-text-on-dark);
+            text-align: center;
+            padding: 1.5rem var(--container-padding);
+            margin-top: auto; /* Pushes footer to bottom */
+            border-top: 3px solid var(--clr-secondary);
+            transition: background var(--transition), border-color var(--transition);
+        }
+        footer p {
+            color: inherit; /* Ensure footer text uses footer color */
+            margin-bottom: 0; /* Remove default paragraph margin */
+        }
+
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        /* ============
+           Responsive
+           ============ */
+        @media (max-width: 768px) {
+            /* Mobile Navigation Menu */
+            .nav-links {
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: min(80%, 300px); /* Responsive width */
+                height: 100vh;
+                background-color: var(--clr-header-bg);
+                transform: translateX(100%);
+                transition: transform 0.4s ease-in-out;
+                z-index: 1050;
+                padding-top: 5rem; /* Space for close button */
+                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+                overflow-y: auto;
+                gap: 0; /* Reset gap */
+            }
+
+
+            .nav-links.show {
+                transform: translateX(0); /* Slide in */
+            }
+            .nav-links li {
+                width: 100%;
+            }
+            .nav-links a {
+                display: block;
+                padding: 1rem 2rem;
+                text-align: left;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+                border-radius: 0;
+                color: var(--clr-text-on-dark);
+                transform: none !important; /* Disable hover transform */
+            }
+            .nav-links a:hover, .nav-links a.active {
+                background-color: var(--clr-secondary);
+                transform: none;
+            }
+
+            .nav-links li:last-child a {
+                border-bottom: none;
+            }
+
+            /* Show Burger Button */
+            .burger {
+                display: flex;
+            }
+
+            /* General Responsive Adjustments */
+            h1 { font-size: 2rem; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .features, .quiz-options, .learn-grid, .answer-options {
+                grid-template-columns: 1fr; /* Single column layout */
+            }
+            .quiz-controls {
+                flex-direction: column;
+                align-items: stretch; /* Make buttons full width */
+            }
+            .quiz-controls button {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+            .quiz-controls button:last-child {
+                margin-bottom: 0;
+            }
+            .quiz-container, .learn-container, .settings-container {
+                padding: 1.5rem; /* Less padding on smaller screens */
+            }
+            .setting-item {
+                flex-direction: column; /* Stack label and control */
+                align-items: flex-start; /* Align items left */
+                gap: 0.5rem; /* Space between label and control */
+            }
+            .setting-item label {
+                 margin-right: 0; /* Remove right margin */
+            }
+            .setting-item select {
+                 width: 100%; /* Make select full width */
+                 text-align: left;
+            }
+            .setting-item input[type="checkbox"] {
+                 align-self: flex-end; /* Keep toggle switch to the right */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.5rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero p { font-size: 0.9rem; }
+            nav { padding: 0 0.5rem; } /* Less padding */
+            header { padding: 0.75rem 0; }
+            .logo { font-size: 1.1rem; }
+            .logo img { width: 2rem; height: 2rem;}
+            .btn { padding: 0.6rem 1.2rem; font-size: 0.9rem;}
+            .quiz-option, .answer-option { padding: 1rem; }
+            .quiz-container, .learn-container, .settings-container { padding: 1rem; }
+        }
+
+    </style>
+</head>
+<body class="theme-standard"> <header>
+        <nav>
+            <div class="logo">
+                <img src="https://placehold.co/40x40/3498db/ffffff?text=TT" alt="TerraTüftler Logo"/>
+                <span>TerraTüftler</span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#" class="active" data-target="home">Home</a></li>
+                <li><a href="#" data-target="quiz">Quiz</a></li>
+                <li><a href="#" data-target="learn">Lernen</a></li>
+                <li><a href="#" data-target="about">Über uns</a></li>
+                <li><a href="#" data-target="settings">Einstellungen</a></li>
+            </ul>
+            <button class="burger" id="burger" aria-label="Menü öffnen/schließen" aria-expanded="false" aria-controls="nav-links">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="active">
+            <div class="hero">
+                <h1>Willkommen bei TerraTüftler</h1>
+                <p>Entdecke die Welt und verbessere deine GeoGuessr-Fähigkeiten mit unserem interaktiven Lern- und Quizportal.</p>
+                <button class="btn" data-target="quiz">Quiz starten</button>
+            </div>
+            <div class="container">
+                <h2>Unsere Features</h2>
+                <div class="features">
+                    <div class="feature-card">
+                        <h3>Lerne spielerisch</h3>
+                        <p>Erkunde Verkehrsschilder, Strommasten & Architektur in interaktiven Lektionen.</p>
+                        <button class="btn btn-secondary" data-target="learn">Lernbereich</button>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Teste dein Wissen</h3>
+                        <p>Verschiedene Quiz-Modi: Multiple Choice, zeitbegrenzte Challenges & Bildrätsel.</p>
+                        <button class="btn btn-secondary" data-target="quiz">Quiz starten</button>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Fortschritt verfolgen</h3>
+                        <p>Verfolge deinen Lernfortschritt und vergleiche dich mit anderen (Rankings folgen bald!).</p>
+                        <button class="btn btn-secondary" disabled title="Ranking-Funktion ist bald verfügbar">Ranking</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quiz" style="display: none;">
+            <div class="container">
+                <div class="quiz-container">
+                    <header class="quiz-header">
+                        <h2>Wähle deinen Quiz-Modus</h2>
+                        <p>Teste dein Wissen auf verschiedene Arten</p>
+                    </header>
+                    <div class="quiz-options">
+
+                        <div class="quiz-option" data-quiz-type="time-limited" role="button" tabindex="0">
+                            <h3>Zeitbegrenztes Quiz</h3>
+                            <p>Beantworte Fragen unter Zeitdruck (30 Sek./Frage)</p>
+                        </div>
+                        <div class="quiz-option" data-quiz-type="image-based" role="button" tabindex="0">
+                            <h3>Bildbasiertes Quiz</h3>
+                            <p>Erkenne Orte anhand von Bildern</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quiz-category" style="display: none;">
+            <div class="container">
+                <div class="quiz-container">
+                    <header class="quiz-header">
+                        <h2>Wähle eine Kategorie</h2>
+                        <p>Wähle eine Kategorie, um dein Wissen zu testen.</p>
+                        <button class="btn btn-back" id="back-to-quiz-selection">Zurück zur Modusauswahl</button>
+                    </header>
+                    <div class="quiz-options" id="quiz-category-options">
+                        <p>Lade Kategorien...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quiz-game" style="display: none;">
+            <div class="container">
+                <div class="quiz-container">
+                    <div class="timer" id="timer">Zeit: <span id="time-left">30</span> Sekunden</div>
+                    <div class="question-container">
+                        <h3 id="question-text">Frage wird geladen...</h3>
+                        <img id="question-image" class="question-image" src="" alt="Quiz Bild" style="display: none;" onerror="this.style.display='none'; console.error('Bild konnte nicht geladen werden: ' + this.src)">
+                        <div class="answer-options" id="answer-options"></div>
+                    </div>
+                    <div id="feedback"></div>
+                    <div class="quiz-controls">
+                        <button class="btn btn-back" id="prev-question" style="display: none;">Zurück</button>
+                        <button class="btn" id="submit-answer">Antwort bestätigen</button>
+                        <button class="btn" id="next-question" style="display: none;">Weiter</button>
+                        <button class="btn btn-secondary" id="finish-quiz" style="display: none;">Quiz beenden</button>
+                    </div>
+                    <div id="scoreboard" style="display: none;">
+                        <h3>Deine Punktzahl</h3>
+                        <p id="score">0 / 0</p>
+                        <p id="score-message"></p>
+                        <button class="btn" data-target="quiz">Neues Quiz</button>
+                        <button class="btn btn-back" data-target="home">Zur Startseite</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="learn" style="display: none;">
+            <div class="container">
+                <div id="learn-overview" class="learn-container">
+                   <header class="learn-header">
+                        <h2>Lerne geografische Hinweise</h2>
+                        <p>Entdecke charakteristische Merkmale verschiedener Regionen</p>
+                    </header>
+                    <div class="learn-grid">
+                        <article class="learn-card">
+                            <img src="https://placehold.co/400x180/3498db/ffffff?text=Verkehrsschilder" alt="Verschiedene Verkehrsschilder">
+                            <div class="learn-card-content">
+                                <h3>Verkehrsschilder</h3>
+                                <p>Lerne die Unterschiede zwischen Verkehrsschildern verschiedener Länder kennen.</p>
+                                <button class="btn learn-detail-btn" data-category="traffic-signs">Mehr erfahren</button>
+                            </div>
+                        </article>
+                        <article class="learn-card">
+                            <img src="https://placehold.co/400x180/27ae60/ffffff?text=Strommasten" alt="Verschiedene Strommasten">
+                            <div class="learn-card-content">
+                                <h3>Strommasten</h3>
+                                <p>Entdecke, wie sich Strommasten in verschiedenen Ländern unterscheiden.</p>
+                                <button class="btn learn-detail-btn" data-category="power-lines">Mehr erfahren</button>
+                            </div>
+                        </article>
+                        <article class="learn-card">
+                            <img src="https://placehold.co/400x180/e74c3c/ffffff?text=Architektur" alt="Verschiedene Architekturstile">
+                            <div class="learn-card-content">
+                                <h3>Architektur</h3>
+                                <p>Erkenne charakteristische architektonische Stile verschiedener Regionen.</p>
+                                <button class="btn learn-detail-btn" data-category="architecture">Mehr erfahren</button>
+                            </div>
+                        </article>
+                        <article class="learn-card">
+                            <img src="https://placehold.co/400x180/f1c40f/ffffff?text=Vegetation" alt="Verschiedene Landschaftstypen">
+                            <div class="learn-card-content">
+                                <h3>Vegetation</h3>
+                                <p>Lerne typische Pflanzen und Landschaften kennen, die auf bestimmte Regionen hinweisen.</p>
+                                <button class="btn learn-detail-btn" data-category="vegetation">Mehr erfahren</button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div id="learn-detail" class="learn-container" style="display: none;">
+                    <header class="learn-header">
+                        <h2 id="learn-detail-title">Kategorie-Details</h2>
+                        <button class="btn btn-back" id="back-to-learn">Zurück zur Lernübersicht</button>
+                    </header>
+                    <div id="learn-detail-content"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" style="display: none;">
+            <div class="container">
+                <div class="learn-container"> <header class="learn-header">
+                        <h2>Über uns</h2>
+                        <p>Das TerraTüftler Team und unsere Mission</p>
+                    </header>
+                    <div style="text-align: center; max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                        <p><strong>TerraTüftler</strong> ist ein Projekt von Geographie-Enthusiasten mit der Mission, geografisches Wissen auf unterhaltsame und interaktive Weise zu vermitteln. Unser Ziel ist es, Neugier für die Welt zu wecken und Menschen dabei zu helfen, ihre Umgebung – ob digital oder real – besser zu verstehen.</p>
+                        <br>
+                        <p>Wir glauben, dass Lernen am effektivsten ist, wenn es Spaß macht. Daher haben wir diese Plattform entwickelt, um GeoGuessr-Spielern und allen, die ihre geografischen Kenntnisse verbessern möchten, ein spannendes und lehrreiches Erlebnis zu bieten. Erkennen Sie Länder an ihren Straßenschildern, Strommasten oder der typischen Vegetation!</p>
+                        <br>
+                        <p>Unser (imaginäres) Team besteht aus leidenschaftlichen Geographie-Liebhabern und engagierten Entwicklern, die ihre Fähigkeiten und ihr Wissen einsetzen, um diese Vision zu verwirklichen. Viel Spaß beim Tüfteln!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="settings" style="display: none;">
+           <div class="container">
+                <div class="settings-container">
+                   <header class="learn-header">
+                        <h2>Einstellungen</h2>
+                        <p>Passe die App an deine Bedürfnisse an</p>
+                    </header>
+                    <div class="settings-options">
+                        <div class="setting-item">
+                            <label for="sound-toggle">Soundeffekte</label>
+                            <input type="checkbox" id="sound-toggle" checked>
+                        </div>
+                        <div class="setting-item">
+                            <label for="theme-select">Farbschema</label>
+                            <select id="theme-select">
+                                <option value="theme-standard">Standard</option>
+                                <option value="theme-dark">Dunkel</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 TerraTüftler. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script>
+        // --- Strict Mode ---
+        "use strict";
+
+        // --- DOM Element Cache ---
+        // Select elements once and store them for reuse
+        const domElements = {
+            body: document.body,
+            burger: document.getElementById('burger'),
+            navLinksContainer: document.getElementById('nav-links'),
+            sections: document.querySelectorAll('main > section'),
+            navLinksAnchors: document.querySelectorAll('.nav-links a[data-target]'), // More specific selector
+            actionButtons: document.querySelectorAll('.btn[data-target]'),
+
+            // Quiz Mode Selection
+            quizSection: document.getElementById('quiz'),
+            quizOptionButtons: document.querySelectorAll('#quiz .quiz-option[data-quiz-type]'), // More specific
+
+            // Quiz Category Selection
+            quizCategorySection: document.getElementById('quiz-category'),
+            quizCategoryOptionsContainer: document.getElementById('quiz-category-options'),
+            backToQuizSelectionBtn: document.getElementById('back-to-quiz-selection'),
+
+            // Quiz Game Elements
+            quizGameSection: document.getElementById('quiz-game'),
+            questionContainer: document.getElementById('quiz-game')?.querySelector('.question-container'), // Use optional chaining
+            quizControlsContainer: document.getElementById('quiz-game')?.querySelector('.quiz-controls'),
+            questionTextElement: document.getElementById('question-text'),
+            questionImageElement: document.getElementById('question-image'),
+            answerOptionsContainer: document.getElementById('answer-options'),
+            feedbackElement: document.getElementById('feedback'),
+            timerElement: document.getElementById('timer'),
+            timeLeftSpan: document.getElementById('time-left'),
+            prevButton: document.getElementById('prev-question'),
+            submitButton: document.getElementById('submit-answer'),
+            nextButton: document.getElementById('next-question'),
+            finishButton: document.getElementById('finish-quiz'),
+            scoreboardElement: document.getElementById('scoreboard'),
+            scoreDisplay: document.getElementById('score'),
+            scoreMessageElement: document.getElementById('score-message'),
+
+            // Learn Section Elements
+            learnSection: document.getElementById('learn'),
+            learnDetailButtons: document.querySelectorAll('#learn .learn-detail-btn[data-category]'), // More specific
+            learnOverviewContainer: document.getElementById('learn-overview'),
+            learnDetailContainer: document.getElementById('learn-detail'),
+            learnDetailTitle: document.getElementById('learn-detail-title'),
+            learnDetailContent: document.getElementById('learn-detail-content'),
+            backToLearnBtn: document.getElementById('back-to-learn'),
+
+            // Settings Elements
+            settingsSection: document.getElementById('settings'),
+            soundToggle: document.getElementById('sound-toggle'),
+            themeSelect: document.getElementById('theme-select')
+        };
+
+        // --- Application State ---
+        const appState = {
+            currentSection: document.querySelector('main > section.active')?.id || 'home', // Get initial active section
+            soundEnabled: true,
+            currentTheme: 'theme-standard',
+            audioContext: null, // Store AudioContext reference
+        };
+
+        // --- Quiz State ---
+        const quizState = {
+            currentQuizType: '',
+            currentCategory: '',
+            currentQuestions: [],
+            currentQuestionIndex: 0,
+            selectedAnswer: null,
+            userAnswers: [], // Stores user's selection for each question index
+            score: 0,
+            quizEnded: false,
+            timeLeft: 30,
+            timerId: null,
+        };
+
+        // --- Quiz Data ---
+        // Structure: quizData[quizType][category] = [ { question, options, correctAnswer, explanation?, image? }, ... ]
+        const quizData = {
+
+            "time-limited": {
+                "all": [
+                    { question: "Welches Land hat rot-weiße Pfosten am Straßenrand?", image: "https://placehold.co/600x300/ecf0f1/c0392b?text=Pfosten+PL", options: ["Polen", "Schweiz", "Österreich", "Tschechien"], correctAnswer: "Polen", explanation: "Die rot-weißen Straßenpfosten sind ein charakteristisches Merkmal polnischer Straßen." },
+                    { question: "In welchem Land findet man häufig gelbe Briefkästen?", image: "https://placehold.co/600x300/f1c40f/2c3e50?text=Briefkasten+DE", options: ["Deutschland", "Frankreich", "Niederlande", "Schweden"], correctAnswer: "Deutschland", explanation: "In Deutschland sind die meisten Briefkästen der Deutschen Post gelb." },
+                    { question: "Dieses 'Elchwarnschild' ist typisch für welches Land?", image: "https://placehold.co/600x300/f39c12/2c3e50?text=Elch+SE", options: ["USA", "Kanada", "Schweden", "Finnland"], correctAnswer: "Schweden", explanation: "Elchwarnschilder sind in skandinavischen Ländern, insbesondere Schweden, sehr verbreitet." }
+                ],
+                 "verkehrsschilder": [ // Example category key
+                    { question: "Welches Land verwendet hauptsächlich grüne Autobahnschilder?", image: "https://placehold.co/600x300/27ae60/ffffff?text=Autobahn+IT", options: ["Deutschland", "Frankreich", "Italien", "Spanien"], correctAnswer: "Italien", explanation: "Grüne Schilder mit weißer Schrift sind typisch für italienische Autobahnen." },
+                    { question: "In welchem Land sind Stoppschilder oft rund mit einem roten Dreieck innen?", image: "https://placehold.co/600x300/ffffff/e74c3c?text=Stop+EU", options: ["Deutschland", "Schweden", "USA", "Viele europ. Länder"], correctAnswer: "Viele europ. Länder", explanation: "Das Wiener Übereinkommen über Straßenverkehrszeichen definiert dieses Stoppschild, das in vielen europäischen Ländern verwendet wird." }
+                ],
+                 "hauptstädte": [ // Example category key
+                    { question: "Was ist die Hauptstadt von Australien?", options: ["Sydney", "Melbourne", "Canberra", "Brisbane"], correctAnswer: "Canberra", explanation: "Obwohl Sydney und Melbourne größer sind, ist Canberra die Hauptstadt Australiens." },
+                    { question: "Was ist die Hauptstadt von Kanada?", options: ["Toronto", "Vancouver", "Montreal", "Ottawa"], correctAnswer: "Ottawa", explanation: "Ottawa ist die Hauptstadt von Kanada." }
+                ]
+                // Add more categories as needed
+            },
+            "image-based": {
+                "all": [
+                    { image: "https://placehold.co/600x300/2c3e50/ffffff?text=Stadtbild+JP", question: "In welchem Land wurde dieses Bild (moderne Stadt, Schriftzeichen) wahrscheinlich aufgenommen?", options: ["Südkorea", "Japan", "Taiwan", "China"], correctAnswer: "Japan", explanation: "Die Kombination aus spezifischen japanischen Schriftzeichen und moderner Architektur weist auf Japan hin." },
+                    { image: "https://placehold.co/600x300/16a085/ffffff?text=Landschaft+IS", question: "In welchem Land befindet sich diese Landschaft (vulkanisch, moosbewachsen)?", options: ["Norwegen", "Schottland", "Island", "Neuseeland"], correctAnswer: "Island", explanation: "Die karge, vulkanische Landschaft mit Moos ist sehr charakteristisch für Island." },
+                    { image: "https://placehold.co/600x300/2ecc71/ffffff?text=Straße+BR", question: "Welches Land zeigt dieses Straßenbild (portugiesische Schilder, Vegetation)?", options: ["Brasilien", "Mexiko", "Argentinien", "Kolumbien"], correctAnswer: "Brasilien", explanation: "Portugiesische Sprache auf Schildern und tropische Vegetation deuten stark auf Brasilien hin." }
+                ],
+                 "landschaft": [ // Example category key
+                    { image: "https://placehold.co/600x300/7f8c8d/ffffff?text=Highlands+SCO", question: "Welchem Land ist diese Landschaft (grüne Hügel, Seen) zuzuordnen?", options: ["Irland", "Schottland", "Norwegen", "Kanada"], correctAnswer: "Schottland", explanation: "Die schottischen Highlands sind bekannt für ihre grünen, hügeligen Landschaften und Seen (Lochs)." },
+                    { image: "https://placehold.co/600x300/e67e22/ffffff?text=Outback+AU", question: "In welchem Land befindet sich diese Wüstenlandschaft (rote Erde, karge Vegetation)?", options: ["Namibia", "Australien", "Saudi-Arabien", "USA"], correctAnswer: "Australien", explanation: "Das australische Outback ist bekannt für seine rote Erde und einzigartige, trockene Vegetation." }
+                ],
+                 "architektur": [ // Example category key
+                    { image: "https://placehold.co/600x300/8e44ad/ffffff?text=Eiffelturm+FR", question: "In welcher Stadt steht dieses berühmte Bauwerk?", options: ["London", "Rom", "Paris", "Berlin"], correctAnswer: "Paris", explanation: "Der Eiffelturm ist das unverkennbare Wahrzeichen von Paris." },
+                    { image: "https://placehold.co/600x300/d35400/ffffff?text=Kolosseum+IT", question: "In welcher Stadt befindet sich dieses antike Amphitheater?", options: ["Athen", "Rom", "Istanbul", "Kairo"], correctAnswer: "Rom", explanation: "Das Kolosseum ist ein weltberühmtes Wahrzeichen Roms und Symbol des Römischen Reiches." }
+                ]
+                // Add more categories as needed
+            }
+        };
+
+        // --- Learning Data ---
+        // Structure: learningData[category] = { title, content (HTML string) }
+        const learningData = {
+            "traffic-signs": {
+                title: "Verkehrsschilder weltweit",
+                content: `<h3>Grundlagen</h3><p>Verkehrsschilder variieren stark in Form, Farbe und Symbolik je nach Land und Region. Das Verständnis dieser Unterschiede ist ein wichtiger Hinweis in Geographie-Spielen.</p>
+                          <h3>Europa</h3><p>Viele europäische Länder folgen dem Wiener Übereinkommen über Straßenverkehrszeichen, was zu Ähnlichkeiten führt, aber es gibt nationale Eigenheiten.</p>
+                          <div class="learn-grid">
+                              <div class="learn-card"><img src="https://placehold.co/400x180/f1c40f/2c3e50?text=Ortsschild+DE" alt="Deutsches Ortsschild"><div class="learn-card-content"><h4>Deutschland</h4><p>Gelbe Ortsschilder mit schwarzer Schrift. Autobahnschilder sind blau.</p></div></div>
+                              <div class="learn-card"><img src="https://placehold.co/400x180/2980b9/ffffff?text=Autobahn+FR" alt="Französisches Autobahnschild"><div class="learn-card-content"><h4>Frankreich</h4><p>Blaue Autobahnschilder. Ortsschilder oft weiß mit rotem Rand.</p></div></div>
+                              <div class="learn-card"><img src="https://placehold.co/400x180/27ae60/ffffff?text=Autobahn+IT" alt="Italienisches Autobahnschild"><div class="learn-card-content"><h4>Italien</h4><p>Grüne Autobahnschilder. Blaue Schilder für nicht-autobahnähnliche Hauptstraßen.</p></div></div>
+                              <div class="learn-card"><img src="https://placehold.co/400x180/c0392b/ffffff?text=Stop+UK" alt="Britisches Stoppschild"><div class="learn-card-content"><h4>Großbritannien/Irland</h4><p>Einzigartige Schriftarten (Transport). Stoppschilder sind achteckig. Linksverkehr beachten!</p></div></div>
+                          </div>
+                          <h3>Nordamerika</h3><p>USA und Kanada haben sehr ähnliche Systeme, basierend auf dem MUTCD.</p>
+                          <div class="learn-grid">
+                              <div class="learn-card"><img src="https://placehold.co/400x180/e74c3c/ffffff?text=STOP+US" alt="US Stoppschild"><div class="learn-card-content"><h4>USA/Kanada</h4><p>Achteckige rote Stoppschilder. Geschwindigkeitsbegrenzungen in Meilen (USA) oder km/h (Kanada). Autobahnschilder (Interstate in USA) sind blau/rot.</p></div></div>
+                          </div>
+                          <h3>Asien</h3><p>Große Vielfalt. Achte auf die Schriftzeichen und die Sprache.</p>
+                          <div class="learn-grid">
+                              <div class="learn-card"><img src="https://placehold.co/400x180/e67e22/ffffff?text=Schild+JP" alt="Japanisches Schild"><div class="learn-card-content"><h4>Japan</h4><p>Oft blaue Schilder für Richtungsangaben. Stoppschilder sind ein rotes, nach unten zeigendes Dreieck. Linksverkehr.</p></div></div>
+                              <div class="learn-card"><img src="https://placehold.co/400x180/16a085/ffffff?text=Schild+KR" alt="Koreanisches Schild"><div class="learn-card-content"><h4>Südkorea</h4><p>Ähnlichkeiten mit Japan, aber andere Schriftzeichen (Hangul). Grüne Autobahnschilder.</p></div></div>
+                          </div>
+                          <p><strong>Tipp:</strong> Achte auf die Sprache auf den Schildern, die Form von Warnschildern (oft dreieckig in Europa, rautenförmig in Nordamerika) und die Farbe von Autobahnschildern.</p>`
+            },
+            "power-lines": {
+                title: "Strommasten und ihre regionalen Unterschiede",
+                content: `<h3>Grundlagen</h3><p>Form, Material (Holz, Beton, Metallgitter) und Anordnung der Isolatoren an Strommasten können Hinweise auf das Land geben.</p>
+                          <h3>Europa</h3>
+                          <div class="learn-grid">
+                              <div class="learn-card"><img src="https://placehold.co/400x180/bdc3c7/2c3e50?text=Mast+DE" alt="Deutscher Strommast"><div class="learn-card-content"><h4>Deutschland/Mitteleuropa</h4><p>Oft hohe Gittermasten für Überlandleitungen. Innerorts auch Beton- oder Holzmasten.</p></div></div>
+                              <div class="learn-card"><img src="https://placehold.co/400x180/95a5a6/2c3e50?text=Mast+UK" alt="Britischer Strommast"><div class="learn-card-content"><h4>Großbritannien/Irland</h4><p>Charakteristische Gittermasten, oft robuster wirkend. Holzmasten sind auch verbreitet.</p></div></div>
+                              <div class="learn-card"><img src="https://placehold.co/400x180/3498db/ffffff?text=Mast+FR" alt="Französischer Strommast"><div class="learn-card-content"><h4>Frankreich</h4><p>Häufig Betonmasten mit einer charakteristischen, oft runden oder achteckigen Form.</p></div></div>
+                          </div>
+                          <h3>Nordamerika</h3>
+                          <div class="learn-grid">
+                              <div class="learn-card"><img src="https://placehold.co/400x180/7f8c8d/2c3e50?text=Mast+US" alt="US Strommast"><div class="learn-card-content"><h4>USA/Kanada</h4><p>Sehr verbreitete, oft dunkle Holzmasten mit Querträgern für Isolatoren. Mehrere Masten nebeneinander sind üblich.</p></div></div>
+                          </div>
+                          <h3>Asien</h3>
+                          <div class="learn-grid">
+                              <div class="learn-card"><img src="https://placehold.co/400x180/95a5a6/2c3e50?text=Mast+JP" alt="Japanischer Strommast"><div class="learn-card-content"><h4>Japan</h4><p>Häufig runde Betonpfosten, oft mit vielen Kabeln und Transformatoren direkt am Mast.</p></div></div>
+                          </div>
+                          <p><strong>Tipp:</strong> Achte auf das Material (Holz ist in Nordamerika sehr häufig), die Form der Masten (Beton in Frankreich/Japan) und die Anordnung der Isolatoren.</p>`
+            },
+             "architecture": {
+                title: "Architektonische Merkmale weltweit",
+                content: `<h3>Grundlagen</h3><p>Gebäudestile, verwendete Materialien (Ziegel, Holz, Stein, Putz), Dachformen und Farben sind oft regionaltypisch.</p>
+                          <h3>Europa</h3>
+                          <div class="learn-grid">
+                              <div class="learn-card"><img src="https://placehold.co/400x180/bdc3c7/2c3e50?text=Fachwerk+DE" alt="Fachwerk Deutschland"><div class="learn-card-content"><h4>Mitteleuropa (DE, FR, etc.)</h4><p>Fachwerkhäuser in älteren Städten. Steile Dächer, oft mit Ziegeln gedeckt.</p></div></div>
+                              <div class="learn-card"><img src="https://placehold.co/400x180/3498db/ffffff?text=Architektur+GR" alt="Architektur Griechenland"><div class="learn-card-content"><h4>Südeuropa (GR, IT, ES)</h4><p>Helle Putzfassaden (oft weiß in GR), flachere Dächer mit Tonziegeln (IT, ES), Balkone, Fensterläden.</p></div></div>
+                              <div class="learn-card"><img src="https://placehold.co/400x180/e74c3c/ffffff?text=Architektur+UK" alt="Architektur UK"><div class="learn-card-content"><h4>Großbritannien/Irland</h4><p>Reihenhäuser aus Backstein (Terraced Houses), Schornsteine, Erkerfenster (Bay Windows).</p></div></div>
+                               <div class="learn-card"><img src="https://placehold.co/400x180/c0392b/ffffff?text=Architektur+Scandi" alt="Architektur Skandinavien"><div class="learn-card-content"><h4>Skandinavien</h4><p>Oft Holzhäuser, häufig in Farben wie Rot (Schweden), Gelb oder Weiß gestrichen. Steilere Dächer.</p></div></div>
+                          </div>
+                          <h3>Nordamerika</h3>
+                          <div class="learn-grid">
+                              <div class="learn-card"><img src="https://placehold.co/400x180/7f8c8d/2c3e50?text=Architektur+US" alt="Architektur USA"><div class="learn-card-content"><h4>USA/Kanada</h4><p>Holzverkleidete Vorstadthäuser (Siding), oft mit Veranda. Große Vielfalt je nach Region (z.B. Adobe im Südwesten).</p></div></div>
+                          </div>
+                          <h3>Asien</h3>
+                          <div class="learn-grid">
+                              <div class="learn-card"><img src="https://placehold.co/400x180/e67e22/ffffff?text=Architektur+JP" alt="Architektur Japan"><div class="learn-card-content"><h4>Japan</h4><p>Traditionelle Holzhäuser mit Schiebetüren und geschwungenen Ziegeldächern. Moderne Architektur oft sehr dicht und hoch.</p></div></div>
+                               <div class="learn-card"><img src="https://placehold.co/400x180/2ecc71/ffffff?text=Architektur+SEA" alt="Architektur Südostasien"><div class="learn-card-content"><h4>Südostasien</h4><p>Häuser oft auf Stelzen (Hochwasserschutz), offene Bauweise, Wellblechdächer sind häufig.</p></div></div>
+                          </div>
+                          <p><strong>Tipp:</strong> Achte auf Dachformen (steil vs. flach), Baumaterialien (Holz, Stein, Ziegel), Fensterformen und -läden sowie die allgemeine Farbgebung.</p>`
+            },
+            "vegetation": {
+                title: "Vegetation und Landschaft nach Regionen",
+                content: `<h3>Grundlagen</h3><p>Pflanzen, Bäume und die allgemeine Landschaftsform (Berge, Flachland, Küste) sind stark vom Klima abhängig und somit gute Indikatoren.</p>
+                          <h3>Klimazonen & Typische Landschaften</h3>
+                          <div class="learn-grid">
+                              <div class="learn-card"><img src="https://placehold.co/400x180/27ae60/ffffff?text=Wald+EU" alt="Gemäßigter Wald"><div class="learn-card-content"><h4>Gemäßigte Zone (Europa, Ost-USA, Ostasien)</h4><p>Laub- und Mischwälder (Eichen, Buchen, Ahorn). Grüne Wiesen, Ackerland.</p></div></div>
+                              <div class="learn-card"><img src="https://placehold.co/400x180/2ecc71/ffffff?text=Regenwald+Tropen" alt="Tropischer Regenwald"><div class="learn-card-content"><h4>Tropen (Südamerika, Zentralafrika, Südostasien)</h4><p>Dichte, artenreiche Regenwälder, Lianen, Palmen, Farne. Hohe Luftfeuchtigkeit.</p></div></div>
+                              <div class="learn-card"><img src="https://placehold.co/400x180/f1c40f/2c3e50?text=Wüste+Sahara" alt="Wüste"><div class="learn-card-content"><h4>Trockengebiete (Sahara, Australien, SW-USA)</h4><p>Wüsten und Halbwüsten. Sand, Felsen, Sukkulenten (Kakteen in Amerika), Gräser, Dornenbüsche.</p></div></div>
+                              <div class="learn-card"><img src="https://placehold.co/400x180/3498db/ffffff?text=Oliven+MED" alt="Mediterrane Vegetation"><div class="learn-card-content"><h4>Mediterran (Mittelmeerraum, Kalifornien, Chile, Südafrika, SW-Australien)</h4><p>Trockenresistente Pflanzen: Olivenbäume, Zypressen, Pinien, Macchia (dichtes Buschland).</p></div></div>
+                               <div class="learn-card"><img src="https://placehold.co/400x180/1abc9c/ffffff?text=Taiga+Nord" alt="Borealer Nadelwald"><div class="learn-card-content"><h4>Boreal/Taiga (Kanada, Skandinavien, Russland)</h4><p>Ausgedehnte Nadelwälder (Fichten, Kiefern, Lärchen), Birken. Oft Seen und Sümpfe.</p></div></div>
+                          </div>
+                          <h3>Spezifische Bäume/Pflanzen als Hinweise</h3>
+                          <div class="learn-grid">
+                              <div class="learn-card"><img src="https://placehold.co/400x180/e67e22/ffffff?text=Eukalyptus+AU" alt="Eukalyptus Australien"><div class="learn-card-content"><h4>Eukalyptus</h4><p>Sehr typisch für Australien. Es gibt viele verschiedene Arten.</p></div></div>
+                              <div class="learn-card"><img src="https://placehold.co/400x180/16a085/ffffff?text=Birke+Nord" alt="Birkenwald"><div class="learn-card-content"><h4>Birken</h4><p>Häufig in Nordeuropa, Russland und Kanada, oft in borealen Wäldern.</p></div></div>
+                               <div class="learn-card"><img src="https://placehold.co/400x180/f39c12/ffffff?text=Palme+Tropen" alt="Palmen"><div class="learn-card-content"><h4>Palmen</h4><p>Weisen auf tropische oder subtropische Klimazonen hin.</p></div></div>
+                          </div>
+                          <p><strong>Tipp:</strong> Achte auf dominante Baumarten, die Dichte der Vegetation, die Farbe des Bodens und ob die Landschaft eher flach, hügelig oder bergig ist.</p>`
+            }
+            // Add more learning categories as needed
+        };
+
+        // --- Functions ---
+
+        /**
+         * Applies the selected theme to the body element and saves it.
+         * @param {string} themeName - The class name of the theme (e.g., 'theme-dark').
+         */
+        function setTheme(themeName) {
+            if (!domElements.body) return; // Guard clause
+
+            domElements.body.className = ''; // Remove all existing theme classes
+            const validTheme = themeName && themeName.startsWith('theme-') ? themeName : 'theme-standard'; // Validate or default
+            domElements.body.classList.add(validTheme);
+
+            appState.currentTheme = validTheme;
+            try {
+                localStorage.setItem('terraTueftlerTheme', validTheme);
+            } catch (e) {
+                console.warn("LocalStorage nicht verfügbar. Theme kann nicht gespeichert werden.", e);
+            }
+
+            // Update the dropdown selection
+            if (domElements.themeSelect) {
+                domElements.themeSelect.value = validTheme;
+            }
+        }
+
+        // showSection function removed - now handled by modular app.js
+
+        // resetQuizState function removed - now handled by modular quiz.js
+
+        // showQuizCategories function removed - now handled by modular quiz.js
+
+        // startQuiz function removed - now handled by modular quiz.js
+
+        // loadQuestion function removed - now handled by modular quiz.js
+
+        /**
+         * Updates the visibility of the Previous and Finish quiz buttons based on the current state.
+         */
+        function updateQuizControls() {
+            if (!domElements.prevButton || !domElements.finishButton || !domElements.nextButton || !domElements.submitButton) return;
+
+            // Show Previous button if not on the first question
+            domElements.prevButton.style.display = quizState.currentQuestionIndex > 0 ? 'inline-block' : 'none';
+
+            // Finish button visibility is handled after answer submission (in checkAnswer)
+            // Ensure next/submit buttons are correctly managed elsewhere
+        }
+
+        // checkAnswer function removed - now handled by modular quiz.js
+
+        // showTemporaryFeedback function removed - now handled by modular app.js
+
+        // nextQuestion, previousQuestion, and finishQuiz functions removed - now handled by modular quiz.js
+
+        /** Displays the final score and appropriate message. */
+        function showScore() {
+            // Ensure scoreboard elements exist
+            if (!domElements.scoreboardElement || !domElements.scoreDisplay || !domElements.scoreMessageElement) {
+                console.error("Scoreboard Elemente nicht gefunden! Ergebnis kann nicht angezeigt werden.");
+                return;
+            }
+
+            // Hide active quiz elements (question, controls, timer, feedback)
+            domElements.questionContainer?.style.setProperty('display', 'none');
+            domElements.quizControlsContainer?.style.setProperty('display', 'none');
+            domElements.timerElement?.style.setProperty('display', 'none');
+            domElements.feedbackElement?.style.setProperty('display', 'none');
+
+            // Calculate and display score
+            const totalQuestions = quizState.currentQuestions.length;
+            domElements.scoreDisplay.textContent = `${quizState.score} / ${totalQuestions}`;
+
+            // Determine score message
+            let message = '';
+            const percentage = totalQuestions > 0 ? (quizState.score / totalQuestions) : 0;
+            if (percentage >= 0.9) message = "Hervorragend! Du bist ein echter TerraTüftler-Profi!";
+            else if (percentage >= 0.7) message = "Sehr gut gemacht! Dein Geographie-Wissen ist beeindruckend.";
+            else if (percentage >= 0.5) message = "Gut gemacht! Du bist auf dem richtigen Weg.";
+            else message = "Nicht schlecht, aber da geht noch was! Schau doch mal im Lernbereich vorbei.";
+            domElements.scoreMessageElement.textContent = message;
+
+            // Show the scoreboard
+            domElements.scoreboardElement.style.display = 'block';
+            playSound('quizEnd');
+
+             // Focus the "New Quiz" button for accessibility
+            domElements.scoreboardElement.querySelector('.btn[data-target="quiz"]')?.focus();
+        }
+
+        // startTimer function removed - now handled by startImagePhaseTimer in modular quiz.js
+
+        /**
+         * Displays the learning details for a specific category.
+         * @param {string} category - The key of the learning category.
+         */
+        function showLearnDetails(category) {
+            // Check required elements
+            if (!domElements.learnDetailContainer || !domElements.learnDetailTitle || !domElements.learnDetailContent || !domElements.learnOverviewContainer) {
+                console.error("Lern-Detail Elemente nicht gefunden!");
+                return;
+            }
+            // Check if data exists
+            if (!learningData[category]) {
+                console.error(`Lernkategorie "${category}" nicht gefunden.`);
+                 domElements.learnDetailTitle.textContent = "Fehler";
+                 domElements.learnDetailContent.innerHTML = "<p>Inhalt für diese Kategorie konnte nicht geladen werden.</p>";
+            } else {
+                // Populate details
+                domElements.learnDetailTitle.textContent = learningData[category].title;
+                domElements.learnDetailContent.innerHTML = learningData[category].content; // Assumes content is safe HTML
+            }
+
+            // Show detail view, hide overview
+            domElements.learnOverviewContainer.style.display = 'none';
+            domElements.learnDetailContainer.style.display = 'block';
+            window.scrollTo(0, 0); // Scroll to top
+            domElements.backToLearnBtn?.focus(); // Focus back button
+        }
+
+         /**
+         * Initializes or gets the shared AudioContext.
+         * @returns {AudioContext | null} The AudioContext instance or null if not supported/failed.
+         */
+        function getAudioContext() {
+            if (appState.audioContext && appState.audioContext.state !== 'closed') {
+                return appState.audioContext;
+            }
+            try {
+                window.AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (window.AudioContext) {
+                    appState.audioContext = new AudioContext();
+                     // Resume context if needed (required after user interaction in some browsers)
+                    if (appState.audioContext.state === 'suspended') {
+                        appState.audioContext.resume();
+                    }
+                    return appState.audioContext;
+                }
+            } catch (e) {
+                console.warn("Web Audio API wird nicht unterstützt oder konnte nicht initialisiert werden.", e);
+                appState.soundEnabled = false; // Disable sound if context fails
+                if (domElements.soundToggle) domElements.soundToggle.checked = false;
+            }
+            return null;
+        }
+
+
+        // playSound function removed - now handled by modular theme.js
+
+        // shuffleArray function removed - now handled by modular app.js
+
+
+        // --- Event Listeners Setup ---
+
+        /** Attaches all necessary event listeners. */
+        function setupEventListeners() {
+            // Burger Menu Toggle
+            if (domElements.burger && domElements.navLinksContainer) {
+                domElements.burger.addEventListener('click', () => {
+                    const isExpanded = domElements.burger.getAttribute('aria-expanded') === 'true';
+                    domElements.burger.setAttribute('aria-expanded', String(!isExpanded));
+                    domElements.navLinksContainer.classList.toggle('show');
+                    domElements.burger.classList.toggle('change');
+                     // Resume AudioContext on first interaction (if needed)
+                     getAudioContext()?.resume();
+                });
+            } else {
+                console.warn("Burger oder Navigationscontainer nicht gefunden.");
+            }
+
+            // Section Navigation (Navbar Links and Action Buttons)
+            const navigationElements = [...domElements.navLinksAnchors, ...domElements.actionButtons];
+            navigationElements.forEach(el => {
+                el.addEventListener('click', (e) => {
+                    // Check if the click target or its parent has the data-target attribute
+                    const target = e.target.closest('[data-target]');
+                    if (target && target.dataset.target) {
+                        e.preventDefault(); // Prevent default link behavior
+                        showSection(target.dataset.target);
+                    }
+                });
+            });
+
+            // Quiz Mode Selection Buttons - now handled by modular app.js
+
+            // Back to Quiz Mode Selection Button - now handled by modular app.js
+
+            // Quiz Game Control Buttons - now handled by modular app.js
+            // All quiz control event listeners moved to app.js to avoid duplicates
+
+            // Learn Section Detail Buttons
+            domElements.learnDetailButtons.forEach(button => {
+                const category = button.dataset.category;
+                if (category) {
+                     const handleLearnDetail = () => showLearnDetails(category);
+                     button.addEventListener('click', handleLearnDetail);
+                     // No keydown needed as it's a standard button
+                }
+            });
+
+            // Back to Learn Overview Button
+            domElements.backToLearnBtn?.addEventListener('click', () => {
+                if (domElements.learnDetailContainer) domElements.learnDetailContainer.style.display = 'none';
+                if (domElements.learnOverviewContainer) domElements.learnOverviewContainer.style.display = 'block';
+                window.scrollTo(0, 0);
+                // Try focusing the corresponding learn button in the overview for better UX
+                const category = domElements.learnDetailTitle?.dataset.category; // Assuming you store category on title
+                if(category) {
+                    domElements.learnOverviewContainer?.querySelector(`.learn-detail-btn[data-category="${category}"]`)?.focus();
+                }
+            });
+
+            // Settings Listeners
+            domElements.soundToggle?.addEventListener('change', (event) => {
+                appState.soundEnabled = event.target.checked;
+                try {
+                    localStorage.setItem('terraTueftlerSoundEnabled', JSON.stringify(appState.soundEnabled));
+                } catch (e) {
+                     console.warn("LocalStorage nicht verfügbar. Sound-Einstellung kann nicht gespeichert werden.", e);
+                }
+            });
+
+            domElements.themeSelect?.addEventListener('change', (event) => {
+                setTheme(event.target.value);
+            });
+        }
+
+        // --- Initialization ---
+        /** Initializes the application on DOMContentLoaded. */
+        function initializeApp() {
+            // Load saved theme or default
+            let savedTheme = 'theme-standard';
+            try {
+                 savedTheme = localStorage.getItem('terraTueftlerTheme') || 'theme-standard';
+            } catch (e) { console.warn("LocalStorage nicht verfügbar. Lade Standard-Theme."); }
+            setTheme(savedTheme); // Apply theme and update dropdown
+
+            // Load saved sound setting or default
+            let savedSoundSetting = true; // Default to true
+             try {
+                const storedValue = localStorage.getItem('terraTueftlerSoundEnabled');
+                if (storedValue !== null) {
+                    savedSoundSetting = JSON.parse(storedValue);
+                } else {
+                     // Set default in localStorage if nothing is saved
+                     localStorage.setItem('terraTueftlerSoundEnabled', JSON.stringify(appState.soundEnabled));
+                }
+            } catch (e) { console.warn("LocalStorage nicht verfügbar. Aktiviere Sound standardmäßig."); }
+            appState.soundEnabled = savedSoundSetting;
+            if(domElements.soundToggle) domElements.soundToggle.checked = appState.soundEnabled;
+
+
+            // Setup all event listeners
+            setupEventListeners();
+
+            // Show the initial section based on the 'active' class in HTML or default to 'home'
+            const initialSectionId = document.querySelector('main > section.active')?.id || 'home';
+            showSection(initialSectionId);
+
+             console.log("TerraTüftler App initialisiert.");
+        }
+
+        // Wait for the DOM to be fully loaded before initializing
+        document.addEventListener('DOMContentLoaded', initializeApp);
+
+    </script>
+</body>
+</html>

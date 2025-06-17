@@ -1,0 +1,137 @@
+{
+  "image-based": {
+    "all": [],
+    "landschaft": [],
+    "städte_erkennen": [],
+    "wahrzeichen": [],
+    "geographie_extrem": [],
+    "architecture": [],
+    "straßenschilder": [],
+    "chevrons": [
+      {
+        "name": "nicole",
+        "correctAnswers": 2,
+        "totalQuestions": 6,
+        "maxStreak": 2,
+        "completedAt": "2025-06-11T16:10:56.984Z",
+        "mode": "image-based",
+        "category": "chevrons",
+        "timeLimit": null
+      }
+    ],
+    "google_cars": [
+      {
+        "name": "oella123",
+        "correctAnswers": 8,
+        "totalQuestions": 10,
+        "maxStreak": 8,
+        "completedAt": "2025-06-11T18:53:44.045Z",
+        "mode": "image-based",
+        "category": "google_cars",
+        "timeLimit": null
+      },
+      {
+        "name": "oella123",
+        "correctAnswers": 7,
+        "totalQuestions": 11,
+        "maxStreak": 7,
+        "completedAt": "2025-06-12T07:35:55.761Z",
+        "mode": "image-based",
+        "category": "google_cars",
+        "timeLimit": null
+      }
+    ],
+    "bollards": [
+      {
+        "name": "oella123",
+        "correctAnswers": 12,
+        "totalQuestions": 12,
+        "maxStreak": 12,
+        "completedAt": "2025-06-12T06:04:20.711Z",
+        "mode": "image-based",
+        "category": "bollards",
+        "timeLimit": null
+      }
+    ],
+    "poles": [
+      {
+        "name": "oella123",
+        "correctAnswers": 0,
+        "totalQuestions": 9,
+        "maxStreak": 0,
+        "completedAt": "2025-06-13T10:09:40.782Z",
+        "mode": "image-based",
+        "category": "poles",
+        "timeLimit": null
+      }
+    ]
+  },
+  "time-limited": {
+    "all": {
+      "1": [
+        {
+          "name": "Helder",
+          "correctAnswers": 1,
+          "totalQuestions": 5,
+          "maxStreak": 1,
+          "completedAt": "2025-06-04T11:50:21.302Z",
+          "mode": "time-limited",
+          "category": "all",
+          "timeLimit": 1
+        }
+      ],
+      "2": [],
+      "3": [],
+      "0.1": [],
+      "0.5": []
+    },
+    "landschaft": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "0.1": [],
+      "0.5": []
+    },
+    "städte_erkennen": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "0.1": [],
+      "0.5": []
+    },
+    "wahrzeichen": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "0.1": [],
+      "0.5": []
+    },
+    "geographie_extrem": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "0.1": [],
+      "0.5": []
+    },
+    "bollards": {
+      "0.1": [
+        {
+          "name": "oella123",
+          "correctAnswers": 11,
+          "totalQuestions": 12,
+          "maxStreak": 11,
+          "completedAt": "2025-06-12T07:59:31.003Z",
+          "mode": "time-limited",
+          "category": "bollards",
+          "timeLimit": 0.1
+        }
+      ]
+    }
+  },
+  "_metadata": {
+    "version": "1.0",
+    "lastUpdated": "2025-06-13T10:25:25.372Z",
+    "totalEntries": 7,
+    "description": "TerraTüftler Leaderboard Data - Individual session tracking"
+  }
+}

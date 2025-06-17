@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TerraTüftler Admin CRUD Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .test-result { margin: 10px 0; padding: 10px; border-radius: 3px; }
+        .success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .warning { background-color: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
+        .info { background-color: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        button { margin: 5px; padding: 10px 15px; border: none; border-radius: 3px; cursor: pointer; }
+        .btn-primary { background-color: #007bff; color: white; }
+        .btn-danger { background-color: #dc3545; color: white; }
+        .btn-success { background-color: #28a745; color: white; }
+        .btn-warning { background-color: #ffc107; color: black; }
+        pre { background-color: #f8f9fa; padding: 10px; border-radius: 3px; overflow-x: auto; }
+        .test-controls { margin: 20px 0; }
+        .question-count { font-weight: bold; color: #007bff; }
+    </style>
+</head>
+<body>
+    <h1>TerraTüftler Admin CRUD Operations Test</h1>
+    
+    <div class="test-controls">
+        <button class="btn-primary" onclick="runAllTests()">🧪 Run All Tests</button>
+        <button class="btn-success" onclick="testCreateQuestion()">➕ Test Create Question</button>
+        <button class="btn-warning" onclick="testEditQuestion()">✏️ Test Edit Question</button>
+        <button class="btn-danger" onclick="testDeleteQuestion()">🗑️ Test Delete Question</button>
+        <button class="btn-primary" onclick="checkDataIntegrity()">🔍 Check Data Integrity</button>
+        <button class="btn-primary" onclick="getCurrentQuestionCount()">📊 Get Question Count</button>
+        <button class="btn-primary" onclick="testServerEndpoints()">🔧 Test Server Endpoints</button>
+    </div>
+
+    <div id="current-count" class="test-section">
+        <h3>Current Question Count</h3>
+        <div id="count-display" class="question-count">Loading...</div>
+    </div>
+
+    <div id="test-results" class="test-section">
+        <h3>Test Results</h3>
+        <div id="results-container"></div>
+    </div>
+
+    <div id="data-integrity" class="test-section">
+        <h3>Data Integrity Check</h3>
+        <div id="integrity-results"></div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:3001/api';
+        let testQuestionId = null;
+        let originalQuestionCount = 0;
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            getCurrentQuestionCount();
+        });
+
+        async function logResult(message, type = 'info') {
+            const container = document.getElementById('results-container');
+            const div = document.createElement('div');
+            div.className = `test-result ${type}`;
+            div.innerHTML = `<strong>${new Date().toLocaleTimeString()}</strong>: ${message}`;
+            container.appendChild(div);
+            container.scrollTop = container.scrollHeight;
+            console.log(`[${type.toUpperCase()}] ${message}`);
+        }
+
+        async function getCurrentQuestionCount() {
+            try {
+                const response = await fetch(`${API_BASE}/quiz-data`);
+                const data = await response.json();
+                
+                const allQuestions = data.questions?.all || [];
+                const imageBasedCount = Object.values(data['image-based'] || {}).flat().length;
+                const timeLimitedCount = Object.values(data['time-limited'] || {}).flat().length;
+                
+                originalQuestionCount = allQuestions.length;
+                
+                const countDisplay = document.getElementById('count-display');
+                countDisplay.innerHTML = `
+                    <div>All Category: ${allQuestions.length} questions</div>
+                    <div>Image-based Mode: ${imageBasedCount} questions</div>
+                    <div>Time-limited Mode: ${timeLimitedCount} questions</div>
+                `;
+                
+                await logResult(`Current question counts - All: ${allQuestions.length}, Image-based: ${imageBasedCount}, Time-limited: ${timeLimitedCount}`, 'info');
+                return allQuestions.length;
+            } catch (error) {
+                await logResult(`Error getting question count: ${error.message}`, 'error');
+                return 0;
+            }
+        }
+
+        async function testCreateQuestion() {
+            await logResult('🧪 Starting Create Question Test...', 'info');
+            
+            try {
+                // Create test question data
+                const testQuestion = {
+                    options: ['Test Option 1', 'Test Option 2', 'Test Option 3', 'Test Option 4'],
+                    correctAnswer: 'Test Option 2',
+                    question: 'Test Question - Which option is correct?',
+                    explanation: 'This is a test question created by the CRUD test suite.',
+                    streetViewUrl: 'https://www.google.com/maps/@52.5200,13.4050,3a,75y,90t/data=!3m6!1e1'
+                };
+
+                // Create FormData
+                const formData = new FormData();
+                formData.append('mode', 'both');
+                formData.append('category', 'bollards'); // Use existing category
+                formData.append('questionData', JSON.stringify(testQuestion));
+                formData.append('requestId', `test_${Date.now()}`);
+
+                await logResult('Sending create question request...', 'info');
+                
+                const response = await fetch(`${API_BASE}/add-question`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const result = await response.json();
+                await logResult(`✅ Question created successfully: ${JSON.stringify(result)}`, 'success');
+                
+                // Verify question was added to both modes
+                await verifyQuestionInBothModes(testQuestion);
+                
+                // Check if question count increased
+                const newCount = await getCurrentQuestionCount();
+                if (newCount > originalQuestionCount) {
+                    await logResult(`✅ Question count increased from ${originalQuestionCount} to ${newCount}`, 'success');
+                    originalQuestionCount = newCount;
+                } else {
+                    await logResult(`❌ Question count did not increase (still ${newCount})`, 'error');
+                }
+
+            } catch (error) {
+                await logResult(`❌ Create question test failed: ${error.message}`, 'error');
+            }
+        }
+
+        async function verifyQuestionInBothModes(testQuestion) {
+            try {
+                const response = await fetch(`${API_BASE}/quiz-data`);
+                const data = await response.json();
+                
+                // Check image-based mode
+                const imageBasedQuestions = data['image-based']?.bollards || [];
+                const foundInImageBased = imageBasedQuestions.some(q => 
+                    q.question === testQuestion.question && q.correctAnswer === testQuestion.correctAnswer
+                );
+                
+                // Check time-limited mode
+                const timeLimitedQuestions = data['time-limited']?.bollards || [];
+                const foundInTimeLimited = timeLimitedQuestions.some(q => 
+                    q.question === testQuestion.question && q.correctAnswer === testQuestion.correctAnswer
+                );
+                
+                // Check unified questions structure
+                const unifiedQuestions = data.questions?.bollards || [];
+                const foundInUnified = unifiedQuestions.some(q => 
+                    q.question === testQuestion.question && q.correctAnswer === testQuestion.correctAnswer
+                );
+                
+                if (foundInImageBased && foundInTimeLimited && foundInUnified) {
+                    await logResult('✅ Question found in both quiz modes and unified structure', 'success');
+                } else {
+                    await logResult(`❌ Question not found in all required locations: Image-based: ${foundInImageBased}, Time-limited: ${foundInTimeLimited}, Unified: ${foundInUnified}`, 'error');
+                }
+                
+            } catch (error) {
+                await logResult(`❌ Error verifying question in both modes: ${error.message}`, 'error');
+            }
+        }
+
+        async function testDeleteQuestion() {
+            await logResult('🧪 Starting Delete Question Test...', 'info');
+            
+            try {
+                // First, get the current data to find a question to delete
+                const response = await fetch(`${API_BASE}/quiz-data`);
+                const data = await response.json();
+                
+                const bollardQuestions = data.questions?.bollards || [];
+                if (bollardQuestions.length === 0) {
+                    await logResult('❌ No questions found in bollards category to delete', 'error');
+                    return;
+                }
+                
+                // Find our test question or use the last one
+                const questionToDelete = bollardQuestions.find(q => q.question?.includes('Test Question')) || bollardQuestions[bollardQuestions.length - 1];
+                const questionIndex = bollardQuestions.indexOf(questionToDelete);
+                
+                await logResult(`Attempting to delete question at index ${questionIndex}: "${questionToDelete.question || 'No question text'}"`, 'info');
+                
+                // Delete the question
+                const deleteResponse = await fetch(`${API_BASE}/delete-question`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        mode: 'image-based', // This should delete from both modes
+                        category: 'bollards',
+                        questionIndex: questionIndex
+                    })
+                });
+
+                if (!deleteResponse.ok) {
+                    throw new Error(`HTTP ${deleteResponse.status}: ${deleteResponse.statusText}`);
+                }
+
+                const deleteResult = await deleteResponse.json();
+                await logResult(`✅ Question deleted successfully: ${JSON.stringify(deleteResult)}`, 'success');
+                
+                // Verify question was removed from both modes
+                await verifyQuestionDeleted(questionToDelete, questionIndex);
+                
+                // Check if question count decreased
+                const newCount = await getCurrentQuestionCount();
+                if (newCount < originalQuestionCount) {
+                    await logResult(`✅ Question count decreased from ${originalQuestionCount} to ${newCount}`, 'success');
+                    originalQuestionCount = newCount;
+                } else {
+                    await logResult(`❌ Question count did not decrease (still ${newCount})`, 'error');
+                }
+
+            } catch (error) {
+                await logResult(`❌ Delete question test failed: ${error.message}`, 'error');
+            }
+        }
+
+        async function verifyQuestionDeleted(deletedQuestion, originalIndex) {
+            try {
+                const response = await fetch(`${API_BASE}/quiz-data`);
+                const data = await response.json();
+                
+                // Check if question was removed from all locations
+                const imageBasedQuestions = data['image-based']?.bollards || [];
+                const timeLimitedQuestions = data['time-limited']?.bollards || [];
+                const unifiedQuestions = data.questions?.bollards || [];
+                
+                const stillInImageBased = imageBasedQuestions.some(q => 
+                    q.question === deletedQuestion.question && q.correctAnswer === deletedQuestion.correctAnswer
+                );
+                const stillInTimeLimited = timeLimitedQuestions.some(q => 
+                    q.question === deletedQuestion.question && q.correctAnswer === deletedQuestion.correctAnswer
+                );
+                const stillInUnified = unifiedQuestions.some(q => 
+                    q.question === deletedQuestion.question && q.correctAnswer === deletedQuestion.correctAnswer
+                );
+                
+                if (!stillInImageBased && !stillInTimeLimited && !stillInUnified) {
+                    await logResult('✅ Question successfully removed from all locations', 'success');
+                } else {
+                    await logResult(`❌ Question still found in some locations: Image-based: ${stillInImageBased}, Time-limited: ${stillInTimeLimited}, Unified: ${stillInUnified}`, 'error');
+                }
+                
+            } catch (error) {
+                await logResult(`❌ Error verifying question deletion: ${error.message}`, 'error');
+            }
+        }
+
+        async function testEditQuestion() {
+            await logResult('🧪 Starting Edit Question Test...', 'info');
+
+            try {
+                // First, get the current data to find a question to edit
+                const response = await fetch(`${API_BASE}/quiz-data`);
+                const data = await response.json();
+
+                const bollardQuestions = data.questions?.bollards || [];
+                if (bollardQuestions.length === 0) {
+                    await logResult('❌ No questions found in bollards category to edit', 'error');
+                    return;
+                }
+
+                // Use the first question for editing
+                const questionToEdit = bollardQuestions[0];
+                const questionIndex = 0;
+
+                await logResult(`Attempting to edit question at index ${questionIndex}: "${questionToEdit.question || 'No question text'}"`, 'info');
+
+                // Create modified question data
+                const editedQuestion = {
+                    ...questionToEdit,
+                    question: questionToEdit.question + ' [EDITED BY TEST]',
+                    explanation: (questionToEdit.explanation || '') + ' [This question was edited by the CRUD test suite.]'
+                };
+
+                // Create FormData for edit request
+                const formData = new FormData();
+                formData.append('mode', 'image-based'); // This should edit in both modes
+                formData.append('category', 'bollards');
+                formData.append('questionIndex', questionIndex.toString());
+                formData.append('questionData', JSON.stringify(editedQuestion));
+                formData.append('requestId', `edit_test_${Date.now()}`);
+
+                await logResult('Sending edit question request...', 'info');
+
+                const editResponse = await fetch(`${API_BASE}/edit-question`, {
+                    method: 'PUT',
+                    body: formData
+                });
+
+                if (!editResponse.ok) {
+                    throw new Error(`HTTP ${editResponse.status}: ${editResponse.statusText}`);
+                }
+
+                const editResult = await editResponse.json();
+                await logResult(`✅ Question edited successfully: ${JSON.stringify(editResult)}`, 'success');
+
+                // Verify question was edited in both modes
+                await verifyQuestionEdited(editedQuestion, questionIndex);
+
+                // Question count should remain the same
+                const newCount = await getCurrentQuestionCount();
+                if (newCount === originalQuestionCount) {
+                    await logResult(`✅ Question count remained the same after edit (${newCount})`, 'success');
+                } else {
+                    await logResult(`❌ Question count changed unexpectedly: was ${originalQuestionCount}, now ${newCount}`, 'error');
+                }
+
+            } catch (error) {
+                await logResult(`❌ Edit question test failed: ${error.message}`, 'error');
+            }
+        }
+
+        async function verifyQuestionEdited(editedQuestion, questionIndex) {
+            try {
+                const response = await fetch(`${API_BASE}/quiz-data`);
+                const data = await response.json();
+
+                // Check unified structure
+                const unifiedQuestions = data.questions?.bollards || [];
+                const foundInUnified = unifiedQuestions[questionIndex] &&
+                    unifiedQuestions[questionIndex].question === editedQuestion.question &&
+                    unifiedQuestions[questionIndex].explanation === editedQuestion.explanation;
+
+                // Check image-based mode
+                const imageBasedQuestions = data['image-based']?.bollards || [];
+                const foundInImageBased = imageBasedQuestions[questionIndex] &&
+                    imageBasedQuestions[questionIndex].question === editedQuestion.question &&
+                    imageBasedQuestions[questionIndex].explanation === editedQuestion.explanation;
+
+                // Check time-limited mode
+                const timeLimitedQuestions = data['time-limited']?.bollards || [];
+                const foundInTimeLimited = timeLimitedQuestions[questionIndex] &&
+                    timeLimitedQuestions[questionIndex].question === editedQuestion.question &&
+                    timeLimitedQuestions[questionIndex].explanation === editedQuestion.explanation;
+
+                if (foundInUnified && foundInImageBased && foundInTimeLimited) {
+                    await logResult('✅ Question edits found in unified structure and both quiz modes', 'success');
+                } else {
+                    await logResult(`❌ Question edits not found in all required locations: Unified: ${foundInUnified}, Image-based: ${foundInImageBased}, Time-limited: ${foundInTimeLimited}`, 'error');
+                }
+
+            } catch (error) {
+                await logResult(`❌ Error verifying question edit: ${error.message}`, 'error');
+            }
+        }
+
+        async function checkDataIntegrity() {
+            await logResult('🧪 Starting Data Integrity Check...', 'info');
+            
+            try {
+                const response = await fetch(`${API_BASE}/quiz-data`);
+                const data = await response.json();
+                
+                const integrityResults = document.getElementById('integrity-results');
+                integrityResults.innerHTML = '';
+                
+                // Check structure
+                const hasImageBased = !!data['image-based'];
+                const hasTimeLimited = !!data['time-limited'];
+                const hasQuestions = !!data.questions;
+                
+                integrityResults.innerHTML += `<div class="test-result ${hasImageBased ? 'success' : 'error'}">Image-based structure: ${hasImageBased ? '✅' : '❌'}</div>`;
+                integrityResults.innerHTML += `<div class="test-result ${hasTimeLimited ? 'success' : 'error'}">Time-limited structure: ${hasTimeLimited ? '✅' : '❌'}</div>`;
+                integrityResults.innerHTML += `<div class="test-result ${hasQuestions ? 'success' : 'error'}">Unified questions structure: ${hasQuestions ? '✅' : '❌'}</div>`;
+                
+                // Check category consistency
+                if (hasImageBased && hasTimeLimited && hasQuestions) {
+                    const imageCategories = Object.keys(data['image-based']);
+                    const timeCategories = Object.keys(data['time-limited']);
+                    const questionCategories = Object.keys(data.questions);
+                    
+                    const categoriesMatch = JSON.stringify(imageCategories.sort()) === JSON.stringify(timeCategories.sort()) &&
+                                          JSON.stringify(imageCategories.sort()) === JSON.stringify(questionCategories.sort());
+                    
+                    integrityResults.innerHTML += `<div class="test-result ${categoriesMatch ? 'success' : 'error'}">Category consistency: ${categoriesMatch ? '✅' : '❌'}</div>`;
+                    
+                    if (!categoriesMatch) {
+                        integrityResults.innerHTML += `<div class="test-result info">Image-based categories: ${imageCategories.join(', ')}</div>`;
+                        integrityResults.innerHTML += `<div class="test-result info">Time-limited categories: ${timeCategories.join(', ')}</div>`;
+                        integrityResults.innerHTML += `<div class="test-result info">Questions categories: ${questionCategories.join(', ')}</div>`;
+                    }
+                }
+                
+                await logResult('✅ Data integrity check completed', 'success');
+                
+            } catch (error) {
+                await logResult(`❌ Data integrity check failed: ${error.message}`, 'error');
+            }
+        }
+
+        async function testServerEndpoints() {
+            await logResult('🔧 Testing Server Endpoints...', 'info');
+
+            try {
+                // Test GET /api/quiz-data
+                const response = await fetch(`${API_BASE}/quiz-data`);
+                if (response.ok) {
+                    const data = await response.json();
+                    await logResult(`✅ GET /api/quiz-data - Status: ${response.status}`, 'success');
+                    await logResult(`Data keys: ${Object.keys(data).join(', ')}`, 'info');
+                } else {
+                    await logResult(`❌ GET /api/quiz-data - Status: ${response.status}`, 'error');
+                }
+
+                // Test POST /api/add-question endpoint availability
+                const addResponse = await fetch(`${API_BASE}/add-question`, {
+                    method: 'POST',
+                    body: new FormData() // Empty form data to test endpoint
+                });
+                await logResult(`POST /api/add-question endpoint - Status: ${addResponse.status} (${addResponse.status === 400 ? 'Available but requires data' : 'Response received'})`, addResponse.status === 400 ? 'success' : 'info');
+
+                // Test PUT /api/edit-question endpoint availability
+                const editResponse = await fetch(`${API_BASE}/edit-question`, {
+                    method: 'PUT',
+                    body: new FormData() // Empty form data to test endpoint
+                });
+                await logResult(`PUT /api/edit-question endpoint - Status: ${editResponse.status} (${editResponse.status === 400 ? 'Available but requires data' : 'Response received'})`, editResponse.status === 400 ? 'success' : 'info');
+
+                // Test DELETE /api/delete-question endpoint availability
+                const deleteResponse = await fetch(`${API_BASE}/delete-question`, {
+                    method: 'DELETE',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({}) // Empty JSON to test endpoint
+                });
+                await logResult(`DELETE /api/delete-question endpoint - Status: ${deleteResponse.status} (${deleteResponse.status === 400 ? 'Available but requires data' : 'Response received'})`, deleteResponse.status === 400 ? 'success' : 'info');
+
+            } catch (error) {
+                await logResult(`❌ Server endpoint test failed: ${error.message}`, 'error');
+            }
+        }
+
+        async function runAllTests() {
+            await logResult('🚀 Starting comprehensive CRUD test suite...', 'info');
+
+            // Clear previous results
+            document.getElementById('results-container').innerHTML = '';
+
+            // Run tests in sequence
+            await testServerEndpoints();
+            await getCurrentQuestionCount();
+            await checkDataIntegrity();
+            await testCreateQuestion();
+            await testEditQuestion();
+            await testDeleteQuestion();
+
+            await logResult('🏁 All tests completed!', 'info');
+        }
+    </script>
+</body>
+</html>

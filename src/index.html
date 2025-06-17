@@ -1,0 +1,657 @@
+    <!DOCTYPE html>
+    <html lang="de">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>TerraTüftler – Geographie Quiz</title>
+        <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/styles.css?v=2024-dark-theme-headers-enhanced">
+        <link rel="stylesheet" href="css/components.css?v=2024-dark-theme-headers-enhanced">
+        <link rel="stylesheet" href="css/themes.css?v=2024-dark-theme-headers-enhanced">
+        <script type="module" src="./js/app.js"></script>
+    </head>
+    <body class="theme-standard">
+        <header>
+            <nav>
+                <div class="logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" class="logo-svg">
+                        <circle cx="20" cy="20" r="19" fill="#3498db" stroke="white" stroke-width="2"/>
+                        <path d="M20 5C13.5 5 8 10.5 8 17C8 25.5 20 35 20 35C20 35 32 25.5 32 17C32 10.5 26.5 5 20 5ZM20 22C17.2 22 15 19.8 15 17C15 14.2 17.2 12 20 12C22.8 12 25 14.2 25 17C25 19.8 22.8 22 20 22Z" fill="white"/>
+                    </svg>
+                    <span>TerraTüftler</span>
+                </div>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#" class="active" data-target="home">Home</a></li>
+                    <li><a href="#" data-target="quiz">Quiz</a></li>
+                    <li><a href="#" data-target="learn">Lernen</a></li>
+                    <li><a href="#" data-target="leaderboard">Rangliste</a></li>
+                    <li><a href="#" data-target="admin">Admin</a></li>
+                    <li><a href="#" data-target="about">Über uns</a></li>
+                    <li><a href="#" data-target="settings">Einstellungen</a></li>
+                </ul>
+                <button class="burger" id="burger" aria-label="Menü öffnen/schließen" aria-expanded="false" aria-controls="nav-links">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Home Section -->
+            <section id="home" class="active">
+                <div class="hero">
+                    <h1>Willkommen bei TerraTüftler</h1>
+                    <p>Entdecke die Welt und verbessere deine GeoGuessr-Fähigkeiten mit unserem interaktiven Lern- und Quizportal.</p>
+                    <button class="btn" data-target="quiz">Quiz starten</button>
+                </div>
+                <div class="container">
+                    <h2>Unsere Features</h2>
+                    <div class="features">
+                        <div class="feature-card">
+                            <h3>Lerne spielerisch</h3>
+                            <p>Erkunde Verkehrsschilder, Strommasten & Architektur in interaktiven Lektionen.</p>
+                            <button class="btn btn-secondary" data-target="learn">Lernbereich</button>
+                        </div>
+                        <div class="feature-card">
+                            <h3>Teste dein Wissen</h3>
+                            <p>Zwei Quiz-Modi: zeitbegrenzte Challenges & Bildrätsel für maximalen Lernspaß.</p>
+                            <button class="btn btn-secondary" data-target="quiz">Quiz starten</button>
+                        </div>
+                        <div class="feature-card">
+                            <h3>Fortschritt verfolgen</h3>
+                            <p>Verfolge deinen Lernfortschritt und vergleiche dich mit anderen.</p>
+                            <button class="btn btn-secondary" data-target="leaderboard">Rangliste</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quiz Mode Selection Section -->
+            <section id="quiz" style="display: none;">
+                <div class="container">
+                    <div class="quiz-container">
+                        <header class="quiz-header">
+                            <h2>Wähle deinen Quiz-Modus</h2>
+                            <p>Teste dein Wissen auf verschiedene Arten</p>
+                            <div class="player-info">
+                                <span id="current-player-display">Aktueller Spieler: Anonym</span>
+                                <button class="btn btn-secondary btn-small" id="change-player-btn">Spieler wechseln</button>
+                            </div>
+                        </header>
+                        <div class="quiz-options">
+                            <div class="quiz-option" data-quiz-type="time-limited" role="button" tabindex="0">
+                                <h3>Zeitbegrenztes Quiz</h3>
+                                <p>Beantworte Fragen unter Zeitdruck</p>
+                            </div>
+                            <div class="quiz-option" data-quiz-type="image-based" role="button" tabindex="0">
+                                <h3>Bildbasiertes Quiz</h3>
+                                <p>Erkenne Orte anhand von Bildern</p>
+                            </div>
+                        </div>
+                        <div id="time-limit-options" style="margin-top: 2rem; display: none;">
+                            <h3>Bild sichtbar für</h3>
+                            <select id="time-limit-select" class="form-select">
+                                <option value="0.1">0.1 Sekunden (Extrem)</option>
+                                <option value="0.5">0.5 Sekunden (Schwer)</option>
+                                <option value="1" selected>1 Sekunde (Normal)</option>
+                                <option value="3">3 Sekunden (Einfach)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quiz Category Selection Section -->
+            <section id="quiz-category" style="display: none;">
+                <div class="container">
+                    <div class="quiz-container">
+                        <header class="quiz-header">
+                            <h2>Wähle eine Kategorie</h2>
+                            <p>Wähle eine Kategorie, um dein Wissen zu testen.</p>
+                            <button class="btn btn-back" id="back-to-quiz-selection">Zurück zur Modusauswahl</button>
+                        </header>
+                        <div class="quiz-options" id="quiz-category-options">
+                            <p>Lade Kategorien...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quiz Game Section -->
+            <section id="quiz-game" style="display: none;">
+                <div class="container">
+                    <div class="quiz-container">
+                        <div class="timer" id="timer" style="font-size: 1.2rem; font-weight: bold; text-align: center; padding: 1rem; border-radius: 8px; background: var(--clr-primary); color: white; margin-bottom: 1rem;">
+                            <span id="timer-phase">Bild sichtbar:</span> <span id="time-left">1</span> Sekunden
+                        </div>
+                        <div class="streak-display" id="streak-display" style="text-align: center; margin: 0.5rem 0; font-weight: 600; color: var(--clr-secondary);">
+                            Aktuelle Serie: <span id="current-streak">0</span>
+                        </div>
+                        <div class="question-container">
+                            <h3 id="question-text">Frage wird geladen...</h3>
+                            <img id="question-image" class="question-image" src="" alt="Quiz Bild" style="display: none;">
+                            <div class="answer-options" id="answer-options"></div>
+                        </div>
+                        <div id="feedback"></div>
+                        <div class="quiz-controls">
+                            <button class="btn btn-back" id="prev-question" style="display: none;">Zurück</button>
+                            <button class="btn btn-secondary btn-quit" id="quit-quiz">Aufgeben</button>
+                            <button class="btn" id="submit-answer">Antwort bestätigen</button>
+                            <button class="btn" id="next-question" style="display: none;">Weiter</button>
+                            <button class="btn" id="finish-quiz" style="display: none;">Quiz beenden</button>
+                        </div>
+                        <div id="scoreboard" style="display: none;">
+                            <h3>Deine Punktzahl</h3>
+                            <p id="score">0 / 0</p>
+                            <p>Beste Serie: <span id="final-streak">0</span></p>
+                            <p id="score-message"></p>
+                            <div id="player-name-area">
+                                <p>Dein Name für die Rangliste:</p>
+                                <div style="display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 1rem;">
+                                    <input type="text" id="player-name" maxlength="20" placeholder="Dein Name" style="padding: 0.5rem; border-radius: var(--radius); border: 1px solid var(--clr-border);">
+                                    <button class="btn btn-secondary" id="save-player-name">Speichern</button>
+                                </div>
+                                <p id="current-player-name">Aktueller Spieler: Anonym</p>
+                            </div>
+                            <button class="btn" id="play-again">Fortfahren</button>
+                            <button class="btn" id="view-leaderboard" data-target="leaderboard">Rangliste ansehen</button>
+                            <button class="btn" data-target="quiz">Neues Quiz</button>
+                            <button class="btn btn-back" data-target="home">Zur Startseite</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Learn Section -->
+            <section id="learn" style="display: none;">
+                <div class="container">
+                    <div id="learn-overview" class="learn-container">
+                        <header class="learn-header">
+                            <h2>Lerne geografische Hinweise</h2>
+                            <p>Entdecke charakteristische Merkmale verschiedener Regionen - Referenzguide</p>
+                        </header>
+                        <div class="learn-category-selector">
+                            <label for="learn-category-select">Kategorie wählen:</label>
+                            <select id="learn-category-select" class="learn-category-dropdown">
+                                <option value="all">Alle Kategorien</option>
+                                <option value="bollards">Bollards</option>
+                                <option value="google_cars">Google Cars</option>
+                                <option value="poles">Strommasten</option>
+                                <option value="architecture">Architektur</option>
+                                <option value="traffic-signs">Verkehrsschilder</option>
+                                <option value="power-lines">Stromleitungen</option>
+                                <option value="vegetation">Vegetation</option>
+                                <option value="chevrons">Chevrons</option>
+                                <option value="other_signs">Andere Schilder</option>
+                            </select>
+                        </div>
+                        <div id="learn-content-grid" class="learn-reference-grid">
+                            <!-- Content will be dynamically populated -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Leaderboard Section -->
+            <section id="leaderboard" style="display: none;">
+                <div class="container">
+                    <div class="leaderboard-container">
+                        <header class="leaderboard-header">
+                            <h2>Rangliste</h2>
+                            <p>Die besten Spieler und ihre Ergebnisse</p>
+                        </header>
+                        <div class="leaderboard-controls">
+                            <div class="leaderboard-filters">
+                                <div class="filter-group">
+                                    <label for="leaderboard-mode-select">Quiz-Modus:</label>
+                                    <select id="leaderboard-mode-select">
+                                        <option value="time-limited">Zeit-Challenge</option>
+                                        <option value="image-based">Bild-Quiz</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <label for="leaderboard-category-select">Kategorie:</label>
+                                    <select id="leaderboard-category-select">
+                                        <option value="all">Alle</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group" id="time-limit-filter" style="display: none;">
+                                    <label for="leaderboard-time-select">Zeitlimit:</label>
+                                    <select id="leaderboard-time-select">
+                                        <option value="0.1">0.1s (Extrem)</option>
+                                        <option value="0.5">0.5s (Schwer)</option>
+                                        <option value="1">1s (Normal)</option>
+                                        <option value="3">3s (Einfach)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="leaderboard-actions">
+                                <button class="btn btn-primary" id="refresh-leaderboard">Aktualisieren</button>
+                                <button class="btn btn-secondary" id="clear-leaderboard">Rangliste löschen</button>
+                            </div>
+                        </div>
+                        <ul id="leaderboard-list">
+                            <!-- Leaderboard items will be populated by JavaScript -->
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="about" style="display: none;">
+                <div class="container">
+                    <div class="learn-container"> <header class="learn-header">
+                            <h2>Über uns</h2>
+                            <p>Das TerraTüftler Team und unsere Mission</p>
+                        </header>
+                        <div style="text-align: center; max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                            <p><strong>TerraTüftler</strong> ist ein Projekt von Geographie-Enthusiasten mit der Mission, geografisches Wissen auf unterhaltsame und interaktive Weise zu vermitteln. Unser Ziel ist es, Neugier für die Welt zu wecken und Menschen dabei zu helfen, ihre Umgebung – ob digital oder real – besser zu verstehen.</p>
+                            <br>
+                            <p>Wir glauben, dass Lernen am effektivsten ist, wenn es Spaß macht. Daher haben wir diese Plattform entwickelt, um GeoGuessr-Spielern und allen, die ihre geografischen Kenntnisse verbessern möchten, ein spannendes und lehrreiches Erlebnis zu bieten. Erkennen Sie Länder an ihren Straßenschildern, Strommasten oder der typischen Vegetation!</p>
+                            <br>
+                            <p>Unser (imaginäres) Team besteht aus leidenschaftlichen Geographie-Liebhabern und engagierten Entwicklern, die ihre Fähigkeiten und ihr Wissen einsetzen, um diese Vision zu verwirklichen. Viel Spaß beim Tüfteln!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Admin Section -->
+            <section id="admin" style="display: none;">
+                <div class="container">
+                    <div class="admin-container">
+                        <header class="admin-header">
+                            <h2>Content Management</h2>
+                            <p>Verwalte Quiz-Kategorien und Fragen dynamisch</p>
+                        </header>
+
+                        <div class="admin-actions">
+                            <div class="admin-card">
+                                <h3>Neue Kategorie hinzufügen</h3>
+                                <p>Erstelle eine neue Quiz-Kategorie für verschiedene Modi</p>
+                                <button class="btn btn-primary" id="add-category-btn">
+                                    <span>📁</span> Kategorie hinzufügen
+                                </button>
+                            </div>
+
+                            <div class="admin-card">
+                                <h3>Neue Frage hinzufügen</h3>
+                                <p>Füge neue Fragen zu bestehenden Kategorien hinzu</p>
+                                <button class="btn btn-primary" id="add-question-btn">
+                                    <span>❓</span> Frage hinzufügen
+                                </button>
+                            </div>
+
+                            <div class="admin-card">
+                                <h3>Content verwalten</h3>
+                                <p>Kategorien und Fragen anzeigen und löschen</p>
+                                <button class="btn btn-info" id="manage-content-btn">
+                                    <span>📋</span> Content verwalten
+                                </button>
+                            </div>
+
+                            <div class="admin-card">
+                                <h3>Daten verwalten</h3>
+                                <p>Exportiere oder importiere Quiz-Daten</p>
+                                <div class="admin-data-actions">
+                                    <button class="btn btn-secondary" id="export-data-btn">
+                                        <span>📤</span> Quiz-Daten exportieren
+                                    </button>
+                                    <button class="btn btn-secondary" id="import-data-btn">
+                                        <span>📥</span> Quiz-Daten importieren
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="admin-card">
+                                <h3>Rangliste verwalten</h3>
+                                <p>Verwalte Leaderboard-Daten und Statistiken</p>
+                                <div class="admin-data-actions">
+                                    <button class="btn btn-warning" id="clear-leaderboard-btn">
+                                        <span>🗑️</span> Rangliste löschen
+                                    </button>
+                                    <button class="btn btn-info" id="leaderboard-stats-btn">
+                                        <span>📋</span> Statistiken anzeigen
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="admin-stats">
+                            <h3>Aktuelle Statistiken</h3>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <span class="stat-number" id="total-categories">0</span>
+                                    <span class="stat-label">Kategorien</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number" id="total-questions">0</span>
+                                    <span class="stat-label">Fragen</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number" id="total-modes">3</span>
+                                    <span class="stat-label">Quiz-Modi</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number" id="total-leaderboard-entries">0</span>
+                                    <span class="stat-label">Ranglisten-Einträge</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number" id="total-players">0</span>
+                                    <span class="stat-label">Spieler</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="settings" style="display: none;">
+            <div class="container">
+                    <div class="settings-container">
+                    <header class="learn-header">
+                            <h2>Einstellungen</h2>
+                            <p>Passe die App an deine Bedürfnisse an</p>
+                        </header>
+                        <div class="settings-options">
+                            <div class="setting-item">
+                                <label for="sound-toggle">Soundeffekte</label>
+                                <input type="checkbox" id="sound-toggle" checked>
+                            </div>
+                            <div class="setting-item">
+                                <label for="theme-select">Farbschema</label>
+                                <select id="theme-select">
+                                    <option value="theme-standard">Standard</option>
+                                    <option value="theme-dark">Dunkel</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Player Name Change Modal -->
+        <div id="player-name-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Spieler wechseln</h3>
+                    <button class="modal-close" id="close-player-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Gib deinen Namen ein, um deine Fortschritte zu verfolgen:</p>
+                    <input type="text" id="new-player-name" maxlength="20" placeholder="Dein Name" class="form-input">
+                    <p class="input-hint">Maximal 20 Zeichen</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="cancel-player-change">Abbrechen</button>
+                    <button class="btn btn-primary" id="confirm-player-change">Bestätigen</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Category Modal -->
+        <div id="add-category-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Neue Kategorie hinzufügen</h3>
+                    <button class="modal-close" id="close-category-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="category-name">Kategorie-Name:</label>
+                        <input type="text" id="category-name" placeholder="z.B. neue_kategorie" class="form-input">
+                        <p class="input-hint">Verwende Kleinbuchstaben und Unterstriche statt Leerzeichen</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Verfügbar für Quiz-Modi:</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="mode-image-based" value="image-based">
+                                <span>Bildbasiert</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="mode-time-limited" value="time-limited">
+                                <span>Zeitbegrenzt</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category-description">Beschreibung (optional):</label>
+                        <textarea id="category-description" placeholder="Kurze Beschreibung der Kategorie" class="form-input" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="cancel-category">Abbrechen</button>
+                    <button class="btn btn-primary" id="confirm-category">Kategorie erstellen</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Question Modal -->
+        <div id="add-question-modal" class="modal" style="display: none;">
+            <div class="modal-content modal-large">
+                <div class="modal-header">
+                    <h3>Neue Frage hinzufügen</h3>
+                    <button class="modal-close" id="close-question-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="question-category">Kategorie:</label>
+                            <select id="question-category" class="form-input">
+                                <option value="">Kategorie wählen...</option>
+                            </select>
+                            <p class="input-hint">Frage wird automatisch zu beiden Quiz-Modi hinzugefügt (Bildbasiert & Zeitbegrenzt)</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="question-text-group">
+                        <label for="admin-question-text">Frage-Text:</label>
+                        <input type="text" id="admin-question-text" placeholder="z.B. Welches Land ist das?" class="form-input">
+                        <p class="input-hint">Für bildbasierte Quizzes optional (Bild steht im Vordergrund)</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="question-image">Bild hochladen oder URL eingeben:</label>
+                        <div class="image-input-container">
+                            <div class="image-upload-section">
+                                <label for="question-image-file" class="file-upload-label">
+                                    <span class="upload-icon">📁</span>
+                                    <span class="upload-text">Bild hochladen</span>
+                                    <input type="file" id="question-image-file" accept="image/*" class="file-input">
+                                </label>
+                                <p class="input-hint">Empfohlen: Automatische Organisation nach Kategorie</p>
+                            </div>
+                            <div class="url-input-section">
+                                <input type="url" id="question-image" placeholder="Oder Bild-URL eingeben..." class="form-input">
+                                <p class="input-hint">Alternative: Externe Bild-URL</p>
+                            </div>
+                        </div>
+                        <div id="image-preview" class="image-preview" style="display: none;">
+                            <img id="preview-img" src="" alt="Vorschau">
+                            <div class="image-info">
+                                <span id="image-filename"></span>
+                                <span id="image-size"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Antwortmöglichkeiten:</label>
+                        <div class="options-container">
+                            <input type="text" id="option-1" placeholder="Option 1" class="form-input option-input">
+                            <input type="text" id="option-2" placeholder="Option 2" class="form-input option-input">
+                            <input type="text" id="option-3" placeholder="Option 3" class="form-input option-input">
+                            <input type="text" id="option-4" placeholder="Option 4" class="form-input option-input">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="correct-answer">Richtige Antwort:</label>
+                        <select id="correct-answer" class="form-input">
+                            <option value="">Richtige Antwort wählen...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="question-explanation">Erklärung (optional):</label>
+                        <textarea id="question-explanation" placeholder="Zusätzliche Informationen zur Antwort" class="form-input" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="question-streetview-url">Google Street View URL (optional):</label>
+                        <input type="url" id="question-streetview-url" placeholder="https://www.google.com/maps/@..." class="form-input">
+                        <p class="input-hint">Ermöglicht Spielern nach der Antwort die Street View-Location zu besuchen</p>
+                    </div>
+
+                    <div class="question-preview" id="question-preview" style="display: none;">
+                        <h4>Vorschau:</h4>
+                        <div class="preview-content">
+                            <div id="preview-question-text"></div>
+                            <div id="preview-image-container"></div>
+                            <div id="preview-options"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="preview-question">Vorschau</button>
+                    <button class="btn btn-secondary" id="cancel-question">Abbrechen</button>
+                    <button class="btn btn-primary" id="confirm-question">Frage hinzufügen</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leaderboard Statistics Modal -->
+        <div id="leaderboard-stats-modal" class="modal" style="display: none;">
+            <div class="modal-content modal-large">
+                <div class="modal-header">
+                    <h3>Ranglisten-Statistiken</h3>
+                    <button class="modal-close" id="close-stats-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="stats-overview">
+                        <div class="stats-row">
+                            <div class="stat-card">
+                                <h4>Gesamt-Einträge</h4>
+                                <span class="stat-value" id="stats-total-entries">0</span>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Aktive Spieler</h4>
+                                <span class="stat-value" id="stats-total-players">0</span>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Letzte Aktualisierung</h4>
+                                <span class="stat-value" id="stats-last-updated">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="top-performers">
+                        <h4>Top 10 Leistungen</h4>
+                        <div class="performers-list" id="top-performers-list">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+
+                    <div class="category-breakdown">
+                        <h4>Einträge pro Kategorie</h4>
+                        <div class="category-stats" id="category-stats">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="close-stats">Schließen</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Management Modal -->
+        <div id="content-management-modal" class="modal" style="display: none;">
+            <div class="modal-content modal-large">
+                <div class="modal-header">
+                    <h3>Content Management</h3>
+                    <button class="modal-close" id="close-content-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="content-tabs">
+                        <button class="tab-btn active" id="categories-tab">Kategorien</button>
+                        <button class="tab-btn" id="questions-tab">Fragen</button>
+                    </div>
+
+                    <!-- Categories Tab -->
+                    <div id="categories-content" class="tab-content active">
+                        <div class="content-header">
+                            <h4>Kategorien verwalten</h4>
+                            <p>Kategorien anzeigen und löschen. <strong>Warnung:</strong> Das Löschen einer Kategorie entfernt alle zugehörigen Fragen und Bilder.</p>
+                        </div>
+                        <div class="content-list" id="categories-list">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+
+                    <!-- Questions Tab -->
+                    <div id="questions-content" class="tab-content">
+                        <div class="content-header">
+                            <h4>Fragen verwalten</h4>
+                            <div class="filter-controls">
+                                <select id="filter-mode" class="form-input">
+                                    <option value="">Alle Modi</option>
+                                    <option value="image-based">Bildbasiert</option>
+                                    <option value="time-limited">Zeitbegrenzt</option>
+                                </select>
+                                <select id="filter-category" class="form-input">
+                                    <option value="">Alle Kategorien</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="content-list" id="questions-list">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="close-content">Schließen</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delete Confirmation Modal -->
+        <div id="delete-confirmation-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="delete-modal-title">Löschen bestätigen</h3>
+                    <button class="modal-close" id="close-delete-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="delete-warning">
+                        <span class="warning-icon">⚠️</span>
+                        <div class="warning-content">
+                            <p id="delete-modal-message">Diese Aktion kann nicht rückgängig gemacht werden.</p>
+                            <div id="delete-modal-details" class="delete-details">
+                                <!-- Dynamically populated with deletion details -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="cancel-delete">Abbrechen</button>
+                    <button class="btn btn-danger" id="confirm-delete">
+                        <span id="delete-btn-text">Löschen</span>
+                        <span id="delete-loading" class="loading-spinner" style="display: none;">⏳</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 TerraTüftler. Alle Rechte vorbehalten.</p>
+        </footer>
+
+        <!-- The application logic is handled by the modular JavaScript files -->
+        <script type="module" src="./js/app.js"></script>
+    </body>
+    </html>

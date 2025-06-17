@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual CRUD Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .result { margin: 10px 0; padding: 10px; border-radius: 3px; }
+        .success { background-color: #d4edda; color: #155724; }
+        .error { background-color: #f8d7da; color: #721c24; }
+        .info { background-color: #d1ecf1; color: #0c5460; }
+        button { margin: 5px; padding: 10px 15px; border: none; border-radius: 3px; cursor: pointer; background-color: #007bff; color: white; }
+        pre { background-color: #f8f9fa; padding: 10px; border-radius: 3px; overflow-x: auto; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <h1>Manual CRUD Test for TerraTüftler</h1>
+    
+    <div class="test-section">
+        <h3>Current Status</h3>
+        <button onclick="checkCurrentStatus()">Check Current Status</button>
+        <div id="status-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>Test Create Question</h3>
+        <button onclick="testCreate()">Create Test Question</button>
+        <div id="create-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>Test Edit Question</h3>
+        <button onclick="testEdit()">Edit First Question</button>
+        <div id="edit-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>Test Delete Question</h3>
+        <button onclick="testDelete()">Delete Test Question</button>
+        <div id="delete-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>Run All Tests</h3>
+        <button onclick="runAllTests()">Run Complete Test Suite</button>
+        <div id="all-results"></div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:3001/api';
+        
+        function showResult(elementId, message, type = 'info') {
+            const element = document.getElementById(elementId);
+            const div = document.createElement('div');
+            div.className = `result ${type}`;
+            div.innerHTML = `<strong>${new Date().toLocaleTimeString()}</strong>: ${message}`;
+            element.appendChild(div);
+            console.log(`[${type}] ${message}`);
+        }
+        
+        async function checkCurrentStatus() {
+            try {
+                const response = await fetch(`${API_BASE}/quiz-data`);
+                const data = await response.json();
+                
+                const allCount = data.questions?.all?.length || 0;
+                const imageBasedCount = Object.values(data['image-based'] || {}).reduce((sum, arr) => sum + arr.length, 0);
+                const timeLimitedCount = Object.values(data['time-limited'] || {}).reduce((sum, arr) => sum + arr.length, 0);
+                
+                showResult('status-result', `
+                    <strong>Current Question Counts:</strong><br>
+                    • All Category: ${allCount} questions<br>
+                    • Image-based Mode: ${imageBasedCount} questions<br>
+                    • Time-limited Mode: ${timeLimitedCount} questions<br>
+                    • Data Structure Keys: ${Object.keys(data).join(', ')}
+                `, 'info');
+                
+                return { allCount, imageBasedCount, timeLimitedCount };
+            } catch (error) {
+                showResult('status-result', `Error checking status: ${error.message}`, 'error');
+                return null;
+            }
+        }
+        
+        async function testCreate() {
+            try {
+                showResult('create-result', 'Starting create test...', 'info');
+                
+                // Create test question data
+                const testQuestion = {
+                    options: ['Test Option A', 'Test Option B', 'Test Option C', 'Test Option D'],
+                    correctAnswer: 'Test Option B',
+                    question: 'CRUD Test Question - Which option is correct?',
+                    explanation: 'This is a test question created by the manual CRUD test suite.',
+                    streetViewUrl: 'https://www.google.com/maps/@52.5200,13.4050,3a,75y,90t/data=!3m6!1e1'
+                };
+
+                // Create FormData
+                const formData = new FormData();
+                formData.append('mode', 'both');
+                formData.append('category', 'bollards');
+                formData.append('questionData', JSON.stringify(testQuestion));
+                formData.append('requestId', `manual_test_${Date.now()}`);
+
+                showResult('create-result', 'Sending create request...', 'info');
+                
+                const response = await fetch(`${API_BASE}/add-question`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`HTTP ${response.status}: ${errorText}`);
+                }
+
+                const result = await response.json();
+                showResult('create-result', `✅ Question created successfully!<br><pre>${JSON.stringify(result, null, 2)}</pre>`, 'success');
+                
+                // Verify the question was added
+                await verifyQuestionExists(testQuestion, 'create-result');
+                
+            } catch (error) {
+                showResult('create-result', `❌ Create test failed: ${error.message}`, 'error');
+            }
+        }
+        
+        async function verifyQuestionExists(testQuestion, resultElementId) {
+            try {
+                const response = await fetch(`${API_BASE}/quiz-data`);
+                const data = await response.json();
+                
+                // Check unified structure
+                const unifiedQuestions = data.questions?.bollards || [];
+                const foundInUnified = unifiedQuestions.some(q => 
+                    q.question === testQuestion.question && q.correctAnswer === testQuestion.correctAnswer
+                );
+                
+                // Check image-based mode
+                const imageBasedQuestions = data['image-based']?.bollards || [];
+                const foundInImageBased = imageBasedQuestions.some(q => 
+                    q.question === testQuestion.question && q.correctAnswer === testQuestion.correctAnswer
+                );
+                
+                // Check time-limited mode
+                const timeLimitedQuestions = data['time-limited']?.bollards || [];
+                const foundInTimeLimited = timeLimitedQuestions.some(q => 
+                    q.question === testQuestion.question && q.correctAnswer === testQuestion.correctAnswer
+                );
+                
+                if (foundInUnified && foundInImageBased && foundInTimeLimited) {
+                    showResult(resultElementId, '✅ Question verified in all data structures', 'success');
+                } else {
+                    showResult(resultElementId, `❌ Question verification failed: Unified: ${foundInUnified}, Image-based: ${foundInImageBased}, Time-limited: ${foundInTimeLimited}`, 'error');
+                }
+                
+            } catch (error) {
+                showResult(resultElementId, `❌ Verification error: ${error.message}`, 'error');
+            }
+        }
+        
+        async function testEdit() {
+            try {
+                showResult('edit-result', 'Starting edit test...', 'info');
+                
+                // Get current data to find a question to edit
+                const response = await fetch(`${API_BASE}/quiz-data`);
+                const data = await response.json();
+                
+                const bollardQuestions = data.questions?.bollards || [];
+                if (bollardQuestions.length === 0) {
+                    showResult('edit-result', '❌ No questions found to edit', 'error');
+                    return;
+                }
+                
+                // Use the first question for editing
+                const questionToEdit = bollardQuestions[0];
+                const questionIndex = 0;
+                
+                showResult('edit-result', `Editing question at index ${questionIndex}: "${questionToEdit.question}"`, 'info');
+                
+                // Create modified question data
+                const editedQuestion = {
+                    ...questionToEdit,
+                    question: questionToEdit.question + ' [EDITED BY MANUAL TEST]',
+                    explanation: (questionToEdit.explanation || '') + ' [This question was edited by the manual CRUD test suite.]'
+                };
+                
+                // Create FormData for edit request
+                const formData = new FormData();
+                formData.append('mode', 'image-based');
+                formData.append('category', 'bollards');
+                formData.append('questionIndex', questionIndex.toString());
+                formData.append('questionData', JSON.stringify(editedQuestion));
+                formData.append('requestId', `manual_edit_${Date.now()}`);
+
+                showResult('edit-result', 'Sending edit request...', 'info');
+                
+                const editResponse = await fetch(`${API_BASE}/edit-question`, {
+                    method: 'PUT',
+                    body: formData
+                });
+
+                if (!editResponse.ok) {
+                    const errorText = await editResponse.text();
+                    throw new Error(`HTTP ${editResponse.status}: ${errorText}`);
+                }
+
+                const editResult = await editResponse.json();
+                showResult('edit-result', `✅ Question edited successfully!<br><pre>${JSON.stringify(editResult, null, 2)}</pre>`, 'success');
+                
+                // Verify the edit
+                await verifyQuestionEdited(editedQuestion, questionIndex, 'edit-result');
+                
+            } catch (error) {
+                showResult('edit-result', `❌ Edit test failed: ${error.message}`, 'error');
+            }
+        }
+        
+        async function verifyQuestionEdited(editedQuestion, questionIndex, resultElementId) {
+            try {
+                const response = await fetch(`${API_BASE}/quiz-data`);
+                const data = await response.json();
+                
+                // Check unified structure
+                const unifiedQuestions = data.questions?.bollards || [];
+                const foundInUnified = unifiedQuestions[questionIndex] && 
+                    unifiedQuestions[questionIndex].question === editedQuestion.question;
+                
+                // Check image-based mode
+                const imageBasedQuestions = data['image-based']?.bollards || [];
+                const foundInImageBased = imageBasedQuestions[questionIndex] && 
+                    imageBasedQuestions[questionIndex].question === editedQuestion.question;
+                
+                // Check time-limited mode
+                const timeLimitedQuestions = data['time-limited']?.bollards || [];
+                const foundInTimeLimited = timeLimitedQuestions[questionIndex] && 
+                    timeLimitedQuestions[questionIndex].question === editedQuestion.question;
+                
+                if (foundInUnified && foundInImageBased && foundInTimeLimited) {
+                    showResult(resultElementId, '✅ Question edit verified in all data structures', 'success');
+                } else {
+                    showResult(resultElementId, `❌ Edit verification failed: Unified: ${foundInUnified}, Image-based: ${foundInImageBased}, Time-limited: ${foundInTimeLimited}`, 'error');
+                }
+                
+            } catch (error) {
+                showResult(resultElementId, `❌ Edit verification error: ${error.message}`, 'error');
+            }
+        }
+        
+        async function testDelete() {
+            try {
+                showResult('delete-result', 'Starting delete test...', 'info');
+                
+                // Get current data to find a question to delete
+                const response = await fetch(`${API_BASE}/quiz-data`);
+                const data = await response.json();
+                
+                const bollardQuestions = data.questions?.bollards || [];
+                if (bollardQuestions.length === 0) {
+                    showResult('delete-result', '❌ No questions found to delete', 'error');
+                    return;
+                }
+                
+                // Find our test question or use the last one
+                const questionToDelete = bollardQuestions.find(q => q.question?.includes('CRUD Test Question')) || bollardQuestions[bollardQuestions.length - 1];
+                const questionIndex = bollardQuestions.indexOf(questionToDelete);
+                
+                showResult('delete-result', `Deleting question at index ${questionIndex}: "${questionToDelete.question}"`, 'info');
+                
+                // Delete the question
+                const deleteResponse = await fetch(`${API_BASE}/delete-question`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        mode: 'image-based',
+                        category: 'bollards',
+                        questionIndex: questionIndex
+                    })
+                });
+
+                if (!deleteResponse.ok) {
+                    const errorText = await deleteResponse.text();
+                    throw new Error(`HTTP ${deleteResponse.status}: ${errorText}`);
+                }
+
+                const deleteResult = await deleteResponse.json();
+                showResult('delete-result', `✅ Question deleted successfully!<br><pre>${JSON.stringify(deleteResult, null, 2)}</pre>`, 'success');
+                
+                // Verify the deletion
+                await verifyQuestionDeleted(questionToDelete, 'delete-result');
+                
+            } catch (error) {
+                showResult('delete-result', `❌ Delete test failed: ${error.message}`, 'error');
+            }
+        }
+        
+        async function verifyQuestionDeleted(deletedQuestion, resultElementId) {
+            try {
+                const response = await fetch(`${API_BASE}/quiz-data`);
+                const data = await response.json();
+                
+                // Check if question was removed from all locations
+                const imageBasedQuestions = data['image-based']?.bollards || [];
+                const timeLimitedQuestions = data['time-limited']?.bollards || [];
+                const unifiedQuestions = data.questions?.bollards || [];
+                
+                const stillInImageBased = imageBasedQuestions.some(q => 
+                    q.question === deletedQuestion.question && q.correctAnswer === deletedQuestion.correctAnswer
+                );
+                const stillInTimeLimited = timeLimitedQuestions.some(q => 
+                    q.question === deletedQuestion.question && q.correctAnswer === deletedQuestion.correctAnswer
+                );
+                const stillInUnified = unifiedQuestions.some(q => 
+                    q.question === deletedQuestion.question && q.correctAnswer === deletedQuestion.correctAnswer
+                );
+                
+                if (!stillInImageBased && !stillInTimeLimited && !stillInUnified) {
+                    showResult(resultElementId, '✅ Question deletion verified in all data structures', 'success');
+                } else {
+                    showResult(resultElementId, `❌ Deletion verification failed: Still in Image-based: ${stillInImageBased}, Time-limited: ${stillInTimeLimited}, Unified: ${stillInUnified}`, 'error');
+                }
+                
+            } catch (error) {
+                showResult(resultElementId, `❌ Deletion verification error: ${error.message}`, 'error');
+            }
+        }
+        
+        async function runAllTests() {
+            showResult('all-results', '🚀 Starting complete test suite...', 'info');
+            
+            // Clear previous results
+            ['status-result', 'create-result', 'edit-result', 'delete-result'].forEach(id => {
+                document.getElementById(id).innerHTML = '';
+            });
+            
+            const initialStatus = await checkCurrentStatus();
+            await testCreate();
+            await testEdit();
+            await testDelete();
+            const finalStatus = await checkCurrentStatus();
+            
+            showResult('all-results', '🏁 Complete test suite finished!', 'info');
+            
+            if (initialStatus && finalStatus) {
+                showResult('all-results', `Question count change: ${initialStatus.allCount} → ${finalStatus.allCount}`, 'info');
+            }
+        }
+    </script>
+</body>
+</html>
