@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>TerraTüftler – Geographie Quiz</title>
         <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
-      <script type="module" crossorigin src="/assets/index-DOutqcwE.js"></script>
-      <link rel="stylesheet" crossorigin href="/assets/index-CJwL0cOV.css">
+      <script type="module" crossorigin src="/assets/index-CTQW8TzV.js"></script>
+      <link rel="stylesheet" crossorigin href="/assets/index-0HE2dSOY.css">
     </head>
     <body class="theme-standard">
         <header>
@@ -53,7 +53,7 @@
                         </div>
                         <div class="feature-card">
                             <h3>Teste dein Wissen</h3>
-                            <p>Verschiedene Quiz-Modi: Multiple Choice, zeitbegrenzte Challenges & Bildrätsel.</p>
+                            <p>Zwei Quiz-Modi: zeitbegrenzte Challenges & Bildrätsel für maximalen Lernspaß.</p>
                             <button class="btn btn-secondary" data-target="quiz">Quiz starten</button>
                         </div>
                         <div class="feature-card">
@@ -78,10 +78,6 @@
                             </div>
                         </header>
                         <div class="quiz-options">
-                            <div class="quiz-option" data-quiz-type="multiple-choice" role="button" tabindex="0">
-                                <h3>Multiple Choice</h3>
-                                <p>Klassisches Quiz mit vier Antwortmöglichkeiten</p>
-                            </div>
                             <div class="quiz-option" data-quiz-type="time-limited" role="button" tabindex="0">
                                 <h3>Zeitbegrenztes Quiz</h3>
                                 <p>Beantworte Fragen unter Zeitdruck</p>
@@ -181,11 +177,11 @@
                                 <option value="google_cars">Google Cars</option>
                                 <option value="poles">Strommasten</option>
                                 <option value="architecture">Architektur</option>
-                                <option value="straßenschilder">Straßenschilder</option>
-                                <option value="wahrzeichen">Wahrzeichen</option>
-                                <option value="landschaft">Landschaft</option>
-                                <option value="städte_erkennen">Städte erkennen</option>
-                                <option value="geographie_extrem">Geographie Extrem</option>
+                                <option value="traffic-signs">Verkehrsschilder</option>
+                                <option value="power-lines">Stromleitungen</option>
+                                <option value="vegetation">Vegetation</option>
+                                <option value="chevrons">Chevrons</option>
+                                <option value="other_signs">Andere Schilder</option>
                             </select>
                         </div>
                         <div id="learn-content-grid" class="learn-reference-grid">
@@ -208,7 +204,6 @@
                                 <div class="filter-group">
                                     <label for="leaderboard-mode-select">Quiz-Modus:</label>
                                     <select id="leaderboard-mode-select">
-                                        <option value="multiple-choice">Multiple Choice</option>
                                         <option value="time-limited">Zeit-Challenge</option>
                                         <option value="image-based">Bild-Quiz</option>
                                     </select>
@@ -411,10 +406,6 @@
                         <label>Verfügbar für Quiz-Modi:</label>
                         <div class="checkbox-group">
                             <label class="checkbox-label">
-                                <input type="checkbox" id="mode-multiple-choice" value="multiple-choice">
-                                <span>Multiple Choice</span>
-                            </label>
-                            <label class="checkbox-label">
                                 <input type="checkbox" id="mode-image-based" value="image-based">
                                 <span>Bildbasiert</span>
                             </label>
@@ -447,20 +438,11 @@
                 <div class="modal-body">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="question-mode">Quiz-Modus:</label>
-                            <select id="question-mode" class="form-input">
-                                <option value="">Modus wählen...</option>
-                                <option value="multiple-choice">Multiple Choice</option>
-                                <option value="image-based">Bildbasiert</option>
-                                <option value="time-limited">Zeitbegrenzt</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
                             <label for="question-category">Kategorie:</label>
-                            <select id="question-category" class="form-input" disabled>
-                                <option value="">Erst Modus wählen...</option>
+                            <select id="question-category" class="form-input">
+                                <option value="">Kategorie wählen...</option>
                             </select>
+                            <p class="input-hint">Frage wird automatisch zu beiden Quiz-Modi hinzugefügt (Bildbasiert & Zeitbegrenzt)</p>
                         </div>
                     </div>
 
@@ -616,7 +598,6 @@
                             <div class="filter-controls">
                                 <select id="filter-mode" class="form-input">
                                     <option value="">Alle Modi</option>
-                                    <option value="multiple-choice">Multiple Choice</option>
                                     <option value="image-based">Bildbasiert</option>
                                     <option value="time-limited">Zeitbegrenzt</option>
                                 </select>
