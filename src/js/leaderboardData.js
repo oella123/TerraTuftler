@@ -255,7 +255,12 @@ export async function saveLeaderboardEntry(name, correctAnswers, mode, category,
     
     // Also save to localStorage as backup
     saveToLocalStorage(mode, category, timeLimit, sortedLeaderboard);
-    
+
+    // Trigger automatic leaderboard refresh if we're currently viewing the leaderboard
+    if (typeof window !== 'undefined' && window.updateLeaderboardDisplay) {
+        window.updateLeaderboardDisplay();
+    }
+
     return true;
 }
 

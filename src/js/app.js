@@ -17,7 +17,7 @@ let playerNameArea, playerNameInput, savePlayerNameBtn, currentPlayerNameDisplay
 let learnSection, learnOverviewContainer, learnCategorySelect, learnContentGrid;
 let soundToggle, themeSelect;
 let timeLimitSelect, timeLimitOptionsDiv; // Already referenced in quiz.js, but needed for listener here
-let leaderboardModeSelect, leaderboardCategorySelect, leaderboardTimeSelect, timeLimitFilter, refreshLeaderboardBtn, clearLeaderboardBtn; // Enhanced leaderboard controls
+let leaderboardModeSelect, leaderboardCategorySelect, leaderboardTimeSelect, timeLimitFilter; // Enhanced leaderboard controls
 let currentPlayerDisplay, changePlayerBtn, playerNameModal, newPlayerNameInput, closePlayerModalBtn, cancelPlayerChangeBtn, confirmPlayerChangeBtn; // Player name change elements
 let quizOptionButtons; // From quiz.js cache
 let backToQuizSelectionBtn; // From quiz.js cache
@@ -57,8 +57,7 @@ function cacheAppDOMElements() {
     leaderboardCategorySelect = document.getElementById('leaderboard-category-select');
     leaderboardTimeSelect = document.getElementById('leaderboard-time-select');
     timeLimitFilter = document.getElementById('time-limit-filter');
-    refreshLeaderboardBtn = document.getElementById('refresh-leaderboard');
-    clearLeaderboardBtn = document.getElementById('clear-leaderboard');
+    // Manual leaderboard control buttons removed
 
     // Player name change elements
     currentPlayerDisplay = document.getElementById('current-player-display');
@@ -263,17 +262,9 @@ function updateLeaderboardCategories() {
     const allCategories = Object.keys(quizData[dataSource]);
     let categories;
 
-    // Filter categories based on quiz mode (same logic as showQuizCategories)
-    if (mode === 'time-limited') {
-        categories = allCategories.filter(cat =>
-            ['all', 'landschaft', 'städte_erkennen', 'wahrzeichen', 'geographie_extrem'].includes(cat)
-        );
-    } else if (mode === 'image-based') {
-        // Show ALL categories available in image-based data to match quiz selection
-        categories = allCategories;
-    } else {
-        categories = allCategories;
-    }
+    // Show ALL categories for both modes - no filtering needed for leaderboard
+    // Users should be able to see leaderboard entries for all categories they've played
+    categories = allCategories;
 
     // Populate category dropdown
     categories.forEach(category => {
@@ -311,6 +302,9 @@ function updateLeaderboardDisplay() {
 
     displayLeaderboard(mode, category, timeLimit);
 }
+
+// Make updateLeaderboardDisplay available globally for automatic updates
+window.updateLeaderboardDisplay = updateLeaderboardDisplay;
 
 // --- Player Name Logic ---
 
@@ -850,21 +844,7 @@ function setupEventListeners() {
         });
     }
 
-    if (refreshLeaderboardBtn) {
-        refreshLeaderboardBtn.addEventListener('click', () => {
-            updateLeaderboardDisplay();
-        });
-    }
-
-    if (clearLeaderboardBtn) {
-        clearLeaderboardBtn.addEventListener('click', () => {
-            const mode = leaderboardModeSelect?.value;
-            const category = leaderboardCategorySelect?.value || 'all';
-            const timeLimit = (mode === 'time-limited' && leaderboardTimeSelect) ?
-                parseFloat(leaderboardTimeSelect.value) : null;
-            clearLeaderboard(mode, category, timeLimit);
-        });
-    }
+    // Manual leaderboard controls removed - leaderboard updates automatically
 
     // Player Name Change Controls
     if (changePlayerBtn) {

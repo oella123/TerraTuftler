@@ -4,7 +4,7 @@ import {
     clearAllLeaderboardData,
     getLeaderboardStatistics
 } from './leaderboardData.js';
-import { saveQuizDataToBackend, addCategoryToBackend, addQuestionToBackend, editQuestionFromBackend, deleteQuestionFromBackend, deleteCategoryFromBackend } from './api.js';
+import { saveQuizDataToBackend, addCategoryToBackend, addQuestionToBackend, deleteQuestionFromBackend, deleteCategoryFromBackend } from './api.js';
 
 // Admin state
 export const adminState = {
@@ -860,7 +860,7 @@ async function handleAddQuestion(event) {
             return;
         }
         adminElements.confirmQuestionBtn.disabled = true;
-        adminElements.confirmQuestionBtn.textContent = editState.isEditing ? 'Wird gespeichert...' : 'Wird hinzugefügt...';
+        adminElements.confirmQuestionBtn.textContent = 'Wird hinzugefügt...';
     }
 
     const category = adminElements.questionCategorySelect?.value;
@@ -884,7 +884,7 @@ async function handleAddQuestion(event) {
     const resetSubmitButton = () => {
         if (adminElements.confirmQuestionBtn) {
             adminElements.confirmQuestionBtn.disabled = false;
-            adminElements.confirmQuestionBtn.textContent = editState.isEditing ? 'Änderungen speichern' : 'Frage hinzufügen';
+            adminElements.confirmQuestionBtn.textContent = 'Frage hinzufügen';
         }
     };
 
@@ -976,18 +976,9 @@ async function handleAddQuestion(event) {
             console.log(`  ${key}:`, value);
         }
 
-        // Send to backend with file upload support - use correct endpoint based on mode
+        // Send to backend with file upload support
         let endpoint = '/api/add-question';
         let method = 'POST';
-
-        if (editState.isEditing) {
-            endpoint = '/api/edit-question';
-            method = 'PUT';
-            // Add edit-specific data
-            formData.append('mode', editState.mode);
-            formData.set('category', editState.category); // Override category with edit state
-            formData.append('questionIndex', editState.questionIndex.toString());
-        }
 
         const response = await fetch(endpoint, {
             method: method,
@@ -1019,28 +1010,8 @@ async function handleAddQuestion(event) {
             questionObj.image = result.imagePath;
         }
 
-        // Update local quiz data - Handle both editing and adding
-        if (editState.isEditing) {
-            // EDITING MODE: Server has already updated the data, so refresh from server
-            console.log('Edit completed, refreshing data from server...');
-
-            // CRITICAL: Refresh quiz data from server to get the updated data
-            await refreshQuizData();
-            console.log('Quiz data refreshed from server after edit');
-
-            // Reset edit state
-            editState = {
-                isEditing: false,
-                mode: null,
-                category: null,
-                questionIndex: null,
-                originalQuestion: null
-            };
-
-            const imageInfo = result.imagePath ? ' (Bild automatisch organisiert)' : '';
-            showTemporaryFeedback(`Frage erfolgreich bearbeitet!${imageInfo}`, 'success');
-        } else {
-            // ADDING MODE: Add new question
+        // Update local quiz data - Adding new question
+        // ADDING MODE: Add new question
             // Add to unified questions data structure
             if (!quizData.questions) {
                 quizData.questions = {};
@@ -1065,9 +1036,8 @@ async function handleAddQuestion(event) {
 
             quizData[dataSource][category].push(questionObj);
 
-            const imageInfo = result.imagePath ? ' (Bild automatisch organisiert)' : '';
-            showTemporaryFeedback(`Frage erfolgreich zu "${category}" (beide Quiz-Modi) hinzugefügt!${imageInfo}`, 'success');
-        }
+        const imageInfo = result.imagePath ? ' (Bild automatisch organisiert)' : '';
+        showTemporaryFeedback(`Frage erfolgreich zu "${category}" (beide Quiz-Modi) hinzugefügt!${imageInfo}`, 'success');
 
         // Save to localStorage as backup
         saveQuizDataBackup();
@@ -1670,9 +1640,6 @@ function displayQuestions(questions) {
                 </div>
             </div>
             <div class="content-item-actions">
-                <button class="btn btn-secondary btn-small" onclick="editQuestion('${item.mode}', '${item.category}', ${item.index})" style="margin-right: 0.5rem;">
-                    ✏️ Bearbeiten
-                </button>
                 <button class="btn btn-danger btn-small" onclick="confirmDeleteQuestion('${item.mode}', '${item.category}', ${item.index})">
                     🗑️ Löschen
                 </button>
@@ -1758,179 +1725,10 @@ function filterQuestions() {
     displayQuestions(allQuestions);
 }
 
-// ===== EDIT FUNCTIONALITY =====
+// ===== EDIT FUNCTIONALITY REMOVED =====
+// Edit functionality has been removed to streamline the admin interface
 
-// Global variable for edit state
-let editState = {
-    isEditing: false,
-    mode: null,
-    category: null,
-    questionIndex: null,
-    originalQuestion: null
-};
-
-/** Edit question */
-window.editQuestion = function(mode, category, questionIndex) {
-    console.log('=== EDIT QUESTION DEBUG ===');
-    console.log('Mode:', mode);
-    console.log('Category:', category);
-    console.log('Question Index:', questionIndex);
-    console.log('Quiz Data Keys:', Object.keys(quizData));
-
-    let question = null;
-    let actualMode = mode;
-
-    // Handle unified structure (mode === "questions")
-    if (mode === 'questions') {
-        if (quizData.questions && quizData.questions[category] && quizData.questions[category][questionIndex]) {
-            question = quizData.questions[category][questionIndex];
-            // Determine the actual mode based on question content
-            if (question.image) {
-                actualMode = 'image-based'; // Default for image-based questions
-            }
-        }
-    } else {
-        // Handle legacy structure
-        if (quizData[mode] && quizData[mode][category] && quizData[mode][category][questionIndex]) {
-            question = quizData[mode][category][questionIndex];
-        }
-    }
-
-    console.log('Found question:', !!question);
-    console.log('Actual mode:', actualMode);
-    console.log('Question data:', question);
-
-    if (!question) {
-        showTemporaryFeedback('Frage nicht gefunden.', 'error');
-        console.error('Question not found at path:', mode, category, questionIndex);
-        return;
-    }
-
-    // Set edit state
-    editState = {
-        isEditing: true,
-        mode: actualMode, // Use the determined actual mode
-        category: category,
-        questionIndex: questionIndex,
-        originalQuestion: { ...question },
-        sourceMode: mode // Keep track of where we found the question
-    };
-
-    console.log('Edit state set:', editState);
-
-    // Show the modal first
-    showAddQuestionModal();
-
-    // Pre-populate the add question modal with existing data after a short delay
-    // This ensures the modal is fully rendered before we try to populate it
-    setTimeout(() => {
-        populateEditForm(question, actualMode, category);
-    }, 100);
-
-    // Update modal title and button text
-    const modalTitle = document.querySelector('#add-question-modal .modal-header h3');
-    if (modalTitle) {
-        modalTitle.textContent = 'Frage bearbeiten';
-    }
-
-    const submitBtn = adminElements.confirmQuestionBtn; // Fixed: was addQuestionBtn, should be confirmQuestionBtn
-    if (submitBtn) {
-        submitBtn.textContent = 'Änderungen speichern';
-    }
-};
-
-/** Populate edit form with existing question data */
-function populateEditForm(question, mode, category) {
-    console.log('=== POPULATE EDIT FORM DEBUG ===');
-    console.log('Question:', question);
-    console.log('Mode:', mode);
-    console.log('Category:', category);
-
-    // Check if all required elements are available
-    console.log('Admin elements check:');
-    console.log('questionModeSelect:', !!adminElements.questionModeSelect);
-    console.log('questionCategorySelect:', !!adminElements.questionCategorySelect);
-    console.log('questionTextInput:', !!adminElements.questionTextInput);
-    console.log('option1Input:', !!adminElements.option1Input);
-    console.log('correctAnswerSelect:', !!adminElements.correctAnswerSelect);
-
-    // Set mode and category
-    if (adminElements.questionModeSelect) {
-        adminElements.questionModeSelect.value = mode;
-        console.log('Mode set to:', mode);
-        updateCategoryDropdown(); // Update categories for selected mode
-
-        // Wait a bit for the dropdown to update, then set the category
-        setTimeout(() => {
-            if (adminElements.questionCategorySelect) {
-                adminElements.questionCategorySelect.value = category;
-                console.log('Category set to:', category);
-                console.log('Available category options:', Array.from(adminElements.questionCategorySelect.options).map(opt => opt.value));
-            }
-        }, 200);
-    } else {
-        console.error('questionModeSelect element not found!');
-    }
-
-    // Set question text
-    if (adminElements.questionTextInput && question.question) {
-        adminElements.questionTextInput.value = question.question;
-        console.log('Question text set to:', question.question);
-    }
-
-    // Set image URL if exists
-    if (adminElements.questionImageInput && question.image) {
-        adminElements.questionImageInput.value = question.image;
-        console.log('Image URL set to:', question.image);
-        // Trigger image preview update
-        updateImagePreview();
-    }
-
-    // Set options
-    if (question.options && Array.isArray(question.options)) {
-        const optionInputs = [
-            adminElements.option1Input,
-            adminElements.option2Input,
-            adminElements.option3Input,
-            adminElements.option4Input
-        ];
-
-        question.options.forEach((option, index) => {
-            if (optionInputs[index]) {
-                optionInputs[index].value = option;
-                console.log(`Option ${index + 1} set to:`, option);
-            }
-        });
-
-        // Update correct answer dropdown after a delay to ensure options are set
-        setTimeout(() => {
-            updateCorrectAnswerOptions();
-
-            // Set correct answer after dropdown is updated
-            if (adminElements.correctAnswerSelect && question.correctAnswer) {
-                adminElements.correctAnswerSelect.value = question.correctAnswer;
-                console.log('Correct answer set to:', question.correctAnswer);
-            }
-        }, 150);
-    }
-
-    // Set explanation
-    if (adminElements.questionExplanationInput && question.explanation) {
-        adminElements.questionExplanationInput.value = question.explanation;
-        console.log('Explanation set to:', question.explanation);
-    }
-
-    // Set Street View URL
-    if (adminElements.questionStreetViewUrlInput && question.streetViewUrl) {
-        adminElements.questionStreetViewUrlInput.value = question.streetViewUrl;
-        console.log('Street View URL set to:', question.streetViewUrl);
-    }
-
-    // Update preview after a delay to ensure all fields are populated
-    setTimeout(() => {
-        showQuestionPreview();
-    }, 200);
-}
+// Edit functionality removed - only create and delete operations are supported
 
 // ===== DELETION FUNCTIONALITY =====
 

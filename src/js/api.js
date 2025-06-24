@@ -158,28 +158,7 @@ export async function loadLeaderboardDataFromBackend() {
     }
 }
 
-/**
- * Edit/Update a question via the backend API
- * @param {string} mode - Quiz mode
- * @param {string} category - Category name
- * @param {number} questionIndex - Index of question to edit
- * @param {object} questionData - Updated question data object
- * @returns {Promise<object>} - Edit result
- */
-export async function editQuestionFromBackend(mode, category, questionIndex, questionData) {
-    try {
-        const response = await apiRequest('/edit-question', {
-            method: 'PUT',
-            body: JSON.stringify({ mode, category, questionIndex, questionData }),
-        });
-
-        console.log('Question edited from backend:', response.message);
-        return response;
-    } catch (error) {
-        console.error('Failed to edit question from backend:', error);
-        throw error;
-    }
-}
+// Edit functionality removed - only create and delete operations are supported
 
 /**
  * Delete a question via the backend API
