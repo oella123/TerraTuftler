@@ -7,6 +7,7 @@
     "dev": "vite --host",
     "start": "node server.js",
     "build": "vite build",
+    "vercel-build": "vite build",
     "preview": "vite preview",
     "clean": "rimraf dist node_modules/.vite",
     "dev:frontend": "vite --host",

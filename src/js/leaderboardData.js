@@ -10,14 +10,31 @@ async function loadLeaderboardData() {
         // First try to load from backend API
         const backendAvailable = await checkBackendAvailability();
         if (backendAvailable) {
-            leaderboardData = await loadLeaderboardDataFromBackend();
-            console.log('Leaderboard data loaded from backend API');
-        } else {
-            // Fallback to static file loading
-            const response = await fetch('./data/leaderboardData.json');
-            leaderboardData = await response.json();
-            console.log('Leaderboard data loaded from static file');
+            try {
+                leaderboardData = await loadLeaderboardDataFromBackend();
+                console.log('Leaderboard data loaded from backend API');
+                return;
+            } catch (apiError) {
+                console.warn('Backend API failed for leaderboard, falling back to static files:', apiError);
+            }
         }
+
+        // Fallback to static file loading
+        const response = await fetch('/data/leaderboardData.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+            console.warn('Leaderboard response is not JSON, content-type:', contentType);
+            const text = await response.text();
+            console.error('Response text:', text.substring(0, 200));
+            throw new Error('Invalid JSON response for leaderboard data');
+        }
+
+        leaderboardData = await response.json();
+        console.log('Leaderboard data loaded from static file');
 
         // Migrate localStorage data on first load
         await migrateLocalStorageData();

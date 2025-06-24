@@ -1,0 +1,2636 @@
+{
+  "time-limited": {
+    "bollards": [
+      {
+        "image": "assets/images/Bollards/bollardBE.jpg",
+        "options": [
+          "Niederlande",
+          "Belgien",
+          "Luxemburg",
+          "Frankreich"
+        ],
+        "correctAnswer": "Belgien",
+        "explanation": "Diese charakteristischen weißen Bollards mit roten Reflektoren sind typisch für belgische Straßen."
+      },
+      {
+        "image": "assets/images/Bollards/bollardFR.jpg",
+        "options": [
+          "Belgien",
+          "Schweiz",
+          "Frankreich",
+          "Italien"
+        ],
+        "correctAnswer": "Frankreich",
+        "explanation": "Französische Bollards haben oft diese spezielle Form und Farbgebung, die in ganz Frankreich verwendet wird."
+      },
+      {
+        "image": "assets/images/Bollards/bollardGER.jpg",
+        "options": [
+          "Österreich",
+          "Deutschland",
+          "Schweiz",
+          "Niederlande"
+        ],
+        "correctAnswer": "Deutschland",
+        "explanation": "Deutsche Bollards sind oft weiß mit schwarzen Streifen und haben diese charakteristische zylindrische Form."
+      },
+      {
+        "image": "assets/images/Bollards/bollardIT.jpg",
+        "options": [
+          "Spanien",
+          "Italien",
+          "Griechenland",
+          "Portugal"
+        ],
+        "correctAnswer": "Italien",
+        "explanation": "Italienische Bollards haben oft diese spezielle Bauweise und sind charakteristisch für italienische Straßen."
+      },
+      {
+        "image": "assets/images/Bollards/bollardKZ.jpg",
+        "options": [
+          "Russland",
+          "Kasachstan",
+          "Usbekistan",
+          "Kirgisistan"
+        ],
+        "correctAnswer": "Kasachstan",
+        "explanation": "Diese Bollards sind typisch für kasachische Straßeninfrastruktur und unterscheiden sich von anderen zentralasiatischen Ländern."
+      },
+      {
+        "image": "assets/images/Bollards/bollardLUX.jpg",
+        "options": [
+          "Belgien",
+          "Luxemburg",
+          "Niederlande",
+          "Deutschland"
+        ],
+        "correctAnswer": "Luxemburg",
+        "explanation": "Luxemburgische Bollards haben diese charakteristische Form und sind ein Erkennungsmerkmal des Landes."
+      },
+      {
+        "image": "assets/images/Bollards/bollardPL.jpg",
+        "options": [
+          "Deutschland",
+          "Polen",
+          "Tschechien",
+          "Slowakei"
+        ],
+        "correctAnswer": "Polen",
+        "explanation": "Polnische Bollards haben diese charakteristische Form und Farbgebung."
+      },
+      {
+        "image": "assets/images/Bollards/bollardRU.jpg",
+        "options": [
+          "Belarus",
+          "Russland",
+          "Ukraine",
+          "Kasachstan"
+        ],
+        "correctAnswer": "Russland",
+        "explanation": "Russische Bollards sind charakteristisch für die russische Straßeninfrastruktur."
+      },
+      {
+        "image": "assets/images/Bollards/bollardSK.jpg",
+        "options": [
+          "Tschechien",
+          "Slowakei",
+          "Ungarn",
+          "Polen"
+        ],
+        "correctAnswer": "Slowakei",
+        "explanation": "Slowakische Bollards haben diese spezielle Bauweise und sind typisch für das Land."
+      },
+      {
+        "image": "assets/images/Bollards/bollardTR.jpg",
+        "options": [
+          "Griechenland",
+          "Türkei",
+          "Bulgarien",
+          "Zypern"
+        ],
+        "correctAnswer": "Türkei",
+        "explanation": "Türkische Bollards haben diese charakteristische Form und sind ein Erkennungsmerkmal des Landes."
+      },
+      {
+        "image": "assets/images/Bollards/bollardUK1.png",
+        "options": [
+          "Irland",
+          "Großbritannien",
+          "Niederlande",
+          "Belgien"
+        ],
+        "correctAnswer": "Großbritannien",
+        "explanation": "Britische Bollards haben diese charakteristische Form und sind typisch für das Vereinigte Königreich."
+      },
+      {
+        "image": "assets/images/Bollards/bollardUK2.jpg",
+        "options": [
+          "Irland",
+          "Großbritannien",
+          "Niederlande",
+          "Dänemark"
+        ],
+        "correctAnswer": "Großbritannien",
+        "explanation": "Diese Bollards sind ein weiteres Beispiel für britische Straßeninfrastruktur."
+      }
+    ],
+    "google_cars": [
+      {
+        "image": "assets/images/Google Cars/carKE (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@-4.0263221,39.6768325,3a,90y,244.43h,62.63t/data=!3m7!1e1!3m5!1sFHHr9smPx-_SVoGwzWyLXQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D27.37160186111136%26panoid%3DFHHr9smPx-_SVoGwzWyLXQ%26yaw%3D244.42849294916982!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUyOC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Tansania",
+          "Kenia",
+          "Uganda",
+          "Äthiopien"
+        ],
+        "correctAnswer": "Kenia",
+        "explanation": "Kenia hat viele einzigartige Google Cars, fast alle mit sichtbaren Auto-Meta-Merkmalen. In Generation 3 sieht man typischerweise ein Auto mit Dachträger und Schnorchel. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carMN (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@47.592823,107.2996091,3a,90y,105.58h,71.84t/data=!3m7!1e1!3m5!1sttX3Qfa5s93cvE6FyeNR-A!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D18.159614327924643%26panoid%3DttX3Qfa5s93cvE6FyeNR-A%26yaw%3D105.57765571481667!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Kasachstan",
+          "Mongolei",
+          "China",
+          "Russland"
+        ],
+        "correctAnswer": "Mongolei",
+        "explanation": "In der Mongolei kann der Truck verschiedene Merkmale haben wie ein Zelt oben, rote Seitenspiegel, einen Schnorchel und Dachträger. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carMN2.png",
+        "streetViewUrl": "https://www.google.com/maps/@48.1999923,106.3355812,2a,90y,309.93h,43.9t/data=!3m7!1e1!3m5!1s-Ej8lP-w7CQ5xVZCnVtJvA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D46.098648140401664%26panoid%3D-Ej8lP-w7CQ5xVZCnVtJvA%26yaw%3D309.9269313316834!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Kasachstan",
+          "Mongolei",
+          "Kirgisistan",
+          "Russland"
+        ],
+        "correctAnswer": "Mongolei",
+        "explanation": "Alternative mongolische Google Car-Konfiguration mit charakteristischen Merkmalen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carKZ.png",
+        "streetViewUrl": "https://www.google.com/maps/@51.1312877,71.4142766,3a,90y,56.48h,72.78t/data=!3m7!1e1!3m5!1sQv0zP3Wn7R0cX7JOx6nADw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D17.22050544097182%26panoid%3DQv0zP3Wn7R0cX7JOx6nADw%26yaw%3D56.47851624673639!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Usbekistan",
+          "Kasachstan",
+          "Kirgisistan",
+          "Mongolei"
+        ],
+        "correctAnswer": "Kasachstan",
+        "explanation": "Die gesamte Abdeckung in Kasachstan wurde mit einem weißen Pickup-Truck aufgenommen, der entweder vollständig sichtbar oder größtenteils unscharf ist. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carLK.png",
+        "streetViewUrl": "https://www.google.com/maps/@9.3534012,80.3962209,3a,75y,80.35h,57.72t/data=!3m7!1e1!3m5!1sRzV9wIGJoVqr4wa2OQtuHA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D32.276852312352915%26panoid%3DRzV9wIGJoVqr4wa2OQtuHA%26yaw%3D80.35165811328886!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Indien",
+          "Sri Lanka",
+          "Bangladesh",
+          "Myanmar"
+        ],
+        "correctAnswer": "Sri Lanka",
+        "explanation": "In den meisten Generation 3-Aufnahmen kann man die Vorderseite des Google Cars teilweise durch die Unschärfe sehen: es ist als blau-weiß-rote Flecken sichtbar, die an die französische Flagge erinnern. Der rote Fleck ist meist am deutlichsten sichtbar. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carGH.png",
+        "streetViewUrl": "https://www.google.com/maps/@5.2491995,-2.6422688,2a,90y,196.1h,54.6t/data=!3m7!1e1!3m5!1sDeqVyWWTbPkNztc8ySdATQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D35.39695111006429%26panoid%3DDeqVyWWTbPkNztc8ySdATQ%26yaw%3D196.09510774482936!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Nigeria",
+          "Ghana",
+          "Elfenbeinküste",
+          "Burkina Faso"
+        ],
+        "correctAnswer": "Ghana",
+        "explanation": "Alle regulären Straßenaufnahmen in Ghana wurden mit einem einzigartigen Google Car gemacht. Es hat einen sichtbaren Dachträger mit einem Stück schwarzem Klebeband am rechten Ende der vorderen Stange. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carAR.png",
+        "streetViewUrl": "https://www.google.com/maps/@-38.3746035,-60.2728556,3a,75y,136.99h,44.16t/data=!3m7!1e1!3m5!1suERdLV1HEBkAv0E8_jtvvQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D45.84475689437271%26panoid%3DuERdLV1HEBkAv0E8_jtvvQ%26yaw%3D136.99045589213176!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Chile",
+          "Argentinien",
+          "Uruguay",
+          "Brasilien"
+        ],
+        "correctAnswer": "Argentinien",
+        "explanation": "Argentinien hat ein schwarzes Google Car in Generation 3-Aufnahmen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carUSVI.png",
+        "streetViewUrl": "https://www.google.com/maps/@18.3355816,-64.9048526,3a,90y,98.64h,24.17t/data=!3m7!1e1!3m5!1sS7UDQ65lpvXi0qxErz0pMw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D65.82779940487119%26panoid%3DS7UDQ65lpvXi0qxErz0pMw%26yaw%3D98.63767940037347!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Puerto Rico",
+          "US Virgin Islands",
+          "Bahamas",
+          "Jamaika"
+        ],
+        "correctAnswer": "US Virgin Islands",
+        "explanation": "Auto-Aufnahmen auf den Inseln haben ein großes, sichtbares Street View Auto, das entweder rot oder weiß ist. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carGT.png",
+        "streetViewUrl": "https://www.google.com/maps/@16.9190739,-89.9022771,3a,90y,306.8h,1t/data=!3m7!1e1!3m5!1sQ86Q080MbIw2CiptWD7Uog!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D89%26panoid%3DQ86Q080MbIw2CiptWD7Uog%26yaw%3D306.7988976420839!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Belize",
+          "Guatemala",
+          "Honduras",
+          "El Salvador"
+        ],
+        "correctAnswer": "Guatemala",
+        "explanation": "Dieses graue Street View Auto mit sichtbarem Dachträger und Seitenspiegeln ist bei allen Auto-Aufnahmen in Guatemala zu sehen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      }
+    ],
+    "poles": [
+      {
+        "image": "assets/images/Poles/poleAR.png",
+        "streetViewUrl": "https://www.google.com/maps/@-33.9123599,-64.4101802,3a,54y,173.64h,103.86t/data=!3m7!1e1!3m5!1sNoZvseAY20TU1rFWPRuHqw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-13.855674551011447%26panoid%3DNoZvseAY20TU1rFWPRuHqw%26yaw%3D173.63928117851933!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Chile",
+          "Argentinien",
+          "Uruguay",
+          "Brasilien"
+        ],
+        "correctAnswer": "Argentinien",
+        "explanation": "Runde Betonmasten mit drei Stromleitungen in einem alternierenden Muster sind sehr häufig in Argentinien. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleBR.png",
+        "streetViewUrl": "https://www.google.com/maps/@-24.9570709,-53.4520887,3a,86.3y,118.43h,100.76t/data=!3m7!1e1!3m5!1sQku9NTG9rXTzINGMkZocXQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-10.760639915900455%26panoid%3DQku9NTG9rXTzINGMkZocXQ%26yaw%3D118.42863515895758!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Argentinien",
+          "Brasilien",
+          "Paraguay",
+          "Bolivien"
+        ],
+        "correctAnswer": "Brasilien",
+        "explanation": "Die häufigsten Masten in Brasilien ähneln einer Leiter im unteren Bereich. Sie sind rechteckig, haben lange Segmente im unteren Teil und kleine Löcher nahe der Spitze. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleIN.png",
+        "streetViewUrl": "https://www.google.com/maps/@26.1845987,80.4202355,3a,75y,90.28h,95.95t/data=!3m7!1e1!3m5!1slE70hqQj--uTZyjyZRi2-w!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-5.952992173475835%26panoid%3DlE70hqQj--uTZyjyZRi2-w%26yaw%3D90.28030942124397!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Pakistan",
+          "Indien",
+          "Bangladesh",
+          "Sri Lanka"
+        ],
+        "correctAnswer": "Indien",
+        "explanation": "Der häufigste indische Strommast ist ein quadratischer Betonmast mit einer Dreizack-Mastspitze. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleJP.png",
+        "streetViewUrl": "https://www.google.com/maps/@35.1521005,135.8759383,3a,90y,75.24h,98.9t/data=!3m7!1e1!3m5!1sJfED587MYpoTtTpSNz4acg!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-8.898472804514228%26panoid%3DJfED587MYpoTtTpSNz4acg%26yaw%3D75.24299763034568!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Südkorea",
+          "Japan",
+          "China",
+          "Taiwan"
+        ],
+        "correctAnswer": "Japan",
+        "explanation": "Japan verwendet hauptsächlich diese runden Betonmasten mit schraubenartigen Verlängerungen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleLK (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@9.6339147,80.1460263,3a,67.2y,153.03h,99.91t/data=!3m7!1e1!3m5!1s0iqnt-2vgUl-EHZKI1fcZA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-9.914793461498206%26panoid%3D0iqnt-2vgUl-EHZKI1fcZA%26yaw%3D153.03388406506215!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Indien",
+          "Sri Lanka",
+          "Malediven",
+          "Bangladesh"
+        ],
+        "correctAnswer": "Sri Lanka",
+        "explanation": "Sri Lanka verwendet typischerweise Beton-Strommasten. Quadratische Masten mit kleinen Löchern an den Seiten. Diese Löcher sind auf den oberen Teil des Mastes beschränkt. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/polePT.png",
+        "streetViewUrl": "https://www.google.com/maps/@39.5076392,-7.7917464,3a,63.9y,328.99h,91.23t/data=!3m7!1e1!3m5!1stju7ojOlkWG4h4X2fEGv_Q!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-1.2291780738297433%26panoid%3Dtju7ojOlkWG4h4X2fEGv_Q%26yaw%3D328.98932665201846!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Spanien",
+          "Portugal",
+          "Italien",
+          "Griechenland"
+        ],
+        "correctAnswer": "Portugal",
+        "explanation": "Beton-Leitermasten mit sehr hohen Leiterstufen sind in Portugal häufig. Jede Stufe hat oft ein kleines durchsichtiges Loch. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleRO (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@45.1307127,23.1874834,3a,90y,91.31h,108.15t/data=!3m7!1e1!3m5!1s1NVtmGfLfckFjLYet6m88Q!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-18.14854378183135%26panoid%3D1NVtmGfLfckFjLYet6m88Q%26yaw%3D91.3115742095575!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Bulgarien",
+          "Rumänien",
+          "Ungarn",
+          "Serbien"
+        ],
+        "correctAnswer": "Rumänien",
+        "explanation": "Die häufigsten Strommasten in Rumänien sind Lochmasten mit Löchern, die bis zum Boden reichen. Die Löcher sind typischerweise entweder ziemlich breit oder ziemlich hoch. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleTH (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@14.2307733,100.6731715,3a,75y,185.03h,103.68t/data=!3m7!1e1!3m5!1sWJa2o6G77T4tMtXnkOXCTg!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-13.684201283115414%26panoid%3DWJa2o6G77T4tMtXnkOXCTg%26yaw%3D185.03308967582325!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Vietnam",
+          "Thailand",
+          "Kambodscha",
+          "Laos"
+        ],
+        "correctAnswer": "Thailand",
+        "explanation": "Thailändische Masten sind quadratisch und haben kleine Löcher, die vertikal am Mast entlanglaufen. Ähnliche Masten sieht man in Sri Lanka, Kambodscha und Laos. Achte auf andere Hinweise vor dem Raten. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleTR (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@40.1898974,33.5619764,3a,90y,143.79h,103.63t/data=!3m7!1e1!3m5!1sxxASFFNIwC2DXGlR4Vh8Vw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-13.634317904302932%26panoid%3DxxASFFNIwC2DXGlR4Vh8Vw%26yaw%3D143.79211386083026!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Griechenland",
+          "Türkei",
+          "Bulgarien",
+          "Georgien"
+        ],
+        "correctAnswer": "Türkei",
+        "explanation": "Metallmasten, entweder in Leiterform oder mit Gittermuster, sind extrem häufig in der Türkei. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      }
+    ],
+    "chevrons": [
+      {
+        "image": "assets/images/Chevrons/chevronBR.png",
+        "streetViewUrl": "https://www.google.com/maps/@-22.8816339,-46.3891439,3a,24.4y,297.45h,82.41t/data=!3m7!1e1!3m5!1sXUwF5Iet1xOUg1kMCni_qQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D7.5908192711785745%26panoid%3DXUwF5Iet1xOUg1kMCni_qQ%26yaw%3D297.454293193465!7i16384!8i8192?hl=en-GB&entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Argentinien",
+          "Brasilien",
+          "Chile",
+          "Uruguay"
+        ],
+        "correctAnswer": "Brasilien",
+        "explanation": "Brasilien verwendet gelbe Chevrons mit schwarzen Pfeilen, im Gegensatz zu den meisten anderen südamerikanischen Ländern, die schwarze Chevrons mit gelben Pfeilen verwenden. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronES.png",
+        "streetViewUrl": "https://www.google.com/maps/@43.0781094,-2.1573698,3a,37.6y,270.81h,92.92t/data=!3m7!1e1!3m5!1smQ2H_fsNkPOcTe4lqvn8gQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-2.9220795163849402%26panoid%3DmQ2H_fsNkPOcTe4lqvn8gQ%26yaw%3D270.8124822065976!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Portugal",
+          "Spanien",
+          "Italien",
+          "Frankreich"
+        ],
+        "correctAnswer": "Spanien",
+        "explanation": "Spanien hat zwei Arten von Chevrons: schwarze mit weißen Pfeilen und blaue mit weißen Pfeilen. Chevrons mit nur einem Pfeil sind selten. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronLU.png",
+        "streetViewUrl": "https://www.google.com/maps/@49.6287868,6.1348973,3a,27y,45.8h,80.18t/data=!3m7!1e1!3m5!1sB_975vmVH__MIaBGGA3qxA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D9.822347510368616%26panoid%3DB_975vmVH__MIaBGGA3qxA%26yaw%3D45.795357992441886!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Belgien",
+          "Luxemburg",
+          "Niederlande",
+          "Deutschland"
+        ],
+        "correctAnswer": "Luxemburg",
+        "explanation": "Luxemburgische Chevrons sind schwarz mit gelben Pfeilen. Selten kann man auch blaue und gelbe Chevrons antreffen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronOM.png",
+        "streetViewUrl": "https://www.google.com/maps/@19.9460793,56.3428424,3a,21.9y,179.49h,90.45t/data=!3m7!1e1!3m5!1swcEl0V0G2Xilgo_sk3mcCw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-0.4546772394531331%26panoid%3DwcEl0V0G2Xilgo_sk3mcCw%26yaw%3D179.49342123922213!7i16384!8i8192?authuser=1&entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "VAE",
+          "Oman",
+          "Saudi-Arabien",
+          "Katar"
+        ],
+        "correctAnswer": "Oman",
+        "explanation": "Oman verwendet schwarz-gelbe Chevrons mit einer ungewöhnlich großen Anzahl von Pfeilen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronPT.png",
+        "streetViewUrl": "https://www.google.com/maps/@38.9638283,-8.9852704,3a,49.5y,111.95h,87.08t/data=!3m7!1e1!3m5!1sDNXpRoyqgtZAwgUxeHYCtQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D2.918500236222286%26panoid%3DDNXpRoyqgtZAwgUxeHYCtQ%26yaw%3D111.94937635834316!7i16384!8i8192?hl=en-GB&entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Spanien",
+          "Portugal",
+          "Italien",
+          "Griechenland"
+        ],
+        "correctAnswer": "Portugal",
+        "explanation": "Portugiesische Chevrons sind schwarz mit gelben Pfeilen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronRU.png",
+        "streetViewUrl": "https://www.google.com/maps/@55.8567189,38.551713,3a,31.3y,41.32h,89.63t/data=!3m7!1e1!3m5!1shRysuPtkzWibZfYfOLg1Fw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0.36818232390523065%26panoid%3DhRysuPtkzWibZfYfOLg1Fw%26yaw%3D41.31925689754313!7i16384!8i8192?hl=en-GB&entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Belarus",
+          "Russland",
+          "Ukraine",
+          "Kasachstan"
+        ],
+        "correctAnswer": "Russland",
+        "explanation": "Russland hat typischerweise rot-weiße Chevrons. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      }
+    ],
+    "other_signs": [
+      {
+        "image": "assets/images/Other Signs/givewayAU (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@-31.9103783,115.8493995,3a,53.5y,187.33h,91.92t/data=!3m7!1e1!3m5!1sP28PC61GPGJPVZvLcMRiJw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-1.9207768599487167%26panoid%3DP28PC61GPGJPVZvLcMRiJw%26yaw%3D187.3255237849087!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Neuseeland",
+          "Australien",
+          "Südafrika",
+          "Großbritannien"
+        ],
+        "correctAnswer": "Australien",
+        "explanation": "Vorfahrt-gewähren-Schilder in Australien haben einen weißen Rand und schwarzen Text. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      }
+    ],
+    "all": [
+      {
+        "image": "assets/images/Bollards/bollardBE.jpg",
+        "options": [
+          "Niederlande",
+          "Belgien",
+          "Luxemburg",
+          "Frankreich"
+        ],
+        "correctAnswer": "Belgien",
+        "explanation": "Diese charakteristischen weißen Bollards mit roten Reflektoren sind typisch für belgische Straßen."
+      },
+      {
+        "image": "assets/images/Bollards/bollardFR.jpg",
+        "options": [
+          "Belgien",
+          "Schweiz",
+          "Frankreich",
+          "Italien"
+        ],
+        "correctAnswer": "Frankreich",
+        "explanation": "Französische Bollards haben oft diese spezielle Form und Farbgebung, die in ganz Frankreich verwendet wird."
+      },
+      {
+        "image": "assets/images/Bollards/bollardGER.jpg",
+        "options": [
+          "Österreich",
+          "Deutschland",
+          "Schweiz",
+          "Niederlande"
+        ],
+        "correctAnswer": "Deutschland",
+        "explanation": "Deutsche Bollards sind oft weiß mit schwarzen Streifen und haben diese charakteristische zylindrische Form."
+      },
+      {
+        "image": "assets/images/Bollards/bollardIT.jpg",
+        "options": [
+          "Spanien",
+          "Italien",
+          "Griechenland",
+          "Portugal"
+        ],
+        "correctAnswer": "Italien",
+        "explanation": "Italienische Bollards haben oft diese spezielle Bauweise und sind charakteristisch für italienische Straßen."
+      },
+      {
+        "image": "assets/images/Bollards/bollardKZ.jpg",
+        "options": [
+          "Russland",
+          "Kasachstan",
+          "Usbekistan",
+          "Kirgisistan"
+        ],
+        "correctAnswer": "Kasachstan",
+        "explanation": "Diese Bollards sind typisch für kasachische Straßeninfrastruktur und unterscheiden sich von anderen zentralasiatischen Ländern."
+      },
+      {
+        "image": "assets/images/Bollards/bollardLUX.jpg",
+        "options": [
+          "Belgien",
+          "Luxemburg",
+          "Niederlande",
+          "Deutschland"
+        ],
+        "correctAnswer": "Luxemburg",
+        "explanation": "Luxemburgische Bollards haben diese charakteristische Form und sind ein Erkennungsmerkmal des Landes."
+      },
+      {
+        "image": "assets/images/Bollards/bollardPL.jpg",
+        "options": [
+          "Deutschland",
+          "Polen",
+          "Tschechien",
+          "Slowakei"
+        ],
+        "correctAnswer": "Polen",
+        "explanation": "Polnische Bollards haben diese charakteristische Form und Farbgebung."
+      },
+      {
+        "image": "assets/images/Bollards/bollardRU.jpg",
+        "options": [
+          "Belarus",
+          "Russland",
+          "Ukraine",
+          "Kasachstan"
+        ],
+        "correctAnswer": "Russland",
+        "explanation": "Russische Bollards sind charakteristisch für die russische Straßeninfrastruktur."
+      },
+      {
+        "image": "assets/images/Bollards/bollardSK.jpg",
+        "options": [
+          "Tschechien",
+          "Slowakei",
+          "Ungarn",
+          "Polen"
+        ],
+        "correctAnswer": "Slowakei",
+        "explanation": "Slowakische Bollards haben diese spezielle Bauweise und sind typisch für das Land."
+      },
+      {
+        "image": "assets/images/Bollards/bollardTR.jpg",
+        "options": [
+          "Griechenland",
+          "Türkei",
+          "Bulgarien",
+          "Zypern"
+        ],
+        "correctAnswer": "Türkei",
+        "explanation": "Türkische Bollards haben diese charakteristische Form und sind ein Erkennungsmerkmal des Landes."
+      },
+      {
+        "image": "assets/images/Bollards/bollardUK1.png",
+        "options": [
+          "Irland",
+          "Großbritannien",
+          "Niederlande",
+          "Belgien"
+        ],
+        "correctAnswer": "Großbritannien",
+        "explanation": "Britische Bollards haben diese charakteristische Form und sind typisch für das Vereinigte Königreich."
+      },
+      {
+        "image": "assets/images/Bollards/bollardUK2.jpg",
+        "options": [
+          "Irland",
+          "Großbritannien",
+          "Niederlande",
+          "Dänemark"
+        ],
+        "correctAnswer": "Großbritannien",
+        "explanation": "Diese Bollards sind ein weiteres Beispiel für britische Straßeninfrastruktur."
+      },
+      {
+        "image": "assets/images/Google Cars/carKE (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@-4.0263221,39.6768325,3a,90y,244.43h,62.63t/data=!3m7!1e1!3m5!1sFHHr9smPx-_SVoGwzWyLXQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D27.37160186111136%26panoid%3DFHHr9smPx-_SVoGwzWyLXQ%26yaw%3D244.42849294916982!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUyOC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Tansania",
+          "Kenia",
+          "Uganda",
+          "Äthiopien"
+        ],
+        "correctAnswer": "Kenia",
+        "explanation": "Kenia hat viele einzigartige Google Cars, fast alle mit sichtbaren Auto-Meta-Merkmalen. In Generation 3 sieht man typischerweise ein Auto mit Dachträger und Schnorchel. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carMN (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@47.592823,107.2996091,3a,90y,105.58h,71.84t/data=!3m7!1e1!3m5!1sttX3Qfa5s93cvE6FyeNR-A!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D18.159614327924643%26panoid%3DttX3Qfa5s93cvE6FyeNR-A%26yaw%3D105.57765571481667!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Kasachstan",
+          "Mongolei",
+          "China",
+          "Russland"
+        ],
+        "correctAnswer": "Mongolei",
+        "explanation": "In der Mongolei kann der Truck verschiedene Merkmale haben wie ein Zelt oben, rote Seitenspiegel, einen Schnorchel und Dachträger. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carMN2.png",
+        "streetViewUrl": "https://www.google.com/maps/@48.1999923,106.3355812,2a,90y,309.93h,43.9t/data=!3m7!1e1!3m5!1s-Ej8lP-w7CQ5xVZCnVtJvA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D46.098648140401664%26panoid%3D-Ej8lP-w7CQ5xVZCnVtJvA%26yaw%3D309.9269313316834!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Kasachstan",
+          "Mongolei",
+          "Kirgisistan",
+          "Russland"
+        ],
+        "correctAnswer": "Mongolei",
+        "explanation": "Alternative mongolische Google Car-Konfiguration mit charakteristischen Merkmalen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carKZ.png",
+        "streetViewUrl": "https://www.google.com/maps/@51.1312877,71.4142766,3a,90y,56.48h,72.78t/data=!3m7!1e1!3m5!1sQv0zP3Wn7R0cX7JOx6nADw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D17.22050544097182%26panoid%3DQv0zP3Wn7R0cX7JOx6nADw%26yaw%3D56.47851624673639!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Usbekistan",
+          "Kasachstan",
+          "Kirgisistan",
+          "Mongolei"
+        ],
+        "correctAnswer": "Kasachstan",
+        "explanation": "Die gesamte Abdeckung in Kasachstan wurde mit einem weißen Pickup-Truck aufgenommen, der entweder vollständig sichtbar oder größtenteils unscharf ist. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carLK.png",
+        "streetViewUrl": "https://www.google.com/maps/@9.3534012,80.3962209,3a,75y,80.35h,57.72t/data=!3m7!1e1!3m5!1sRzV9wIGJoVqr4wa2OQtuHA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D32.276852312352915%26panoid%3DRzV9wIGJoVqr4wa2OQtuHA%26yaw%3D80.35165811328886!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Indien",
+          "Sri Lanka",
+          "Bangladesh",
+          "Myanmar"
+        ],
+        "correctAnswer": "Sri Lanka",
+        "explanation": "In den meisten Generation 3-Aufnahmen kann man die Vorderseite des Google Cars teilweise durch die Unschärfe sehen: es ist als blau-weiß-rote Flecken sichtbar, die an die französische Flagge erinnern. Der rote Fleck ist meist am deutlichsten sichtbar. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carGH.png",
+        "streetViewUrl": "https://www.google.com/maps/@5.2491995,-2.6422688,2a,90y,196.1h,54.6t/data=!3m7!1e1!3m5!1sDeqVyWWTbPkNztc8ySdATQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D35.39695111006429%26panoid%3DDeqVyWWTbPkNztc8ySdATQ%26yaw%3D196.09510774482936!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Nigeria",
+          "Ghana",
+          "Elfenbeinküste",
+          "Burkina Faso"
+        ],
+        "correctAnswer": "Ghana",
+        "explanation": "Alle regulären Straßenaufnahmen in Ghana wurden mit einem einzigartigen Google Car gemacht. Es hat einen sichtbaren Dachträger mit einem Stück schwarzem Klebeband am rechten Ende der vorderen Stange. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carAR.png",
+        "streetViewUrl": "https://www.google.com/maps/@-38.3746035,-60.2728556,3a,75y,136.99h,44.16t/data=!3m7!1e1!3m5!1suERdLV1HEBkAv0E8_jtvvQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D45.84475689437271%26panoid%3DuERdLV1HEBkAv0E8_jtvvQ%26yaw%3D136.99045589213176!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Chile",
+          "Argentinien",
+          "Uruguay",
+          "Brasilien"
+        ],
+        "correctAnswer": "Argentinien",
+        "explanation": "Argentinien hat ein schwarzes Google Car in Generation 3-Aufnahmen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carUSVI.png",
+        "streetViewUrl": "https://www.google.com/maps/@18.3355816,-64.9048526,3a,90y,98.64h,24.17t/data=!3m7!1e1!3m5!1sS7UDQ65lpvXi0qxErz0pMw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D65.82779940487119%26panoid%3DS7UDQ65lpvXi0qxErz0pMw%26yaw%3D98.63767940037347!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Puerto Rico",
+          "US Virgin Islands",
+          "Bahamas",
+          "Jamaika"
+        ],
+        "correctAnswer": "US Virgin Islands",
+        "explanation": "Auto-Aufnahmen auf den Inseln haben ein großes, sichtbares Street View Auto, das entweder rot oder weiß ist. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carGT.png",
+        "streetViewUrl": "https://www.google.com/maps/@16.9190739,-89.9022771,3a,90y,306.8h,1t/data=!3m7!1e1!3m5!1sQ86Q080MbIw2CiptWD7Uog!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D89%26panoid%3DQ86Q080MbIw2CiptWD7Uog%26yaw%3D306.7988976420839!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Belize",
+          "Guatemala",
+          "Honduras",
+          "El Salvador"
+        ],
+        "correctAnswer": "Guatemala",
+        "explanation": "Dieses graue Street View Auto mit sichtbarem Dachträger und Seitenspiegeln ist bei allen Auto-Aufnahmen in Guatemala zu sehen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleAR.png",
+        "streetViewUrl": "https://www.google.com/maps/@-33.9123599,-64.4101802,3a,54y,173.64h,103.86t/data=!3m7!1e1!3m5!1sNoZvseAY20TU1rFWPRuHqw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-13.855674551011447%26panoid%3DNoZvseAY20TU1rFWPRuHqw%26yaw%3D173.63928117851933!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Chile",
+          "Argentinien",
+          "Uruguay",
+          "Brasilien"
+        ],
+        "correctAnswer": "Argentinien",
+        "explanation": "Runde Betonmasten mit drei Stromleitungen in einem alternierenden Muster sind sehr häufig in Argentinien. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleBR.png",
+        "streetViewUrl": "https://www.google.com/maps/@-24.9570709,-53.4520887,3a,86.3y,118.43h,100.76t/data=!3m7!1e1!3m5!1sQku9NTG9rXTzINGMkZocXQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-10.760639915900455%26panoid%3DQku9NTG9rXTzINGMkZocXQ%26yaw%3D118.42863515895758!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Argentinien",
+          "Brasilien",
+          "Paraguay",
+          "Bolivien"
+        ],
+        "correctAnswer": "Brasilien",
+        "explanation": "Die häufigsten Masten in Brasilien ähneln einer Leiter im unteren Bereich. Sie sind rechteckig, haben lange Segmente im unteren Teil und kleine Löcher nahe der Spitze. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleIN.png",
+        "streetViewUrl": "https://www.google.com/maps/@26.1845987,80.4202355,3a,75y,90.28h,95.95t/data=!3m7!1e1!3m5!1slE70hqQj--uTZyjyZRi2-w!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-5.952992173475835%26panoid%3DlE70hqQj--uTZyjyZRi2-w%26yaw%3D90.28030942124397!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Pakistan",
+          "Indien",
+          "Bangladesh",
+          "Sri Lanka"
+        ],
+        "correctAnswer": "Indien",
+        "explanation": "Der häufigste indische Strommast ist ein quadratischer Betonmast mit einer Dreizack-Mastspitze. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleJP.png",
+        "streetViewUrl": "https://www.google.com/maps/@35.1521005,135.8759383,3a,90y,75.24h,98.9t/data=!3m7!1e1!3m5!1sJfED587MYpoTtTpSNz4acg!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-8.898472804514228%26panoid%3DJfED587MYpoTtTpSNz4acg%26yaw%3D75.24299763034568!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Südkorea",
+          "Japan",
+          "China",
+          "Taiwan"
+        ],
+        "correctAnswer": "Japan",
+        "explanation": "Japan verwendet hauptsächlich diese runden Betonmasten mit schraubenartigen Verlängerungen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleLK (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@9.6339147,80.1460263,3a,67.2y,153.03h,99.91t/data=!3m7!1e1!3m5!1s0iqnt-2vgUl-EHZKI1fcZA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-9.914793461498206%26panoid%3D0iqnt-2vgUl-EHZKI1fcZA%26yaw%3D153.03388406506215!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Indien",
+          "Sri Lanka",
+          "Malediven",
+          "Bangladesh"
+        ],
+        "correctAnswer": "Sri Lanka",
+        "explanation": "Sri Lanka verwendet typischerweise Beton-Strommasten. Quadratische Masten mit kleinen Löchern an den Seiten. Diese Löcher sind auf den oberen Teil des Mastes beschränkt. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/polePT.png",
+        "streetViewUrl": "https://www.google.com/maps/@39.5076392,-7.7917464,3a,63.9y,328.99h,91.23t/data=!3m7!1e1!3m5!1stju7ojOlkWG4h4X2fEGv_Q!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-1.2291780738297433%26panoid%3Dtju7ojOlkWG4h4X2fEGv_Q%26yaw%3D328.98932665201846!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Spanien",
+          "Portugal",
+          "Italien",
+          "Griechenland"
+        ],
+        "correctAnswer": "Portugal",
+        "explanation": "Beton-Leitermasten mit sehr hohen Leiterstufen sind in Portugal häufig. Jede Stufe hat oft ein kleines durchsichtiges Loch. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleRO (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@45.1307127,23.1874834,3a,90y,91.31h,108.15t/data=!3m7!1e1!3m5!1s1NVtmGfLfckFjLYet6m88Q!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-18.14854378183135%26panoid%3D1NVtmGfLfckFjLYet6m88Q%26yaw%3D91.3115742095575!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Bulgarien",
+          "Rumänien",
+          "Ungarn",
+          "Serbien"
+        ],
+        "correctAnswer": "Rumänien",
+        "explanation": "Die häufigsten Strommasten in Rumänien sind Lochmasten mit Löchern, die bis zum Boden reichen. Die Löcher sind typischerweise entweder ziemlich breit oder ziemlich hoch. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleTH (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@14.2307733,100.6731715,3a,75y,185.03h,103.68t/data=!3m7!1e1!3m5!1sWJa2o6G77T4tMtXnkOXCTg!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-13.684201283115414%26panoid%3DWJa2o6G77T4tMtXnkOXCTg%26yaw%3D185.03308967582325!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Vietnam",
+          "Thailand",
+          "Kambodscha",
+          "Laos"
+        ],
+        "correctAnswer": "Thailand",
+        "explanation": "Thailändische Masten sind quadratisch und haben kleine Löcher, die vertikal am Mast entlanglaufen. Ähnliche Masten sieht man in Sri Lanka, Kambodscha und Laos. Achte auf andere Hinweise vor dem Raten. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleTR (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@40.1898974,33.5619764,3a,90y,143.79h,103.63t/data=!3m7!1e1!3m5!1sxxASFFNIwC2DXGlR4Vh8Vw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-13.634317904302932%26panoid%3DxxASFFNIwC2DXGlR4Vh8Vw%26yaw%3D143.79211386083026!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Griechenland",
+          "Türkei",
+          "Bulgarien",
+          "Georgien"
+        ],
+        "correctAnswer": "Türkei",
+        "explanation": "Metallmasten, entweder in Leiterform oder mit Gittermuster, sind extrem häufig in der Türkei. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronBR.png",
+        "streetViewUrl": "https://www.google.com/maps/@-22.8816339,-46.3891439,3a,24.4y,297.45h,82.41t/data=!3m7!1e1!3m5!1sXUwF5Iet1xOUg1kMCni_qQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D7.5908192711785745%26panoid%3DXUwF5Iet1xOUg1kMCni_qQ%26yaw%3D297.454293193465!7i16384!8i8192?hl=en-GB&entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Argentinien",
+          "Brasilien",
+          "Chile",
+          "Uruguay"
+        ],
+        "correctAnswer": "Brasilien",
+        "explanation": "Brasilien verwendet gelbe Chevrons mit schwarzen Pfeilen, im Gegensatz zu den meisten anderen südamerikanischen Ländern, die schwarze Chevrons mit gelben Pfeilen verwenden. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronES.png",
+        "streetViewUrl": "https://www.google.com/maps/@43.0781094,-2.1573698,3a,37.6y,270.81h,92.92t/data=!3m7!1e1!3m5!1smQ2H_fsNkPOcTe4lqvn8gQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-2.9220795163849402%26panoid%3DmQ2H_fsNkPOcTe4lqvn8gQ%26yaw%3D270.8124822065976!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Portugal",
+          "Spanien",
+          "Italien",
+          "Frankreich"
+        ],
+        "correctAnswer": "Spanien",
+        "explanation": "Spanien hat zwei Arten von Chevrons: schwarze mit weißen Pfeilen und blaue mit weißen Pfeilen. Chevrons mit nur einem Pfeil sind selten. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronLU.png",
+        "streetViewUrl": "https://www.google.com/maps/@49.6287868,6.1348973,3a,27y,45.8h,80.18t/data=!3m7!1e1!3m5!1sB_975vmVH__MIaBGGA3qxA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D9.822347510368616%26panoid%3DB_975vmVH__MIaBGGA3qxA%26yaw%3D45.795357992441886!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Belgien",
+          "Luxemburg",
+          "Niederlande",
+          "Deutschland"
+        ],
+        "correctAnswer": "Luxemburg",
+        "explanation": "Luxemburgische Chevrons sind schwarz mit gelben Pfeilen. Selten kann man auch blaue und gelbe Chevrons antreffen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronOM.png",
+        "streetViewUrl": "https://www.google.com/maps/@19.9460793,56.3428424,3a,21.9y,179.49h,90.45t/data=!3m7!1e1!3m5!1swcEl0V0G2Xilgo_sk3mcCw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-0.4546772394531331%26panoid%3DwcEl0V0G2Xilgo_sk3mcCw%26yaw%3D179.49342123922213!7i16384!8i8192?authuser=1&entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "VAE",
+          "Oman",
+          "Saudi-Arabien",
+          "Katar"
+        ],
+        "correctAnswer": "Oman",
+        "explanation": "Oman verwendet schwarz-gelbe Chevrons mit einer ungewöhnlich großen Anzahl von Pfeilen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronPT.png",
+        "streetViewUrl": "https://www.google.com/maps/@38.9638283,-8.9852704,3a,49.5y,111.95h,87.08t/data=!3m7!1e1!3m5!1sDNXpRoyqgtZAwgUxeHYCtQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D2.918500236222286%26panoid%3DDNXpRoyqgtZAwgUxeHYCtQ%26yaw%3D111.94937635834316!7i16384!8i8192?hl=en-GB&entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Spanien",
+          "Portugal",
+          "Italien",
+          "Griechenland"
+        ],
+        "correctAnswer": "Portugal",
+        "explanation": "Portugiesische Chevrons sind schwarz mit gelben Pfeilen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronRU.png",
+        "streetViewUrl": "https://www.google.com/maps/@55.8567189,38.551713,3a,31.3y,41.32h,89.63t/data=!3m7!1e1!3m5!1shRysuPtkzWibZfYfOLg1Fw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0.36818232390523065%26panoid%3DhRysuPtkzWibZfYfOLg1Fw%26yaw%3D41.31925689754313!7i16384!8i8192?hl=en-GB&entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Belarus",
+          "Russland",
+          "Ukraine",
+          "Kasachstan"
+        ],
+        "correctAnswer": "Russland",
+        "explanation": "Russland hat typischerweise rot-weiße Chevrons. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Other Signs/givewayAU (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@-31.9103783,115.8493995,3a,53.5y,187.33h,91.92t/data=!3m7!1e1!3m5!1sP28PC61GPGJPVZvLcMRiJw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-1.9207768599487167%26panoid%3DP28PC61GPGJPVZvLcMRiJw%26yaw%3D187.3255237849087!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Neuseeland",
+          "Australien",
+          "Südafrika",
+          "Großbritannien"
+        ],
+        "correctAnswer": "Australien",
+        "explanation": "Vorfahrt-gewähren-Schilder in Australien haben einen weißen Rand und schwarzen Text. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      }
+    ]
+  },
+  "image-based": {
+    "bollards": [
+      {
+        "image": "assets/images/Bollards/bollardBE.jpg",
+        "options": [
+          "Niederlande",
+          "Belgien",
+          "Luxemburg",
+          "Frankreich"
+        ],
+        "correctAnswer": "Belgien",
+        "explanation": "Diese charakteristischen weißen Bollards mit roten Reflektoren sind typisch für belgische Straßen."
+      },
+      {
+        "image": "assets/images/Bollards/bollardFR.jpg",
+        "options": [
+          "Belgien",
+          "Schweiz",
+          "Frankreich",
+          "Italien"
+        ],
+        "correctAnswer": "Frankreich",
+        "explanation": "Französische Bollards haben oft diese spezielle Form und Farbgebung, die in ganz Frankreich verwendet wird."
+      },
+      {
+        "image": "assets/images/Bollards/bollardGER.jpg",
+        "options": [
+          "Österreich",
+          "Deutschland",
+          "Schweiz",
+          "Niederlande"
+        ],
+        "correctAnswer": "Deutschland",
+        "explanation": "Deutsche Bollards sind oft weiß mit schwarzen Streifen und haben diese charakteristische zylindrische Form."
+      },
+      {
+        "image": "assets/images/Bollards/bollardIT.jpg",
+        "options": [
+          "Spanien",
+          "Italien",
+          "Griechenland",
+          "Portugal"
+        ],
+        "correctAnswer": "Italien",
+        "explanation": "Italienische Bollards haben oft diese spezielle Bauweise und sind charakteristisch für italienische Straßen."
+      },
+      {
+        "image": "assets/images/Bollards/bollardKZ.jpg",
+        "options": [
+          "Russland",
+          "Kasachstan",
+          "Usbekistan",
+          "Kirgisistan"
+        ],
+        "correctAnswer": "Kasachstan",
+        "explanation": "Diese Bollards sind typisch für kasachische Straßeninfrastruktur und unterscheiden sich von anderen zentralasiatischen Ländern."
+      },
+      {
+        "image": "assets/images/Bollards/bollardLUX.jpg",
+        "options": [
+          "Belgien",
+          "Luxemburg",
+          "Niederlande",
+          "Deutschland"
+        ],
+        "correctAnswer": "Luxemburg",
+        "explanation": "Luxemburgische Bollards haben diese charakteristische Form und sind ein Erkennungsmerkmal des Landes."
+      },
+      {
+        "image": "assets/images/Bollards/bollardPL.jpg",
+        "options": [
+          "Deutschland",
+          "Polen",
+          "Tschechien",
+          "Slowakei"
+        ],
+        "correctAnswer": "Polen",
+        "explanation": "Polnische Bollards haben diese charakteristische Form und Farbgebung."
+      },
+      {
+        "image": "assets/images/Bollards/bollardRU.jpg",
+        "options": [
+          "Belarus",
+          "Russland",
+          "Ukraine",
+          "Kasachstan"
+        ],
+        "correctAnswer": "Russland",
+        "explanation": "Russische Bollards sind charakteristisch für die russische Straßeninfrastruktur."
+      },
+      {
+        "image": "assets/images/Bollards/bollardSK.jpg",
+        "options": [
+          "Tschechien",
+          "Slowakei",
+          "Ungarn",
+          "Polen"
+        ],
+        "correctAnswer": "Slowakei",
+        "explanation": "Slowakische Bollards haben diese spezielle Bauweise und sind typisch für das Land."
+      },
+      {
+        "image": "assets/images/Bollards/bollardTR.jpg",
+        "options": [
+          "Griechenland",
+          "Türkei",
+          "Bulgarien",
+          "Zypern"
+        ],
+        "correctAnswer": "Türkei",
+        "explanation": "Türkische Bollards haben diese charakteristische Form und sind ein Erkennungsmerkmal des Landes."
+      },
+      {
+        "image": "assets/images/Bollards/bollardUK1.png",
+        "options": [
+          "Irland",
+          "Großbritannien",
+          "Niederlande",
+          "Belgien"
+        ],
+        "correctAnswer": "Großbritannien",
+        "explanation": "Britische Bollards haben diese charakteristische Form und sind typisch für das Vereinigte Königreich."
+      },
+      {
+        "image": "assets/images/Bollards/bollardUK2.jpg",
+        "options": [
+          "Irland",
+          "Großbritannien",
+          "Niederlande",
+          "Dänemark"
+        ],
+        "correctAnswer": "Großbritannien",
+        "explanation": "Diese Bollards sind ein weiteres Beispiel für britische Straßeninfrastruktur."
+      }
+    ],
+    "google_cars": [
+      {
+        "image": "assets/images/Google Cars/carKE (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@-4.0263221,39.6768325,3a,90y,244.43h,62.63t/data=!3m7!1e1!3m5!1sFHHr9smPx-_SVoGwzWyLXQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D27.37160186111136%26panoid%3DFHHr9smPx-_SVoGwzWyLXQ%26yaw%3D244.42849294916982!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUyOC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Tansania",
+          "Kenia",
+          "Uganda",
+          "Äthiopien"
+        ],
+        "correctAnswer": "Kenia",
+        "explanation": "Kenia hat viele einzigartige Google Cars, fast alle mit sichtbaren Auto-Meta-Merkmalen. In Generation 3 sieht man typischerweise ein Auto mit Dachträger und Schnorchel. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carMN (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@47.592823,107.2996091,3a,90y,105.58h,71.84t/data=!3m7!1e1!3m5!1sttX3Qfa5s93cvE6FyeNR-A!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D18.159614327924643%26panoid%3DttX3Qfa5s93cvE6FyeNR-A%26yaw%3D105.57765571481667!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Kasachstan",
+          "Mongolei",
+          "China",
+          "Russland"
+        ],
+        "correctAnswer": "Mongolei",
+        "explanation": "In der Mongolei kann der Truck verschiedene Merkmale haben wie ein Zelt oben, rote Seitenspiegel, einen Schnorchel und Dachträger. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carMN2.png",
+        "streetViewUrl": "https://www.google.com/maps/@48.1999923,106.3355812,2a,90y,309.93h,43.9t/data=!3m7!1e1!3m5!1s-Ej8lP-w7CQ5xVZCnVtJvA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D46.098648140401664%26panoid%3D-Ej8lP-w7CQ5xVZCnVtJvA%26yaw%3D309.9269313316834!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Kasachstan",
+          "Mongolei",
+          "Kirgisistan",
+          "Russland"
+        ],
+        "correctAnswer": "Mongolei",
+        "explanation": "Alternative mongolische Google Car-Konfiguration mit charakteristischen Merkmalen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carKZ.png",
+        "streetViewUrl": "https://www.google.com/maps/@51.1312877,71.4142766,3a,90y,56.48h,72.78t/data=!3m7!1e1!3m5!1sQv0zP3Wn7R0cX7JOx6nADw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D17.22050544097182%26panoid%3DQv0zP3Wn7R0cX7JOx6nADw%26yaw%3D56.47851624673639!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Usbekistan",
+          "Kasachstan",
+          "Kirgisistan",
+          "Mongolei"
+        ],
+        "correctAnswer": "Kasachstan",
+        "explanation": "Die gesamte Abdeckung in Kasachstan wurde mit einem weißen Pickup-Truck aufgenommen, der entweder vollständig sichtbar oder größtenteils unscharf ist. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carLK.png",
+        "streetViewUrl": "https://www.google.com/maps/@9.3534012,80.3962209,3a,75y,80.35h,57.72t/data=!3m7!1e1!3m5!1sRzV9wIGJoVqr4wa2OQtuHA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D32.276852312352915%26panoid%3DRzV9wIGJoVqr4wa2OQtuHA%26yaw%3D80.35165811328886!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Indien",
+          "Sri Lanka",
+          "Bangladesh",
+          "Myanmar"
+        ],
+        "correctAnswer": "Sri Lanka",
+        "explanation": "In den meisten Generation 3-Aufnahmen kann man die Vorderseite des Google Cars teilweise durch die Unschärfe sehen: es ist als blau-weiß-rote Flecken sichtbar, die an die französische Flagge erinnern. Der rote Fleck ist meist am deutlichsten sichtbar. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carGH.png",
+        "streetViewUrl": "https://www.google.com/maps/@5.2491995,-2.6422688,2a,90y,196.1h,54.6t/data=!3m7!1e1!3m5!1sDeqVyWWTbPkNztc8ySdATQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D35.39695111006429%26panoid%3DDeqVyWWTbPkNztc8ySdATQ%26yaw%3D196.09510774482936!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Nigeria",
+          "Ghana",
+          "Elfenbeinküste",
+          "Burkina Faso"
+        ],
+        "correctAnswer": "Ghana",
+        "explanation": "Alle regulären Straßenaufnahmen in Ghana wurden mit einem einzigartigen Google Car gemacht. Es hat einen sichtbaren Dachträger mit einem Stück schwarzem Klebeband am rechten Ende der vorderen Stange. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carAR.png",
+        "streetViewUrl": "https://www.google.com/maps/@-38.3746035,-60.2728556,3a,75y,136.99h,44.16t/data=!3m7!1e1!3m5!1suERdLV1HEBkAv0E8_jtvvQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D45.84475689437271%26panoid%3DuERdLV1HEBkAv0E8_jtvvQ%26yaw%3D136.99045589213176!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Chile",
+          "Argentinien",
+          "Uruguay",
+          "Brasilien"
+        ],
+        "correctAnswer": "Argentinien",
+        "explanation": "Argentinien hat ein schwarzes Google Car in Generation 3-Aufnahmen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carUSVI.png",
+        "streetViewUrl": "https://www.google.com/maps/@18.3355816,-64.9048526,3a,90y,98.64h,24.17t/data=!3m7!1e1!3m5!1sS7UDQ65lpvXi0qxErz0pMw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D65.82779940487119%26panoid%3DS7UDQ65lpvXi0qxErz0pMw%26yaw%3D98.63767940037347!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Puerto Rico",
+          "US Virgin Islands",
+          "Bahamas",
+          "Jamaika"
+        ],
+        "correctAnswer": "US Virgin Islands",
+        "explanation": "Auto-Aufnahmen auf den Inseln haben ein großes, sichtbares Street View Auto, das entweder rot oder weiß ist. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carGT.png",
+        "streetViewUrl": "https://www.google.com/maps/@16.9190739,-89.9022771,3a,90y,306.8h,1t/data=!3m7!1e1!3m5!1sQ86Q080MbIw2CiptWD7Uog!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D89%26panoid%3DQ86Q080MbIw2CiptWD7Uog%26yaw%3D306.7988976420839!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Belize",
+          "Guatemala",
+          "Honduras",
+          "El Salvador"
+        ],
+        "correctAnswer": "Guatemala",
+        "explanation": "Dieses graue Street View Auto mit sichtbarem Dachträger und Seitenspiegeln ist bei allen Auto-Aufnahmen in Guatemala zu sehen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      }
+    ],
+    "poles": [
+      {
+        "image": "assets/images/Poles/poleAR.png",
+        "streetViewUrl": "https://www.google.com/maps/@-33.9123599,-64.4101802,3a,54y,173.64h,103.86t/data=!3m7!1e1!3m5!1sNoZvseAY20TU1rFWPRuHqw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-13.855674551011447%26panoid%3DNoZvseAY20TU1rFWPRuHqw%26yaw%3D173.63928117851933!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Chile",
+          "Argentinien",
+          "Uruguay",
+          "Brasilien"
+        ],
+        "correctAnswer": "Argentinien",
+        "explanation": "Runde Betonmasten mit drei Stromleitungen in einem alternierenden Muster sind sehr häufig in Argentinien. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleBR.png",
+        "streetViewUrl": "https://www.google.com/maps/@-24.9570709,-53.4520887,3a,86.3y,118.43h,100.76t/data=!3m7!1e1!3m5!1sQku9NTG9rXTzINGMkZocXQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-10.760639915900455%26panoid%3DQku9NTG9rXTzINGMkZocXQ%26yaw%3D118.42863515895758!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Argentinien",
+          "Brasilien",
+          "Paraguay",
+          "Bolivien"
+        ],
+        "correctAnswer": "Brasilien",
+        "explanation": "Die häufigsten Masten in Brasilien ähneln einer Leiter im unteren Bereich. Sie sind rechteckig, haben lange Segmente im unteren Teil und kleine Löcher nahe der Spitze. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleIN.png",
+        "streetViewUrl": "https://www.google.com/maps/@26.1845987,80.4202355,3a,75y,90.28h,95.95t/data=!3m7!1e1!3m5!1slE70hqQj--uTZyjyZRi2-w!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-5.952992173475835%26panoid%3DlE70hqQj--uTZyjyZRi2-w%26yaw%3D90.28030942124397!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Pakistan",
+          "Indien",
+          "Bangladesh",
+          "Sri Lanka"
+        ],
+        "correctAnswer": "Indien",
+        "explanation": "Der häufigste indische Strommast ist ein quadratischer Betonmast mit einer Dreizack-Mastspitze. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleJP.png",
+        "streetViewUrl": "https://www.google.com/maps/@35.1521005,135.8759383,3a,90y,75.24h,98.9t/data=!3m7!1e1!3m5!1sJfED587MYpoTtTpSNz4acg!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-8.898472804514228%26panoid%3DJfED587MYpoTtTpSNz4acg%26yaw%3D75.24299763034568!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Südkorea",
+          "Japan",
+          "China",
+          "Taiwan"
+        ],
+        "correctAnswer": "Japan",
+        "explanation": "Japan verwendet hauptsächlich diese runden Betonmasten mit schraubenartigen Verlängerungen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleLK (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@9.6339147,80.1460263,3a,67.2y,153.03h,99.91t/data=!3m7!1e1!3m5!1s0iqnt-2vgUl-EHZKI1fcZA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-9.914793461498206%26panoid%3D0iqnt-2vgUl-EHZKI1fcZA%26yaw%3D153.03388406506215!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Indien",
+          "Sri Lanka",
+          "Malediven",
+          "Bangladesh"
+        ],
+        "correctAnswer": "Sri Lanka",
+        "explanation": "Sri Lanka verwendet typischerweise Beton-Strommasten. Quadratische Masten mit kleinen Löchern an den Seiten. Diese Löcher sind auf den oberen Teil des Mastes beschränkt. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/polePT.png",
+        "streetViewUrl": "https://www.google.com/maps/@39.5076392,-7.7917464,3a,63.9y,328.99h,91.23t/data=!3m7!1e1!3m5!1stju7ojOlkWG4h4X2fEGv_Q!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-1.2291780738297433%26panoid%3Dtju7ojOlkWG4h4X2fEGv_Q%26yaw%3D328.98932665201846!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Spanien",
+          "Portugal",
+          "Italien",
+          "Griechenland"
+        ],
+        "correctAnswer": "Portugal",
+        "explanation": "Beton-Leitermasten mit sehr hohen Leiterstufen sind in Portugal häufig. Jede Stufe hat oft ein kleines durchsichtiges Loch. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleRO (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@45.1307127,23.1874834,3a,90y,91.31h,108.15t/data=!3m7!1e1!3m5!1s1NVtmGfLfckFjLYet6m88Q!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-18.14854378183135%26panoid%3D1NVtmGfLfckFjLYet6m88Q%26yaw%3D91.3115742095575!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Bulgarien",
+          "Rumänien",
+          "Ungarn",
+          "Serbien"
+        ],
+        "correctAnswer": "Rumänien",
+        "explanation": "Die häufigsten Strommasten in Rumänien sind Lochmasten mit Löchern, die bis zum Boden reichen. Die Löcher sind typischerweise entweder ziemlich breit oder ziemlich hoch. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleTH (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@14.2307733,100.6731715,3a,75y,185.03h,103.68t/data=!3m7!1e1!3m5!1sWJa2o6G77T4tMtXnkOXCTg!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-13.684201283115414%26panoid%3DWJa2o6G77T4tMtXnkOXCTg%26yaw%3D185.03308967582325!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Vietnam",
+          "Thailand",
+          "Kambodscha",
+          "Laos"
+        ],
+        "correctAnswer": "Thailand",
+        "explanation": "Thailändische Masten sind quadratisch und haben kleine Löcher, die vertikal am Mast entlanglaufen. Ähnliche Masten sieht man in Sri Lanka, Kambodscha und Laos. Achte auf andere Hinweise vor dem Raten. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleTR (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@40.1898974,33.5619764,3a,90y,143.79h,103.63t/data=!3m7!1e1!3m5!1sxxASFFNIwC2DXGlR4Vh8Vw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-13.634317904302932%26panoid%3DxxASFFNIwC2DXGlR4Vh8Vw%26yaw%3D143.79211386083026!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Griechenland",
+          "Türkei",
+          "Bulgarien",
+          "Georgien"
+        ],
+        "correctAnswer": "Türkei",
+        "explanation": "Metallmasten, entweder in Leiterform oder mit Gittermuster, sind extrem häufig in der Türkei. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      }
+    ],
+    "chevrons": [
+      {
+        "image": "assets/images/Chevrons/chevronBR.png",
+        "streetViewUrl": "https://www.google.com/maps/@-22.8816339,-46.3891439,3a,24.4y,297.45h,82.41t/data=!3m7!1e1!3m5!1sXUwF5Iet1xOUg1kMCni_qQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D7.5908192711785745%26panoid%3DXUwF5Iet1xOUg1kMCni_qQ%26yaw%3D297.454293193465!7i16384!8i8192?hl=en-GB&entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Argentinien",
+          "Brasilien",
+          "Chile",
+          "Uruguay"
+        ],
+        "correctAnswer": "Brasilien",
+        "explanation": "Brasilien verwendet gelbe Chevrons mit schwarzen Pfeilen, im Gegensatz zu den meisten anderen südamerikanischen Ländern, die schwarze Chevrons mit gelben Pfeilen verwenden. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronES.png",
+        "streetViewUrl": "https://www.google.com/maps/@43.0781094,-2.1573698,3a,37.6y,270.81h,92.92t/data=!3m7!1e1!3m5!1smQ2H_fsNkPOcTe4lqvn8gQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-2.9220795163849402%26panoid%3DmQ2H_fsNkPOcTe4lqvn8gQ%26yaw%3D270.8124822065976!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Portugal",
+          "Spanien",
+          "Italien",
+          "Frankreich"
+        ],
+        "correctAnswer": "Spanien",
+        "explanation": "Spanien hat zwei Arten von Chevrons: schwarze mit weißen Pfeilen und blaue mit weißen Pfeilen. Chevrons mit nur einem Pfeil sind selten. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronLU.png",
+        "streetViewUrl": "https://www.google.com/maps/@49.6287868,6.1348973,3a,27y,45.8h,80.18t/data=!3m7!1e1!3m5!1sB_975vmVH__MIaBGGA3qxA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D9.822347510368616%26panoid%3DB_975vmVH__MIaBGGA3qxA%26yaw%3D45.795357992441886!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Belgien",
+          "Luxemburg",
+          "Niederlande",
+          "Deutschland"
+        ],
+        "correctAnswer": "Luxemburg",
+        "explanation": "Luxemburgische Chevrons sind schwarz mit gelben Pfeilen. Selten kann man auch blaue und gelbe Chevrons antreffen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronOM.png",
+        "streetViewUrl": "https://www.google.com/maps/@19.9460793,56.3428424,3a,21.9y,179.49h,90.45t/data=!3m7!1e1!3m5!1swcEl0V0G2Xilgo_sk3mcCw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-0.4546772394531331%26panoid%3DwcEl0V0G2Xilgo_sk3mcCw%26yaw%3D179.49342123922213!7i16384!8i8192?authuser=1&entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "VAE",
+          "Oman",
+          "Saudi-Arabien",
+          "Katar"
+        ],
+        "correctAnswer": "Oman",
+        "explanation": "Oman verwendet schwarz-gelbe Chevrons mit einer ungewöhnlich großen Anzahl von Pfeilen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronPT.png",
+        "streetViewUrl": "https://www.google.com/maps/@38.9638283,-8.9852704,3a,49.5y,111.95h,87.08t/data=!3m7!1e1!3m5!1sDNXpRoyqgtZAwgUxeHYCtQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D2.918500236222286%26panoid%3DDNXpRoyqgtZAwgUxeHYCtQ%26yaw%3D111.94937635834316!7i16384!8i8192?hl=en-GB&entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Spanien",
+          "Portugal",
+          "Italien",
+          "Griechenland"
+        ],
+        "correctAnswer": "Portugal",
+        "explanation": "Portugiesische Chevrons sind schwarz mit gelben Pfeilen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronRU.png",
+        "streetViewUrl": "https://www.google.com/maps/@55.8567189,38.551713,3a,31.3y,41.32h,89.63t/data=!3m7!1e1!3m5!1shRysuPtkzWibZfYfOLg1Fw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0.36818232390523065%26panoid%3DhRysuPtkzWibZfYfOLg1Fw%26yaw%3D41.31925689754313!7i16384!8i8192?hl=en-GB&entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Belarus",
+          "Russland",
+          "Ukraine",
+          "Kasachstan"
+        ],
+        "correctAnswer": "Russland",
+        "explanation": "Russland hat typischerweise rot-weiße Chevrons. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      }
+    ],
+    "other_signs": [
+      {
+        "image": "assets/images/Other Signs/givewayAU (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@-31.9103783,115.8493995,3a,53.5y,187.33h,91.92t/data=!3m7!1e1!3m5!1sP28PC61GPGJPVZvLcMRiJw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-1.9207768599487167%26panoid%3DP28PC61GPGJPVZvLcMRiJw%26yaw%3D187.3255237849087!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Neuseeland",
+          "Australien",
+          "Südafrika",
+          "Großbritannien"
+        ],
+        "correctAnswer": "Australien",
+        "explanation": "Vorfahrt-gewähren-Schilder in Australien haben einen weißen Rand und schwarzen Text. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      }
+    ],
+    "all": [
+      {
+        "image": "assets/images/Bollards/bollardBE.jpg",
+        "options": [
+          "Niederlande",
+          "Belgien",
+          "Luxemburg",
+          "Frankreich"
+        ],
+        "correctAnswer": "Belgien",
+        "explanation": "Diese charakteristischen weißen Bollards mit roten Reflektoren sind typisch für belgische Straßen."
+      },
+      {
+        "image": "assets/images/Bollards/bollardFR.jpg",
+        "options": [
+          "Belgien",
+          "Schweiz",
+          "Frankreich",
+          "Italien"
+        ],
+        "correctAnswer": "Frankreich",
+        "explanation": "Französische Bollards haben oft diese spezielle Form und Farbgebung, die in ganz Frankreich verwendet wird."
+      },
+      {
+        "image": "assets/images/Bollards/bollardGER.jpg",
+        "options": [
+          "Österreich",
+          "Deutschland",
+          "Schweiz",
+          "Niederlande"
+        ],
+        "correctAnswer": "Deutschland",
+        "explanation": "Deutsche Bollards sind oft weiß mit schwarzen Streifen und haben diese charakteristische zylindrische Form."
+      },
+      {
+        "image": "assets/images/Bollards/bollardIT.jpg",
+        "options": [
+          "Spanien",
+          "Italien",
+          "Griechenland",
+          "Portugal"
+        ],
+        "correctAnswer": "Italien",
+        "explanation": "Italienische Bollards haben oft diese spezielle Bauweise und sind charakteristisch für italienische Straßen."
+      },
+      {
+        "image": "assets/images/Bollards/bollardKZ.jpg",
+        "options": [
+          "Russland",
+          "Kasachstan",
+          "Usbekistan",
+          "Kirgisistan"
+        ],
+        "correctAnswer": "Kasachstan",
+        "explanation": "Diese Bollards sind typisch für kasachische Straßeninfrastruktur und unterscheiden sich von anderen zentralasiatischen Ländern."
+      },
+      {
+        "image": "assets/images/Bollards/bollardLUX.jpg",
+        "options": [
+          "Belgien",
+          "Luxemburg",
+          "Niederlande",
+          "Deutschland"
+        ],
+        "correctAnswer": "Luxemburg",
+        "explanation": "Luxemburgische Bollards haben diese charakteristische Form und sind ein Erkennungsmerkmal des Landes."
+      },
+      {
+        "image": "assets/images/Bollards/bollardPL.jpg",
+        "options": [
+          "Deutschland",
+          "Polen",
+          "Tschechien",
+          "Slowakei"
+        ],
+        "correctAnswer": "Polen",
+        "explanation": "Polnische Bollards haben diese charakteristische Form und Farbgebung."
+      },
+      {
+        "image": "assets/images/Bollards/bollardRU.jpg",
+        "options": [
+          "Belarus",
+          "Russland",
+          "Ukraine",
+          "Kasachstan"
+        ],
+        "correctAnswer": "Russland",
+        "explanation": "Russische Bollards sind charakteristisch für die russische Straßeninfrastruktur."
+      },
+      {
+        "image": "assets/images/Bollards/bollardSK.jpg",
+        "options": [
+          "Tschechien",
+          "Slowakei",
+          "Ungarn",
+          "Polen"
+        ],
+        "correctAnswer": "Slowakei",
+        "explanation": "Slowakische Bollards haben diese spezielle Bauweise und sind typisch für das Land."
+      },
+      {
+        "image": "assets/images/Bollards/bollardTR.jpg",
+        "options": [
+          "Griechenland",
+          "Türkei",
+          "Bulgarien",
+          "Zypern"
+        ],
+        "correctAnswer": "Türkei",
+        "explanation": "Türkische Bollards haben diese charakteristische Form und sind ein Erkennungsmerkmal des Landes."
+      },
+      {
+        "image": "assets/images/Bollards/bollardUK1.png",
+        "options": [
+          "Irland",
+          "Großbritannien",
+          "Niederlande",
+          "Belgien"
+        ],
+        "correctAnswer": "Großbritannien",
+        "explanation": "Britische Bollards haben diese charakteristische Form und sind typisch für das Vereinigte Königreich."
+      },
+      {
+        "image": "assets/images/Bollards/bollardUK2.jpg",
+        "options": [
+          "Irland",
+          "Großbritannien",
+          "Niederlande",
+          "Dänemark"
+        ],
+        "correctAnswer": "Großbritannien",
+        "explanation": "Diese Bollards sind ein weiteres Beispiel für britische Straßeninfrastruktur."
+      },
+      {
+        "image": "assets/images/Google Cars/carKE (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@-4.0263221,39.6768325,3a,90y,244.43h,62.63t/data=!3m7!1e1!3m5!1sFHHr9smPx-_SVoGwzWyLXQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D27.37160186111136%26panoid%3DFHHr9smPx-_SVoGwzWyLXQ%26yaw%3D244.42849294916982!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUyOC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Tansania",
+          "Kenia",
+          "Uganda",
+          "Äthiopien"
+        ],
+        "correctAnswer": "Kenia",
+        "explanation": "Kenia hat viele einzigartige Google Cars, fast alle mit sichtbaren Auto-Meta-Merkmalen. In Generation 3 sieht man typischerweise ein Auto mit Dachträger und Schnorchel. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carMN (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@47.592823,107.2996091,3a,90y,105.58h,71.84t/data=!3m7!1e1!3m5!1sttX3Qfa5s93cvE6FyeNR-A!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D18.159614327924643%26panoid%3DttX3Qfa5s93cvE6FyeNR-A%26yaw%3D105.57765571481667!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Kasachstan",
+          "Mongolei",
+          "China",
+          "Russland"
+        ],
+        "correctAnswer": "Mongolei",
+        "explanation": "In der Mongolei kann der Truck verschiedene Merkmale haben wie ein Zelt oben, rote Seitenspiegel, einen Schnorchel und Dachträger. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carMN2.png",
+        "streetViewUrl": "https://www.google.com/maps/@48.1999923,106.3355812,2a,90y,309.93h,43.9t/data=!3m7!1e1!3m5!1s-Ej8lP-w7CQ5xVZCnVtJvA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D46.098648140401664%26panoid%3D-Ej8lP-w7CQ5xVZCnVtJvA%26yaw%3D309.9269313316834!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Kasachstan",
+          "Mongolei",
+          "Kirgisistan",
+          "Russland"
+        ],
+        "correctAnswer": "Mongolei",
+        "explanation": "Alternative mongolische Google Car-Konfiguration mit charakteristischen Merkmalen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carKZ.png",
+        "streetViewUrl": "https://www.google.com/maps/@51.1312877,71.4142766,3a,90y,56.48h,72.78t/data=!3m7!1e1!3m5!1sQv0zP3Wn7R0cX7JOx6nADw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D17.22050544097182%26panoid%3DQv0zP3Wn7R0cX7JOx6nADw%26yaw%3D56.47851624673639!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Usbekistan",
+          "Kasachstan",
+          "Kirgisistan",
+          "Mongolei"
+        ],
+        "correctAnswer": "Kasachstan",
+        "explanation": "Die gesamte Abdeckung in Kasachstan wurde mit einem weißen Pickup-Truck aufgenommen, der entweder vollständig sichtbar oder größtenteils unscharf ist. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carLK.png",
+        "streetViewUrl": "https://www.google.com/maps/@9.3534012,80.3962209,3a,75y,80.35h,57.72t/data=!3m7!1e1!3m5!1sRzV9wIGJoVqr4wa2OQtuHA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D32.276852312352915%26panoid%3DRzV9wIGJoVqr4wa2OQtuHA%26yaw%3D80.35165811328886!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Indien",
+          "Sri Lanka",
+          "Bangladesh",
+          "Myanmar"
+        ],
+        "correctAnswer": "Sri Lanka",
+        "explanation": "In den meisten Generation 3-Aufnahmen kann man die Vorderseite des Google Cars teilweise durch die Unschärfe sehen: es ist als blau-weiß-rote Flecken sichtbar, die an die französische Flagge erinnern. Der rote Fleck ist meist am deutlichsten sichtbar. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carGH.png",
+        "streetViewUrl": "https://www.google.com/maps/@5.2491995,-2.6422688,2a,90y,196.1h,54.6t/data=!3m7!1e1!3m5!1sDeqVyWWTbPkNztc8ySdATQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D35.39695111006429%26panoid%3DDeqVyWWTbPkNztc8ySdATQ%26yaw%3D196.09510774482936!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Nigeria",
+          "Ghana",
+          "Elfenbeinküste",
+          "Burkina Faso"
+        ],
+        "correctAnswer": "Ghana",
+        "explanation": "Alle regulären Straßenaufnahmen in Ghana wurden mit einem einzigartigen Google Car gemacht. Es hat einen sichtbaren Dachträger mit einem Stück schwarzem Klebeband am rechten Ende der vorderen Stange. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carAR.png",
+        "streetViewUrl": "https://www.google.com/maps/@-38.3746035,-60.2728556,3a,75y,136.99h,44.16t/data=!3m7!1e1!3m5!1suERdLV1HEBkAv0E8_jtvvQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D45.84475689437271%26panoid%3DuERdLV1HEBkAv0E8_jtvvQ%26yaw%3D136.99045589213176!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Chile",
+          "Argentinien",
+          "Uruguay",
+          "Brasilien"
+        ],
+        "correctAnswer": "Argentinien",
+        "explanation": "Argentinien hat ein schwarzes Google Car in Generation 3-Aufnahmen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carUSVI.png",
+        "streetViewUrl": "https://www.google.com/maps/@18.3355816,-64.9048526,3a,90y,98.64h,24.17t/data=!3m7!1e1!3m5!1sS7UDQ65lpvXi0qxErz0pMw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D65.82779940487119%26panoid%3DS7UDQ65lpvXi0qxErz0pMw%26yaw%3D98.63767940037347!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Puerto Rico",
+          "US Virgin Islands",
+          "Bahamas",
+          "Jamaika"
+        ],
+        "correctAnswer": "US Virgin Islands",
+        "explanation": "Auto-Aufnahmen auf den Inseln haben ein großes, sichtbares Street View Auto, das entweder rot oder weiß ist. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carGT.png",
+        "streetViewUrl": "https://www.google.com/maps/@16.9190739,-89.9022771,3a,90y,306.8h,1t/data=!3m7!1e1!3m5!1sQ86Q080MbIw2CiptWD7Uog!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D89%26panoid%3DQ86Q080MbIw2CiptWD7Uog%26yaw%3D306.7988976420839!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Belize",
+          "Guatemala",
+          "Honduras",
+          "El Salvador"
+        ],
+        "correctAnswer": "Guatemala",
+        "explanation": "Dieses graue Street View Auto mit sichtbarem Dachträger und Seitenspiegeln ist bei allen Auto-Aufnahmen in Guatemala zu sehen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleAR.png",
+        "streetViewUrl": "https://www.google.com/maps/@-33.9123599,-64.4101802,3a,54y,173.64h,103.86t/data=!3m7!1e1!3m5!1sNoZvseAY20TU1rFWPRuHqw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-13.855674551011447%26panoid%3DNoZvseAY20TU1rFWPRuHqw%26yaw%3D173.63928117851933!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Chile",
+          "Argentinien",
+          "Uruguay",
+          "Brasilien"
+        ],
+        "correctAnswer": "Argentinien",
+        "explanation": "Runde Betonmasten mit drei Stromleitungen in einem alternierenden Muster sind sehr häufig in Argentinien. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleBR.png",
+        "streetViewUrl": "https://www.google.com/maps/@-24.9570709,-53.4520887,3a,86.3y,118.43h,100.76t/data=!3m7!1e1!3m5!1sQku9NTG9rXTzINGMkZocXQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-10.760639915900455%26panoid%3DQku9NTG9rXTzINGMkZocXQ%26yaw%3D118.42863515895758!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Argentinien",
+          "Brasilien",
+          "Paraguay",
+          "Bolivien"
+        ],
+        "correctAnswer": "Brasilien",
+        "explanation": "Die häufigsten Masten in Brasilien ähneln einer Leiter im unteren Bereich. Sie sind rechteckig, haben lange Segmente im unteren Teil und kleine Löcher nahe der Spitze. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleIN.png",
+        "streetViewUrl": "https://www.google.com/maps/@26.1845987,80.4202355,3a,75y,90.28h,95.95t/data=!3m7!1e1!3m5!1slE70hqQj--uTZyjyZRi2-w!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-5.952992173475835%26panoid%3DlE70hqQj--uTZyjyZRi2-w%26yaw%3D90.28030942124397!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Pakistan",
+          "Indien",
+          "Bangladesh",
+          "Sri Lanka"
+        ],
+        "correctAnswer": "Indien",
+        "explanation": "Der häufigste indische Strommast ist ein quadratischer Betonmast mit einer Dreizack-Mastspitze. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleJP.png",
+        "streetViewUrl": "https://www.google.com/maps/@35.1521005,135.8759383,3a,90y,75.24h,98.9t/data=!3m7!1e1!3m5!1sJfED587MYpoTtTpSNz4acg!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-8.898472804514228%26panoid%3DJfED587MYpoTtTpSNz4acg%26yaw%3D75.24299763034568!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Südkorea",
+          "Japan",
+          "China",
+          "Taiwan"
+        ],
+        "correctAnswer": "Japan",
+        "explanation": "Japan verwendet hauptsächlich diese runden Betonmasten mit schraubenartigen Verlängerungen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleLK (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@9.6339147,80.1460263,3a,67.2y,153.03h,99.91t/data=!3m7!1e1!3m5!1s0iqnt-2vgUl-EHZKI1fcZA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-9.914793461498206%26panoid%3D0iqnt-2vgUl-EHZKI1fcZA%26yaw%3D153.03388406506215!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Indien",
+          "Sri Lanka",
+          "Malediven",
+          "Bangladesh"
+        ],
+        "correctAnswer": "Sri Lanka",
+        "explanation": "Sri Lanka verwendet typischerweise Beton-Strommasten. Quadratische Masten mit kleinen Löchern an den Seiten. Diese Löcher sind auf den oberen Teil des Mastes beschränkt. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/polePT.png",
+        "streetViewUrl": "https://www.google.com/maps/@39.5076392,-7.7917464,3a,63.9y,328.99h,91.23t/data=!3m7!1e1!3m5!1stju7ojOlkWG4h4X2fEGv_Q!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-1.2291780738297433%26panoid%3Dtju7ojOlkWG4h4X2fEGv_Q%26yaw%3D328.98932665201846!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Spanien",
+          "Portugal",
+          "Italien",
+          "Griechenland"
+        ],
+        "correctAnswer": "Portugal",
+        "explanation": "Beton-Leitermasten mit sehr hohen Leiterstufen sind in Portugal häufig. Jede Stufe hat oft ein kleines durchsichtiges Loch. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleRO (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@45.1307127,23.1874834,3a,90y,91.31h,108.15t/data=!3m7!1e1!3m5!1s1NVtmGfLfckFjLYet6m88Q!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-18.14854378183135%26panoid%3D1NVtmGfLfckFjLYet6m88Q%26yaw%3D91.3115742095575!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Bulgarien",
+          "Rumänien",
+          "Ungarn",
+          "Serbien"
+        ],
+        "correctAnswer": "Rumänien",
+        "explanation": "Die häufigsten Strommasten in Rumänien sind Lochmasten mit Löchern, die bis zum Boden reichen. Die Löcher sind typischerweise entweder ziemlich breit oder ziemlich hoch. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleTH (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@14.2307733,100.6731715,3a,75y,185.03h,103.68t/data=!3m7!1e1!3m5!1sWJa2o6G77T4tMtXnkOXCTg!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-13.684201283115414%26panoid%3DWJa2o6G77T4tMtXnkOXCTg%26yaw%3D185.03308967582325!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Vietnam",
+          "Thailand",
+          "Kambodscha",
+          "Laos"
+        ],
+        "correctAnswer": "Thailand",
+        "explanation": "Thailändische Masten sind quadratisch und haben kleine Löcher, die vertikal am Mast entlanglaufen. Ähnliche Masten sieht man in Sri Lanka, Kambodscha und Laos. Achte auf andere Hinweise vor dem Raten. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleTR (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@40.1898974,33.5619764,3a,90y,143.79h,103.63t/data=!3m7!1e1!3m5!1sxxASFFNIwC2DXGlR4Vh8Vw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-13.634317904302932%26panoid%3DxxASFFNIwC2DXGlR4Vh8Vw%26yaw%3D143.79211386083026!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Griechenland",
+          "Türkei",
+          "Bulgarien",
+          "Georgien"
+        ],
+        "correctAnswer": "Türkei",
+        "explanation": "Metallmasten, entweder in Leiterform oder mit Gittermuster, sind extrem häufig in der Türkei. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronBR.png",
+        "streetViewUrl": "https://www.google.com/maps/@-22.8816339,-46.3891439,3a,24.4y,297.45h,82.41t/data=!3m7!1e1!3m5!1sXUwF5Iet1xOUg1kMCni_qQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D7.5908192711785745%26panoid%3DXUwF5Iet1xOUg1kMCni_qQ%26yaw%3D297.454293193465!7i16384!8i8192?hl=en-GB&entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Argentinien",
+          "Brasilien",
+          "Chile",
+          "Uruguay"
+        ],
+        "correctAnswer": "Brasilien",
+        "explanation": "Brasilien verwendet gelbe Chevrons mit schwarzen Pfeilen, im Gegensatz zu den meisten anderen südamerikanischen Ländern, die schwarze Chevrons mit gelben Pfeilen verwenden. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronES.png",
+        "streetViewUrl": "https://www.google.com/maps/@43.0781094,-2.1573698,3a,37.6y,270.81h,92.92t/data=!3m7!1e1!3m5!1smQ2H_fsNkPOcTe4lqvn8gQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-2.9220795163849402%26panoid%3DmQ2H_fsNkPOcTe4lqvn8gQ%26yaw%3D270.8124822065976!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Portugal",
+          "Spanien",
+          "Italien",
+          "Frankreich"
+        ],
+        "correctAnswer": "Spanien",
+        "explanation": "Spanien hat zwei Arten von Chevrons: schwarze mit weißen Pfeilen und blaue mit weißen Pfeilen. Chevrons mit nur einem Pfeil sind selten. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronLU.png",
+        "streetViewUrl": "https://www.google.com/maps/@49.6287868,6.1348973,3a,27y,45.8h,80.18t/data=!3m7!1e1!3m5!1sB_975vmVH__MIaBGGA3qxA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D9.822347510368616%26panoid%3DB_975vmVH__MIaBGGA3qxA%26yaw%3D45.795357992441886!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Belgien",
+          "Luxemburg",
+          "Niederlande",
+          "Deutschland"
+        ],
+        "correctAnswer": "Luxemburg",
+        "explanation": "Luxemburgische Chevrons sind schwarz mit gelben Pfeilen. Selten kann man auch blaue und gelbe Chevrons antreffen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronOM.png",
+        "streetViewUrl": "https://www.google.com/maps/@19.9460793,56.3428424,3a,21.9y,179.49h,90.45t/data=!3m7!1e1!3m5!1swcEl0V0G2Xilgo_sk3mcCw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-0.4546772394531331%26panoid%3DwcEl0V0G2Xilgo_sk3mcCw%26yaw%3D179.49342123922213!7i16384!8i8192?authuser=1&entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "VAE",
+          "Oman",
+          "Saudi-Arabien",
+          "Katar"
+        ],
+        "correctAnswer": "Oman",
+        "explanation": "Oman verwendet schwarz-gelbe Chevrons mit einer ungewöhnlich großen Anzahl von Pfeilen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronPT.png",
+        "streetViewUrl": "https://www.google.com/maps/@38.9638283,-8.9852704,3a,49.5y,111.95h,87.08t/data=!3m7!1e1!3m5!1sDNXpRoyqgtZAwgUxeHYCtQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D2.918500236222286%26panoid%3DDNXpRoyqgtZAwgUxeHYCtQ%26yaw%3D111.94937635834316!7i16384!8i8192?hl=en-GB&entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Spanien",
+          "Portugal",
+          "Italien",
+          "Griechenland"
+        ],
+        "correctAnswer": "Portugal",
+        "explanation": "Portugiesische Chevrons sind schwarz mit gelben Pfeilen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronRU.png",
+        "streetViewUrl": "https://www.google.com/maps/@55.8567189,38.551713,3a,31.3y,41.32h,89.63t/data=!3m7!1e1!3m5!1shRysuPtkzWibZfYfOLg1Fw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0.36818232390523065%26panoid%3DhRysuPtkzWibZfYfOLg1Fw%26yaw%3D41.31925689754313!7i16384!8i8192?hl=en-GB&entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Belarus",
+          "Russland",
+          "Ukraine",
+          "Kasachstan"
+        ],
+        "correctAnswer": "Russland",
+        "explanation": "Russland hat typischerweise rot-weiße Chevrons. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Other Signs/givewayAU (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@-31.9103783,115.8493995,3a,53.5y,187.33h,91.92t/data=!3m7!1e1!3m5!1sP28PC61GPGJPVZvLcMRiJw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-1.9207768599487167%26panoid%3DP28PC61GPGJPVZvLcMRiJw%26yaw%3D187.3255237849087!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Neuseeland",
+          "Australien",
+          "Südafrika",
+          "Großbritannien"
+        ],
+        "correctAnswer": "Australien",
+        "explanation": "Vorfahrt-gewähren-Schilder in Australien haben einen weißen Rand und schwarzen Text. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      }
+    ]
+  },
+  "questions": {
+    "bollards": [
+      {
+        "image": "assets/images/Bollards/bollardBE.jpg",
+        "options": [
+          "Niederlande",
+          "Belgien",
+          "Luxemburg",
+          "Frankreich"
+        ],
+        "correctAnswer": "Belgien",
+        "explanation": "Diese charakteristischen weißen Bollards mit roten Reflektoren sind typisch für belgische Straßen."
+      },
+      {
+        "image": "assets/images/Bollards/bollardFR.jpg",
+        "options": [
+          "Belgien",
+          "Schweiz",
+          "Frankreich",
+          "Italien"
+        ],
+        "correctAnswer": "Frankreich",
+        "explanation": "Französische Bollards haben oft diese spezielle Form und Farbgebung, die in ganz Frankreich verwendet wird."
+      },
+      {
+        "image": "assets/images/Bollards/bollardGER.jpg",
+        "options": [
+          "Österreich",
+          "Deutschland",
+          "Schweiz",
+          "Niederlande"
+        ],
+        "correctAnswer": "Deutschland",
+        "explanation": "Deutsche Bollards sind oft weiß mit schwarzen Streifen und haben diese charakteristische zylindrische Form."
+      },
+      {
+        "image": "assets/images/Bollards/bollardIT.jpg",
+        "options": [
+          "Spanien",
+          "Italien",
+          "Griechenland",
+          "Portugal"
+        ],
+        "correctAnswer": "Italien",
+        "explanation": "Italienische Bollards haben oft diese spezielle Bauweise und sind charakteristisch für italienische Straßen."
+      },
+      {
+        "image": "assets/images/Bollards/bollardKZ.jpg",
+        "options": [
+          "Russland",
+          "Kasachstan",
+          "Usbekistan",
+          "Kirgisistan"
+        ],
+        "correctAnswer": "Kasachstan",
+        "explanation": "Diese Bollards sind typisch für kasachische Straßeninfrastruktur und unterscheiden sich von anderen zentralasiatischen Ländern."
+      },
+      {
+        "image": "assets/images/Bollards/bollardLUX.jpg",
+        "options": [
+          "Belgien",
+          "Luxemburg",
+          "Niederlande",
+          "Deutschland"
+        ],
+        "correctAnswer": "Luxemburg",
+        "explanation": "Luxemburgische Bollards haben diese charakteristische Form und sind ein Erkennungsmerkmal des Landes."
+      },
+      {
+        "image": "assets/images/Bollards/bollardPL.jpg",
+        "options": [
+          "Deutschland",
+          "Polen",
+          "Tschechien",
+          "Slowakei"
+        ],
+        "correctAnswer": "Polen",
+        "explanation": "Polnische Bollards haben diese charakteristische Form und Farbgebung."
+      },
+      {
+        "image": "assets/images/Bollards/bollardRU.jpg",
+        "options": [
+          "Belarus",
+          "Russland",
+          "Ukraine",
+          "Kasachstan"
+        ],
+        "correctAnswer": "Russland",
+        "explanation": "Russische Bollards sind charakteristisch für die russische Straßeninfrastruktur."
+      },
+      {
+        "image": "assets/images/Bollards/bollardSK.jpg",
+        "options": [
+          "Tschechien",
+          "Slowakei",
+          "Ungarn",
+          "Polen"
+        ],
+        "correctAnswer": "Slowakei",
+        "explanation": "Slowakische Bollards haben diese spezielle Bauweise und sind typisch für das Land."
+      },
+      {
+        "image": "assets/images/Bollards/bollardTR.jpg",
+        "options": [
+          "Griechenland",
+          "Türkei",
+          "Bulgarien",
+          "Zypern"
+        ],
+        "correctAnswer": "Türkei",
+        "explanation": "Türkische Bollards haben diese charakteristische Form und sind ein Erkennungsmerkmal des Landes."
+      },
+      {
+        "image": "assets/images/Bollards/bollardUK1.png",
+        "options": [
+          "Irland",
+          "Großbritannien",
+          "Niederlande",
+          "Belgien"
+        ],
+        "correctAnswer": "Großbritannien",
+        "explanation": "Britische Bollards haben diese charakteristische Form und sind typisch für das Vereinigte Königreich."
+      },
+      {
+        "image": "assets/images/Bollards/bollardUK2.jpg",
+        "options": [
+          "Irland",
+          "Großbritannien",
+          "Niederlande",
+          "Dänemark"
+        ],
+        "correctAnswer": "Großbritannien",
+        "explanation": "Diese Bollards sind ein weiteres Beispiel für britische Straßeninfrastruktur."
+      }
+    ],
+    "google_cars": [
+      {
+        "image": "assets/images/Google Cars/carKE (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@-4.0263221,39.6768325,3a,90y,244.43h,62.63t/data=!3m7!1e1!3m5!1sFHHr9smPx-_SVoGwzWyLXQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D27.37160186111136%26panoid%3DFHHr9smPx-_SVoGwzWyLXQ%26yaw%3D244.42849294916982!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUyOC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Tansania",
+          "Kenia",
+          "Uganda",
+          "Äthiopien"
+        ],
+        "correctAnswer": "Kenia",
+        "explanation": "Kenia hat viele einzigartige Google Cars, fast alle mit sichtbaren Auto-Meta-Merkmalen. In Generation 3 sieht man typischerweise ein Auto mit Dachträger und Schnorchel. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carMN (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@47.592823,107.2996091,3a,90y,105.58h,71.84t/data=!3m7!1e1!3m5!1sttX3Qfa5s93cvE6FyeNR-A!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D18.159614327924643%26panoid%3DttX3Qfa5s93cvE6FyeNR-A%26yaw%3D105.57765571481667!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Kasachstan",
+          "Mongolei",
+          "China",
+          "Russland"
+        ],
+        "correctAnswer": "Mongolei",
+        "explanation": "In der Mongolei kann der Truck verschiedene Merkmale haben wie ein Zelt oben, rote Seitenspiegel, einen Schnorchel und Dachträger. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carMN2.png",
+        "streetViewUrl": "https://www.google.com/maps/@48.1999923,106.3355812,2a,90y,309.93h,43.9t/data=!3m7!1e1!3m5!1s-Ej8lP-w7CQ5xVZCnVtJvA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D46.098648140401664%26panoid%3D-Ej8lP-w7CQ5xVZCnVtJvA%26yaw%3D309.9269313316834!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Kasachstan",
+          "Mongolei",
+          "Kirgisistan",
+          "Russland"
+        ],
+        "correctAnswer": "Mongolei",
+        "explanation": "Alternative mongolische Google Car-Konfiguration mit charakteristischen Merkmalen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carKZ.png",
+        "streetViewUrl": "https://www.google.com/maps/@51.1312877,71.4142766,3a,90y,56.48h,72.78t/data=!3m7!1e1!3m5!1sQv0zP3Wn7R0cX7JOx6nADw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D17.22050544097182%26panoid%3DQv0zP3Wn7R0cX7JOx6nADw%26yaw%3D56.47851624673639!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Usbekistan",
+          "Kasachstan",
+          "Kirgisistan",
+          "Mongolei"
+        ],
+        "correctAnswer": "Kasachstan",
+        "explanation": "Die gesamte Abdeckung in Kasachstan wurde mit einem weißen Pickup-Truck aufgenommen, der entweder vollständig sichtbar oder größtenteils unscharf ist. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carLK.png",
+        "streetViewUrl": "https://www.google.com/maps/@9.3534012,80.3962209,3a,75y,80.35h,57.72t/data=!3m7!1e1!3m5!1sRzV9wIGJoVqr4wa2OQtuHA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D32.276852312352915%26panoid%3DRzV9wIGJoVqr4wa2OQtuHA%26yaw%3D80.35165811328886!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Indien",
+          "Sri Lanka",
+          "Bangladesh",
+          "Myanmar"
+        ],
+        "correctAnswer": "Sri Lanka",
+        "explanation": "In den meisten Generation 3-Aufnahmen kann man die Vorderseite des Google Cars teilweise durch die Unschärfe sehen: es ist als blau-weiß-rote Flecken sichtbar, die an die französische Flagge erinnern. Der rote Fleck ist meist am deutlichsten sichtbar. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carGH.png",
+        "streetViewUrl": "https://www.google.com/maps/@5.2491995,-2.6422688,2a,90y,196.1h,54.6t/data=!3m7!1e1!3m5!1sDeqVyWWTbPkNztc8ySdATQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D35.39695111006429%26panoid%3DDeqVyWWTbPkNztc8ySdATQ%26yaw%3D196.09510774482936!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Nigeria",
+          "Ghana",
+          "Elfenbeinküste",
+          "Burkina Faso"
+        ],
+        "correctAnswer": "Ghana",
+        "explanation": "Alle regulären Straßenaufnahmen in Ghana wurden mit einem einzigartigen Google Car gemacht. Es hat einen sichtbaren Dachträger mit einem Stück schwarzem Klebeband am rechten Ende der vorderen Stange. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carAR.png",
+        "streetViewUrl": "https://www.google.com/maps/@-38.3746035,-60.2728556,3a,75y,136.99h,44.16t/data=!3m7!1e1!3m5!1suERdLV1HEBkAv0E8_jtvvQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D45.84475689437271%26panoid%3DuERdLV1HEBkAv0E8_jtvvQ%26yaw%3D136.99045589213176!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Chile",
+          "Argentinien",
+          "Uruguay",
+          "Brasilien"
+        ],
+        "correctAnswer": "Argentinien",
+        "explanation": "Argentinien hat ein schwarzes Google Car in Generation 3-Aufnahmen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carUSVI.png",
+        "streetViewUrl": "https://www.google.com/maps/@18.3355816,-64.9048526,3a,90y,98.64h,24.17t/data=!3m7!1e1!3m5!1sS7UDQ65lpvXi0qxErz0pMw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D65.82779940487119%26panoid%3DS7UDQ65lpvXi0qxErz0pMw%26yaw%3D98.63767940037347!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Puerto Rico",
+          "US Virgin Islands",
+          "Bahamas",
+          "Jamaika"
+        ],
+        "correctAnswer": "US Virgin Islands",
+        "explanation": "Auto-Aufnahmen auf den Inseln haben ein großes, sichtbares Street View Auto, das entweder rot oder weiß ist. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carGT.png",
+        "streetViewUrl": "https://www.google.com/maps/@16.9190739,-89.9022771,3a,90y,306.8h,1t/data=!3m7!1e1!3m5!1sQ86Q080MbIw2CiptWD7Uog!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D89%26panoid%3DQ86Q080MbIw2CiptWD7Uog%26yaw%3D306.7988976420839!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Belize",
+          "Guatemala",
+          "Honduras",
+          "El Salvador"
+        ],
+        "correctAnswer": "Guatemala",
+        "explanation": "Dieses graue Street View Auto mit sichtbarem Dachträger und Seitenspiegeln ist bei allen Auto-Aufnahmen in Guatemala zu sehen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      }
+    ],
+    "poles": [
+      {
+        "image": "assets/images/Poles/poleAR.png",
+        "streetViewUrl": "https://www.google.com/maps/@-33.9123599,-64.4101802,3a,54y,173.64h,103.86t/data=!3m7!1e1!3m5!1sNoZvseAY20TU1rFWPRuHqw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-13.855674551011447%26panoid%3DNoZvseAY20TU1rFWPRuHqw%26yaw%3D173.63928117851933!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Chile",
+          "Argentinien",
+          "Uruguay",
+          "Brasilien"
+        ],
+        "correctAnswer": "Argentinien",
+        "explanation": "Runde Betonmasten mit drei Stromleitungen in einem alternierenden Muster sind sehr häufig in Argentinien. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleBR.png",
+        "streetViewUrl": "https://www.google.com/maps/@-24.9570709,-53.4520887,3a,86.3y,118.43h,100.76t/data=!3m7!1e1!3m5!1sQku9NTG9rXTzINGMkZocXQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-10.760639915900455%26panoid%3DQku9NTG9rXTzINGMkZocXQ%26yaw%3D118.42863515895758!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Argentinien",
+          "Brasilien",
+          "Paraguay",
+          "Bolivien"
+        ],
+        "correctAnswer": "Brasilien",
+        "explanation": "Die häufigsten Masten in Brasilien ähneln einer Leiter im unteren Bereich. Sie sind rechteckig, haben lange Segmente im unteren Teil und kleine Löcher nahe der Spitze. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleIN.png",
+        "streetViewUrl": "https://www.google.com/maps/@26.1845987,80.4202355,3a,75y,90.28h,95.95t/data=!3m7!1e1!3m5!1slE70hqQj--uTZyjyZRi2-w!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-5.952992173475835%26panoid%3DlE70hqQj--uTZyjyZRi2-w%26yaw%3D90.28030942124397!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Pakistan",
+          "Indien",
+          "Bangladesh",
+          "Sri Lanka"
+        ],
+        "correctAnswer": "Indien",
+        "explanation": "Der häufigste indische Strommast ist ein quadratischer Betonmast mit einer Dreizack-Mastspitze. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleJP.png",
+        "streetViewUrl": "https://www.google.com/maps/@35.1521005,135.8759383,3a,90y,75.24h,98.9t/data=!3m7!1e1!3m5!1sJfED587MYpoTtTpSNz4acg!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-8.898472804514228%26panoid%3DJfED587MYpoTtTpSNz4acg%26yaw%3D75.24299763034568!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Südkorea",
+          "Japan",
+          "China",
+          "Taiwan"
+        ],
+        "correctAnswer": "Japan",
+        "explanation": "Japan verwendet hauptsächlich diese runden Betonmasten mit schraubenartigen Verlängerungen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleLK (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@9.6339147,80.1460263,3a,67.2y,153.03h,99.91t/data=!3m7!1e1!3m5!1s0iqnt-2vgUl-EHZKI1fcZA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-9.914793461498206%26panoid%3D0iqnt-2vgUl-EHZKI1fcZA%26yaw%3D153.03388406506215!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Indien",
+          "Sri Lanka",
+          "Malediven",
+          "Bangladesh"
+        ],
+        "correctAnswer": "Sri Lanka",
+        "explanation": "Sri Lanka verwendet typischerweise Beton-Strommasten. Quadratische Masten mit kleinen Löchern an den Seiten. Diese Löcher sind auf den oberen Teil des Mastes beschränkt. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/polePT.png",
+        "streetViewUrl": "https://www.google.com/maps/@39.5076392,-7.7917464,3a,63.9y,328.99h,91.23t/data=!3m7!1e1!3m5!1stju7ojOlkWG4h4X2fEGv_Q!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-1.2291780738297433%26panoid%3Dtju7ojOlkWG4h4X2fEGv_Q%26yaw%3D328.98932665201846!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Spanien",
+          "Portugal",
+          "Italien",
+          "Griechenland"
+        ],
+        "correctAnswer": "Portugal",
+        "explanation": "Beton-Leitermasten mit sehr hohen Leiterstufen sind in Portugal häufig. Jede Stufe hat oft ein kleines durchsichtiges Loch. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleRO (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@45.1307127,23.1874834,3a,90y,91.31h,108.15t/data=!3m7!1e1!3m5!1s1NVtmGfLfckFjLYet6m88Q!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-18.14854378183135%26panoid%3D1NVtmGfLfckFjLYet6m88Q%26yaw%3D91.3115742095575!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Bulgarien",
+          "Rumänien",
+          "Ungarn",
+          "Serbien"
+        ],
+        "correctAnswer": "Rumänien",
+        "explanation": "Die häufigsten Strommasten in Rumänien sind Lochmasten mit Löchern, die bis zum Boden reichen. Die Löcher sind typischerweise entweder ziemlich breit oder ziemlich hoch. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleTH (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@14.2307733,100.6731715,3a,75y,185.03h,103.68t/data=!3m7!1e1!3m5!1sWJa2o6G77T4tMtXnkOXCTg!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-13.684201283115414%26panoid%3DWJa2o6G77T4tMtXnkOXCTg%26yaw%3D185.03308967582325!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Vietnam",
+          "Thailand",
+          "Kambodscha",
+          "Laos"
+        ],
+        "correctAnswer": "Thailand",
+        "explanation": "Thailändische Masten sind quadratisch und haben kleine Löcher, die vertikal am Mast entlanglaufen. Ähnliche Masten sieht man in Sri Lanka, Kambodscha und Laos. Achte auf andere Hinweise vor dem Raten. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleTR (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@40.1898974,33.5619764,3a,90y,143.79h,103.63t/data=!3m7!1e1!3m5!1sxxASFFNIwC2DXGlR4Vh8Vw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-13.634317904302932%26panoid%3DxxASFFNIwC2DXGlR4Vh8Vw%26yaw%3D143.79211386083026!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Griechenland",
+          "Türkei",
+          "Bulgarien",
+          "Georgien"
+        ],
+        "correctAnswer": "Türkei",
+        "explanation": "Metallmasten, entweder in Leiterform oder mit Gittermuster, sind extrem häufig in der Türkei. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      }
+    ],
+    "chevrons": [
+      {
+        "image": "assets/images/Chevrons/chevronBR.png",
+        "streetViewUrl": "https://www.google.com/maps/@-22.8816339,-46.3891439,3a,24.4y,297.45h,82.41t/data=!3m7!1e1!3m5!1sXUwF5Iet1xOUg1kMCni_qQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D7.5908192711785745%26panoid%3DXUwF5Iet1xOUg1kMCni_qQ%26yaw%3D297.454293193465!7i16384!8i8192?hl=en-GB&entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Argentinien",
+          "Brasilien",
+          "Chile",
+          "Uruguay"
+        ],
+        "correctAnswer": "Brasilien",
+        "explanation": "Brasilien verwendet gelbe Chevrons mit schwarzen Pfeilen, im Gegensatz zu den meisten anderen südamerikanischen Ländern, die schwarze Chevrons mit gelben Pfeilen verwenden. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronES.png",
+        "streetViewUrl": "https://www.google.com/maps/@43.0781094,-2.1573698,3a,37.6y,270.81h,92.92t/data=!3m7!1e1!3m5!1smQ2H_fsNkPOcTe4lqvn8gQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-2.9220795163849402%26panoid%3DmQ2H_fsNkPOcTe4lqvn8gQ%26yaw%3D270.8124822065976!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Portugal",
+          "Spanien",
+          "Italien",
+          "Frankreich"
+        ],
+        "correctAnswer": "Spanien",
+        "explanation": "Spanien hat zwei Arten von Chevrons: schwarze mit weißen Pfeilen und blaue mit weißen Pfeilen. Chevrons mit nur einem Pfeil sind selten. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronLU.png",
+        "streetViewUrl": "https://www.google.com/maps/@49.6287868,6.1348973,3a,27y,45.8h,80.18t/data=!3m7!1e1!3m5!1sB_975vmVH__MIaBGGA3qxA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D9.822347510368616%26panoid%3DB_975vmVH__MIaBGGA3qxA%26yaw%3D45.795357992441886!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Belgien",
+          "Luxemburg",
+          "Niederlande",
+          "Deutschland"
+        ],
+        "correctAnswer": "Luxemburg",
+        "explanation": "Luxemburgische Chevrons sind schwarz mit gelben Pfeilen. Selten kann man auch blaue und gelbe Chevrons antreffen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronOM.png",
+        "streetViewUrl": "https://www.google.com/maps/@19.9460793,56.3428424,3a,21.9y,179.49h,90.45t/data=!3m7!1e1!3m5!1swcEl0V0G2Xilgo_sk3mcCw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-0.4546772394531331%26panoid%3DwcEl0V0G2Xilgo_sk3mcCw%26yaw%3D179.49342123922213!7i16384!8i8192?authuser=1&entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "VAE",
+          "Oman",
+          "Saudi-Arabien",
+          "Katar"
+        ],
+        "correctAnswer": "Oman",
+        "explanation": "Oman verwendet schwarz-gelbe Chevrons mit einer ungewöhnlich großen Anzahl von Pfeilen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronPT.png",
+        "streetViewUrl": "https://www.google.com/maps/@38.9638283,-8.9852704,3a,49.5y,111.95h,87.08t/data=!3m7!1e1!3m5!1sDNXpRoyqgtZAwgUxeHYCtQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D2.918500236222286%26panoid%3DDNXpRoyqgtZAwgUxeHYCtQ%26yaw%3D111.94937635834316!7i16384!8i8192?hl=en-GB&entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Spanien",
+          "Portugal",
+          "Italien",
+          "Griechenland"
+        ],
+        "correctAnswer": "Portugal",
+        "explanation": "Portugiesische Chevrons sind schwarz mit gelben Pfeilen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronRU.png",
+        "streetViewUrl": "https://www.google.com/maps/@55.8567189,38.551713,3a,31.3y,41.32h,89.63t/data=!3m7!1e1!3m5!1shRysuPtkzWibZfYfOLg1Fw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0.36818232390523065%26panoid%3DhRysuPtkzWibZfYfOLg1Fw%26yaw%3D41.31925689754313!7i16384!8i8192?hl=en-GB&entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Belarus",
+          "Russland",
+          "Ukraine",
+          "Kasachstan"
+        ],
+        "correctAnswer": "Russland",
+        "explanation": "Russland hat typischerweise rot-weiße Chevrons. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      }
+    ],
+    "other_signs": [
+      {
+        "image": "assets/images/Other Signs/givewayAU (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@-31.9103783,115.8493995,3a,53.5y,187.33h,91.92t/data=!3m7!1e1!3m5!1sP28PC61GPGJPVZvLcMRiJw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-1.9207768599487167%26panoid%3DP28PC61GPGJPVZvLcMRiJw%26yaw%3D187.3255237849087!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Neuseeland",
+          "Australien",
+          "Südafrika",
+          "Großbritannien"
+        ],
+        "correctAnswer": "Australien",
+        "explanation": "Vorfahrt-gewähren-Schilder in Australien haben einen weißen Rand und schwarzen Text. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      }
+    ],
+    "all": [
+      {
+        "image": "assets/images/Bollards/bollardBE.jpg",
+        "options": [
+          "Niederlande",
+          "Belgien",
+          "Luxemburg",
+          "Frankreich"
+        ],
+        "correctAnswer": "Belgien",
+        "explanation": "Diese charakteristischen weißen Bollards mit roten Reflektoren sind typisch für belgische Straßen."
+      },
+      {
+        "image": "assets/images/Bollards/bollardFR.jpg",
+        "options": [
+          "Belgien",
+          "Schweiz",
+          "Frankreich",
+          "Italien"
+        ],
+        "correctAnswer": "Frankreich",
+        "explanation": "Französische Bollards haben oft diese spezielle Form und Farbgebung, die in ganz Frankreich verwendet wird."
+      },
+      {
+        "image": "assets/images/Bollards/bollardGER.jpg",
+        "options": [
+          "Österreich",
+          "Deutschland",
+          "Schweiz",
+          "Niederlande"
+        ],
+        "correctAnswer": "Deutschland",
+        "explanation": "Deutsche Bollards sind oft weiß mit schwarzen Streifen und haben diese charakteristische zylindrische Form."
+      },
+      {
+        "image": "assets/images/Bollards/bollardIT.jpg",
+        "options": [
+          "Spanien",
+          "Italien",
+          "Griechenland",
+          "Portugal"
+        ],
+        "correctAnswer": "Italien",
+        "explanation": "Italienische Bollards haben oft diese spezielle Bauweise und sind charakteristisch für italienische Straßen."
+      },
+      {
+        "image": "assets/images/Bollards/bollardKZ.jpg",
+        "options": [
+          "Russland",
+          "Kasachstan",
+          "Usbekistan",
+          "Kirgisistan"
+        ],
+        "correctAnswer": "Kasachstan",
+        "explanation": "Diese Bollards sind typisch für kasachische Straßeninfrastruktur und unterscheiden sich von anderen zentralasiatischen Ländern."
+      },
+      {
+        "image": "assets/images/Bollards/bollardLUX.jpg",
+        "options": [
+          "Belgien",
+          "Luxemburg",
+          "Niederlande",
+          "Deutschland"
+        ],
+        "correctAnswer": "Luxemburg",
+        "explanation": "Luxemburgische Bollards haben diese charakteristische Form und sind ein Erkennungsmerkmal des Landes."
+      },
+      {
+        "image": "assets/images/Bollards/bollardPL.jpg",
+        "options": [
+          "Deutschland",
+          "Polen",
+          "Tschechien",
+          "Slowakei"
+        ],
+        "correctAnswer": "Polen",
+        "explanation": "Polnische Bollards haben diese charakteristische Form und Farbgebung."
+      },
+      {
+        "image": "assets/images/Bollards/bollardRU.jpg",
+        "options": [
+          "Belarus",
+          "Russland",
+          "Ukraine",
+          "Kasachstan"
+        ],
+        "correctAnswer": "Russland",
+        "explanation": "Russische Bollards sind charakteristisch für die russische Straßeninfrastruktur."
+      },
+      {
+        "image": "assets/images/Bollards/bollardSK.jpg",
+        "options": [
+          "Tschechien",
+          "Slowakei",
+          "Ungarn",
+          "Polen"
+        ],
+        "correctAnswer": "Slowakei",
+        "explanation": "Slowakische Bollards haben diese spezielle Bauweise und sind typisch für das Land."
+      },
+      {
+        "image": "assets/images/Bollards/bollardTR.jpg",
+        "options": [
+          "Griechenland",
+          "Türkei",
+          "Bulgarien",
+          "Zypern"
+        ],
+        "correctAnswer": "Türkei",
+        "explanation": "Türkische Bollards haben diese charakteristische Form und sind ein Erkennungsmerkmal des Landes."
+      },
+      {
+        "image": "assets/images/Bollards/bollardUK1.png",
+        "options": [
+          "Irland",
+          "Großbritannien",
+          "Niederlande",
+          "Belgien"
+        ],
+        "correctAnswer": "Großbritannien",
+        "explanation": "Britische Bollards haben diese charakteristische Form und sind typisch für das Vereinigte Königreich."
+      },
+      {
+        "image": "assets/images/Bollards/bollardUK2.jpg",
+        "options": [
+          "Irland",
+          "Großbritannien",
+          "Niederlande",
+          "Dänemark"
+        ],
+        "correctAnswer": "Großbritannien",
+        "explanation": "Diese Bollards sind ein weiteres Beispiel für britische Straßeninfrastruktur."
+      },
+      {
+        "image": "assets/images/Google Cars/carKE (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@-4.0263221,39.6768325,3a,90y,244.43h,62.63t/data=!3m7!1e1!3m5!1sFHHr9smPx-_SVoGwzWyLXQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D27.37160186111136%26panoid%3DFHHr9smPx-_SVoGwzWyLXQ%26yaw%3D244.42849294916982!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUyOC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Tansania",
+          "Kenia",
+          "Uganda",
+          "Äthiopien"
+        ],
+        "correctAnswer": "Kenia",
+        "explanation": "Kenia hat viele einzigartige Google Cars, fast alle mit sichtbaren Auto-Meta-Merkmalen. In Generation 3 sieht man typischerweise ein Auto mit Dachträger und Schnorchel. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carMN (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@47.592823,107.2996091,3a,90y,105.58h,71.84t/data=!3m7!1e1!3m5!1sttX3Qfa5s93cvE6FyeNR-A!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D18.159614327924643%26panoid%3DttX3Qfa5s93cvE6FyeNR-A%26yaw%3D105.57765571481667!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Kasachstan",
+          "Mongolei",
+          "China",
+          "Russland"
+        ],
+        "correctAnswer": "Mongolei",
+        "explanation": "In der Mongolei kann der Truck verschiedene Merkmale haben wie ein Zelt oben, rote Seitenspiegel, einen Schnorchel und Dachträger. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carMN2.png",
+        "streetViewUrl": "https://www.google.com/maps/@48.1999923,106.3355812,2a,90y,309.93h,43.9t/data=!3m7!1e1!3m5!1s-Ej8lP-w7CQ5xVZCnVtJvA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D46.098648140401664%26panoid%3D-Ej8lP-w7CQ5xVZCnVtJvA%26yaw%3D309.9269313316834!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Kasachstan",
+          "Mongolei",
+          "Kirgisistan",
+          "Russland"
+        ],
+        "correctAnswer": "Mongolei",
+        "explanation": "Alternative mongolische Google Car-Konfiguration mit charakteristischen Merkmalen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carKZ.png",
+        "streetViewUrl": "https://www.google.com/maps/@51.1312877,71.4142766,3a,90y,56.48h,72.78t/data=!3m7!1e1!3m5!1sQv0zP3Wn7R0cX7JOx6nADw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D17.22050544097182%26panoid%3DQv0zP3Wn7R0cX7JOx6nADw%26yaw%3D56.47851624673639!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Usbekistan",
+          "Kasachstan",
+          "Kirgisistan",
+          "Mongolei"
+        ],
+        "correctAnswer": "Kasachstan",
+        "explanation": "Die gesamte Abdeckung in Kasachstan wurde mit einem weißen Pickup-Truck aufgenommen, der entweder vollständig sichtbar oder größtenteils unscharf ist. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carLK.png",
+        "streetViewUrl": "https://www.google.com/maps/@9.3534012,80.3962209,3a,75y,80.35h,57.72t/data=!3m7!1e1!3m5!1sRzV9wIGJoVqr4wa2OQtuHA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D32.276852312352915%26panoid%3DRzV9wIGJoVqr4wa2OQtuHA%26yaw%3D80.35165811328886!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Indien",
+          "Sri Lanka",
+          "Bangladesh",
+          "Myanmar"
+        ],
+        "correctAnswer": "Sri Lanka",
+        "explanation": "In den meisten Generation 3-Aufnahmen kann man die Vorderseite des Google Cars teilweise durch die Unschärfe sehen: es ist als blau-weiß-rote Flecken sichtbar, die an die französische Flagge erinnern. Der rote Fleck ist meist am deutlichsten sichtbar. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carGH.png",
+        "streetViewUrl": "https://www.google.com/maps/@5.2491995,-2.6422688,2a,90y,196.1h,54.6t/data=!3m7!1e1!3m5!1sDeqVyWWTbPkNztc8ySdATQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D35.39695111006429%26panoid%3DDeqVyWWTbPkNztc8ySdATQ%26yaw%3D196.09510774482936!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Nigeria",
+          "Ghana",
+          "Elfenbeinküste",
+          "Burkina Faso"
+        ],
+        "correctAnswer": "Ghana",
+        "explanation": "Alle regulären Straßenaufnahmen in Ghana wurden mit einem einzigartigen Google Car gemacht. Es hat einen sichtbaren Dachträger mit einem Stück schwarzem Klebeband am rechten Ende der vorderen Stange. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carAR.png",
+        "streetViewUrl": "https://www.google.com/maps/@-38.3746035,-60.2728556,3a,75y,136.99h,44.16t/data=!3m7!1e1!3m5!1suERdLV1HEBkAv0E8_jtvvQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D45.84475689437271%26panoid%3DuERdLV1HEBkAv0E8_jtvvQ%26yaw%3D136.99045589213176!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Chile",
+          "Argentinien",
+          "Uruguay",
+          "Brasilien"
+        ],
+        "correctAnswer": "Argentinien",
+        "explanation": "Argentinien hat ein schwarzes Google Car in Generation 3-Aufnahmen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carUSVI.png",
+        "streetViewUrl": "https://www.google.com/maps/@18.3355816,-64.9048526,3a,90y,98.64h,24.17t/data=!3m7!1e1!3m5!1sS7UDQ65lpvXi0qxErz0pMw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D65.82779940487119%26panoid%3DS7UDQ65lpvXi0qxErz0pMw%26yaw%3D98.63767940037347!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Puerto Rico",
+          "US Virgin Islands",
+          "Bahamas",
+          "Jamaika"
+        ],
+        "correctAnswer": "US Virgin Islands",
+        "explanation": "Auto-Aufnahmen auf den Inseln haben ein großes, sichtbares Street View Auto, das entweder rot oder weiß ist. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Google Cars/carGT.png",
+        "streetViewUrl": "https://www.google.com/maps/@16.9190739,-89.9022771,3a,90y,306.8h,1t/data=!3m7!1e1!3m5!1sQ86Q080MbIw2CiptWD7Uog!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D89%26panoid%3DQ86Q080MbIw2CiptWD7Uog%26yaw%3D306.7988976420839!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Belize",
+          "Guatemala",
+          "Honduras",
+          "El Salvador"
+        ],
+        "correctAnswer": "Guatemala",
+        "explanation": "Dieses graue Street View Auto mit sichtbarem Dachträger und Seitenspiegeln ist bei allen Auto-Aufnahmen in Guatemala zu sehen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleAR.png",
+        "streetViewUrl": "https://www.google.com/maps/@-33.9123599,-64.4101802,3a,54y,173.64h,103.86t/data=!3m7!1e1!3m5!1sNoZvseAY20TU1rFWPRuHqw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-13.855674551011447%26panoid%3DNoZvseAY20TU1rFWPRuHqw%26yaw%3D173.63928117851933!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Chile",
+          "Argentinien",
+          "Uruguay",
+          "Brasilien"
+        ],
+        "correctAnswer": "Argentinien",
+        "explanation": "Runde Betonmasten mit drei Stromleitungen in einem alternierenden Muster sind sehr häufig in Argentinien. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleBR.png",
+        "streetViewUrl": "https://www.google.com/maps/@-24.9570709,-53.4520887,3a,86.3y,118.43h,100.76t/data=!3m7!1e1!3m5!1sQku9NTG9rXTzINGMkZocXQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-10.760639915900455%26panoid%3DQku9NTG9rXTzINGMkZocXQ%26yaw%3D118.42863515895758!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Argentinien",
+          "Brasilien",
+          "Paraguay",
+          "Bolivien"
+        ],
+        "correctAnswer": "Brasilien",
+        "explanation": "Die häufigsten Masten in Brasilien ähneln einer Leiter im unteren Bereich. Sie sind rechteckig, haben lange Segmente im unteren Teil und kleine Löcher nahe der Spitze. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleIN.png",
+        "streetViewUrl": "https://www.google.com/maps/@26.1845987,80.4202355,3a,75y,90.28h,95.95t/data=!3m7!1e1!3m5!1slE70hqQj--uTZyjyZRi2-w!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-5.952992173475835%26panoid%3DlE70hqQj--uTZyjyZRi2-w%26yaw%3D90.28030942124397!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Pakistan",
+          "Indien",
+          "Bangladesh",
+          "Sri Lanka"
+        ],
+        "correctAnswer": "Indien",
+        "explanation": "Der häufigste indische Strommast ist ein quadratischer Betonmast mit einer Dreizack-Mastspitze. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleJP.png",
+        "streetViewUrl": "https://www.google.com/maps/@35.1521005,135.8759383,3a,90y,75.24h,98.9t/data=!3m7!1e1!3m5!1sJfED587MYpoTtTpSNz4acg!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-8.898472804514228%26panoid%3DJfED587MYpoTtTpSNz4acg%26yaw%3D75.24299763034568!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Südkorea",
+          "Japan",
+          "China",
+          "Taiwan"
+        ],
+        "correctAnswer": "Japan",
+        "explanation": "Japan verwendet hauptsächlich diese runden Betonmasten mit schraubenartigen Verlängerungen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleLK (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@9.6339147,80.1460263,3a,67.2y,153.03h,99.91t/data=!3m7!1e1!3m5!1s0iqnt-2vgUl-EHZKI1fcZA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-9.914793461498206%26panoid%3D0iqnt-2vgUl-EHZKI1fcZA%26yaw%3D153.03388406506215!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Indien",
+          "Sri Lanka",
+          "Malediven",
+          "Bangladesh"
+        ],
+        "correctAnswer": "Sri Lanka",
+        "explanation": "Sri Lanka verwendet typischerweise Beton-Strommasten. Quadratische Masten mit kleinen Löchern an den Seiten. Diese Löcher sind auf den oberen Teil des Mastes beschränkt. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/polePT.png",
+        "streetViewUrl": "https://www.google.com/maps/@39.5076392,-7.7917464,3a,63.9y,328.99h,91.23t/data=!3m7!1e1!3m5!1stju7ojOlkWG4h4X2fEGv_Q!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-1.2291780738297433%26panoid%3Dtju7ojOlkWG4h4X2fEGv_Q%26yaw%3D328.98932665201846!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Spanien",
+          "Portugal",
+          "Italien",
+          "Griechenland"
+        ],
+        "correctAnswer": "Portugal",
+        "explanation": "Beton-Leitermasten mit sehr hohen Leiterstufen sind in Portugal häufig. Jede Stufe hat oft ein kleines durchsichtiges Loch. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleRO (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@45.1307127,23.1874834,3a,90y,91.31h,108.15t/data=!3m7!1e1!3m5!1s1NVtmGfLfckFjLYet6m88Q!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-18.14854378183135%26panoid%3D1NVtmGfLfckFjLYet6m88Q%26yaw%3D91.3115742095575!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Bulgarien",
+          "Rumänien",
+          "Ungarn",
+          "Serbien"
+        ],
+        "correctAnswer": "Rumänien",
+        "explanation": "Die häufigsten Strommasten in Rumänien sind Lochmasten mit Löchern, die bis zum Boden reichen. Die Löcher sind typischerweise entweder ziemlich breit oder ziemlich hoch. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleTH (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@14.2307733,100.6731715,3a,75y,185.03h,103.68t/data=!3m7!1e1!3m5!1sWJa2o6G77T4tMtXnkOXCTg!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-13.684201283115414%26panoid%3DWJa2o6G77T4tMtXnkOXCTg%26yaw%3D185.03308967582325!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Vietnam",
+          "Thailand",
+          "Kambodscha",
+          "Laos"
+        ],
+        "correctAnswer": "Thailand",
+        "explanation": "Thailändische Masten sind quadratisch und haben kleine Löcher, die vertikal am Mast entlanglaufen. Ähnliche Masten sieht man in Sri Lanka, Kambodscha und Laos. Achte auf andere Hinweise vor dem Raten. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Poles/poleTR (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@40.1898974,33.5619764,3a,90y,143.79h,103.63t/data=!3m7!1e1!3m5!1sxxASFFNIwC2DXGlR4Vh8Vw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-13.634317904302932%26panoid%3DxxASFFNIwC2DXGlR4Vh8Vw%26yaw%3D143.79211386083026!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Griechenland",
+          "Türkei",
+          "Bulgarien",
+          "Georgien"
+        ],
+        "correctAnswer": "Türkei",
+        "explanation": "Metallmasten, entweder in Leiterform oder mit Gittermuster, sind extrem häufig in der Türkei. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronBR.png",
+        "streetViewUrl": "https://www.google.com/maps/@-22.8816339,-46.3891439,3a,24.4y,297.45h,82.41t/data=!3m7!1e1!3m5!1sXUwF5Iet1xOUg1kMCni_qQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D7.5908192711785745%26panoid%3DXUwF5Iet1xOUg1kMCni_qQ%26yaw%3D297.454293193465!7i16384!8i8192?hl=en-GB&entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Argentinien",
+          "Brasilien",
+          "Chile",
+          "Uruguay"
+        ],
+        "correctAnswer": "Brasilien",
+        "explanation": "Brasilien verwendet gelbe Chevrons mit schwarzen Pfeilen, im Gegensatz zu den meisten anderen südamerikanischen Ländern, die schwarze Chevrons mit gelben Pfeilen verwenden. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronES.png",
+        "streetViewUrl": "https://www.google.com/maps/@43.0781094,-2.1573698,3a,37.6y,270.81h,92.92t/data=!3m7!1e1!3m5!1smQ2H_fsNkPOcTe4lqvn8gQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-2.9220795163849402%26panoid%3DmQ2H_fsNkPOcTe4lqvn8gQ%26yaw%3D270.8124822065976!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Portugal",
+          "Spanien",
+          "Italien",
+          "Frankreich"
+        ],
+        "correctAnswer": "Spanien",
+        "explanation": "Spanien hat zwei Arten von Chevrons: schwarze mit weißen Pfeilen und blaue mit weißen Pfeilen. Chevrons mit nur einem Pfeil sind selten. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronLU.png",
+        "streetViewUrl": "https://www.google.com/maps/@49.6287868,6.1348973,3a,27y,45.8h,80.18t/data=!3m7!1e1!3m5!1sB_975vmVH__MIaBGGA3qxA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D9.822347510368616%26panoid%3DB_975vmVH__MIaBGGA3qxA%26yaw%3D45.795357992441886!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Belgien",
+          "Luxemburg",
+          "Niederlande",
+          "Deutschland"
+        ],
+        "correctAnswer": "Luxemburg",
+        "explanation": "Luxemburgische Chevrons sind schwarz mit gelben Pfeilen. Selten kann man auch blaue und gelbe Chevrons antreffen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronOM.png",
+        "streetViewUrl": "https://www.google.com/maps/@19.9460793,56.3428424,3a,21.9y,179.49h,90.45t/data=!3m7!1e1!3m5!1swcEl0V0G2Xilgo_sk3mcCw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-0.4546772394531331%26panoid%3DwcEl0V0G2Xilgo_sk3mcCw%26yaw%3D179.49342123922213!7i16384!8i8192?authuser=1&entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "VAE",
+          "Oman",
+          "Saudi-Arabien",
+          "Katar"
+        ],
+        "correctAnswer": "Oman",
+        "explanation": "Oman verwendet schwarz-gelbe Chevrons mit einer ungewöhnlich großen Anzahl von Pfeilen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronPT.png",
+        "streetViewUrl": "https://www.google.com/maps/@38.9638283,-8.9852704,3a,49.5y,111.95h,87.08t/data=!3m7!1e1!3m5!1sDNXpRoyqgtZAwgUxeHYCtQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D2.918500236222286%26panoid%3DDNXpRoyqgtZAwgUxeHYCtQ%26yaw%3D111.94937635834316!7i16384!8i8192?hl=en-GB&entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Spanien",
+          "Portugal",
+          "Italien",
+          "Griechenland"
+        ],
+        "correctAnswer": "Portugal",
+        "explanation": "Portugiesische Chevrons sind schwarz mit gelben Pfeilen. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Chevrons/chevronRU.png",
+        "streetViewUrl": "https://www.google.com/maps/@55.8567189,38.551713,3a,31.3y,41.32h,89.63t/data=!3m7!1e1!3m5!1shRysuPtkzWibZfYfOLg1Fw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0.36818232390523065%26panoid%3DhRysuPtkzWibZfYfOLg1Fw%26yaw%3D41.31925689754313!7i16384!8i8192?hl=en-GB&entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Belarus",
+          "Russland",
+          "Ukraine",
+          "Kasachstan"
+        ],
+        "correctAnswer": "Russland",
+        "explanation": "Russland hat typischerweise rot-weiße Chevrons. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      },
+      {
+        "image": "assets/images/Other Signs/givewayAU (1).png",
+        "streetViewUrl": "https://www.google.com/maps/@-31.9103783,115.8493995,3a,53.5y,187.33h,91.92t/data=!3m7!1e1!3m5!1sP28PC61GPGJPVZvLcMRiJw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-1.9207768599487167%26panoid%3DP28PC61GPGJPVZvLcMRiJw%26yaw%3D187.3255237849087!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D",
+        "options": [
+          "Neuseeland",
+          "Australien",
+          "Südafrika",
+          "Großbritannien"
+        ],
+        "correctAnswer": "Australien",
+        "explanation": "Vorfahrt-gewähren-Schilder in Australien haben einen weißen Rand und schwarzen Text. Klicke auf das Bild, um die Street View-Location zu besuchen!"
+      }
+    ]
+  }
+}

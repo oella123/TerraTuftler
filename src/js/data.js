@@ -11,31 +11,69 @@ import { checkBackendAvailability, loadQuizDataFromBackend } from './api.js';
 // Load quiz data
 async function loadQuizData() {
     try {
-        // First try to load from backend API
+        // First try to load from backend API (only if we're in development or have a backend)
         const backendAvailable = await checkBackendAvailability();
         if (backendAvailable) {
-            quizData = await loadQuizDataFromBackend();
-            console.log('Quiz data loaded from backend API');
-            return;
+            try {
+                quizData = await loadQuizDataFromBackend();
+                console.log('Quiz data loaded from backend API');
+                return;
+            } catch (apiError) {
+                console.warn('Backend API failed, falling back to static files:', apiError);
+            }
         }
 
         // Fallback to static file loading
-        const response = await fetch('./data/quizData.json');
+        const response = await fetch('/data/quizData.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+            console.warn('Response is not JSON, content-type:', contentType);
+            const text = await response.text();
+            console.error('Response text:', text.substring(0, 200));
+            throw new Error('Invalid JSON response');
+        }
+
         quizData = await response.json();
         console.log('Quiz data loaded from static file');
     } catch (error) {
         console.error('Failed to load quiz data:', error);
+        // Provide fallback empty data structure
+        quizData = {
+            "time-limited": {},
+            "image-based": {},
+            "all": []
+        };
+        console.warn('Using fallback empty quiz data structure');
     }
 }
 
 // Load learning data
 async function loadLearningData() {
     try {
-        const response = await fetch('./data/learningData.json');
+        const response = await fetch('/data/learningData.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+            console.warn('Learning data response is not JSON, content-type:', contentType);
+            const text = await response.text();
+            console.error('Response text:', text.substring(0, 200));
+            throw new Error('Invalid JSON response for learning data');
+        }
+
         learningData = await response.json();
         console.log('Learning data loaded successfully');
     } catch (error) {
         console.error('Failed to load learning data:', error);
+        // Provide fallback empty data structure
+        learningData = {};
+        console.warn('Using fallback empty learning data structure');
     }
 }
 

@@ -229,7 +229,21 @@ export async function deleteCategoryFromBackend(categoryName) {
  */
 export async function checkBackendAvailability() {
     try {
-        await apiRequest('/quiz-data');
+        // Skip backend check in production deployments (like Vercel)
+        if (typeof window !== 'undefined' && window.location.hostname.includes('vercel.app')) {
+            console.log('Detected Vercel deployment, skipping backend check');
+            return false;
+        }
+
+        // Quick timeout for backend check to avoid long delays
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 2000); // 2 second timeout
+
+        await apiRequest('/quiz-data', {
+            signal: controller.signal
+        });
+
+        clearTimeout(timeoutId);
         return true;
     } catch (error) {
         console.warn('Backend API not available, falling back to static file loading');
