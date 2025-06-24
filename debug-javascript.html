@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TerraTüftler JavaScript Debug Tool</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-result { 
+            margin: 10px 0; 
+            padding: 10px; 
+            border-radius: 5px; 
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .success { 
+            background-color: #d4edda; 
+            color: #155724; 
+            border: 1px solid #c3e6cb; 
+        }
+        .error { 
+            background-color: #f8d7da; 
+            color: #721c24; 
+            border: 1px solid #f5c6cb; 
+        }
+        .warning { 
+            background-color: #fff3cd; 
+            color: #856404; 
+            border: 1px solid #ffeaa7; 
+        }
+        .info { 
+            background-color: #d1ecf1; 
+            color: #0c5460; 
+            border: 1px solid #bee5eb; 
+        }
+        pre { 
+            background: #f8f9fa; 
+            padding: 10px; 
+            border-radius: 5px; 
+            overflow-x: auto; 
+            max-height: 200px;
+            font-size: 11px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .critical {
+            background-color: #dc3545;
+            color: white;
+            font-weight: bold;
+        }
+        .test-button {
+            background: #28a745;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 TerraTüftler JavaScript Debug Tool</h1>
+        <p>Comprehensive debugging tool to identify and fix JavaScript issues causing website unresponsiveness.</p>
+        
+        <div class="test-section">
+            <h2>🚨 Critical Issues Check</h2>
+            <button class="test-button" onclick="checkCriticalIssues()">🔍 Check Critical Issues</button>
+            <div id="critical-issues"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>📜 Script Loading Analysis</h2>
+            <button class="test-button" onclick="analyzeScriptLoading()">📊 Analyze Script Loading</button>
+            <div id="script-analysis"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>🎯 Event Listener Testing</h2>
+            <button class="test-button" onclick="testEventListeners()">🎪 Test Event Listeners</button>
+            <div id="event-listener-tests"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>🌐 Network Request Analysis</h2>
+            <button class="test-button" onclick="analyzeNetworkRequests()">📡 Analyze Network</button>
+            <div id="network-analysis"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>🧩 Module Loading Test</h2>
+            <button class="test-button" onclick="testModuleLoading()">🔗 Test Module Loading</button>
+            <div id="module-loading"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>📋 Console Error Monitor</h2>
+            <button class="test-button" onclick="startErrorMonitoring()">👁️ Start Monitoring</button>
+            <button onclick="clearErrorLog()">🗑️ Clear Log</button>
+            <div id="error-monitor"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>🎮 Interactive Element Test</h2>
+            <button class="test-button" onclick="testInteractiveElements()">🖱️ Test Interactions</button>
+            <div id="interaction-tests"></div>
+        </div>
+    </div>
+
+    <script>
+        let errorLog = [];
+        let isMonitoring = false;
+
+        // Capture all console errors
+        const originalError = console.error;
+        const originalWarn = console.warn;
+        const originalLog = console.log;
+
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            if (isMonitoring) {
+                errorLog.push({
+                    type: 'error',
+                    timestamp: new Date().toISOString(),
+                    message: args.join(' ')
+                });
+                updateErrorMonitor();
+            }
+        };
+
+        console.warn = function(...args) {
+            originalWarn.apply(console, args);
+            if (isMonitoring) {
+                errorLog.push({
+                    type: 'warning',
+                    timestamp: new Date().toISOString(),
+                    message: args.join(' ')
+                });
+                updateErrorMonitor();
+            }
+        };
+
+        function addResult(containerId, type, message, details = null) {
+            const container = document.getElementById(containerId);
+            const div = document.createElement('div');
+            div.className = `test-result ${type}`;
+            div.innerHTML = `
+                <strong>${message}</strong>
+                ${details ? `<pre>${details}</pre>` : ''}
+            `;
+            container.appendChild(div);
+        }
+
+        function clearResults(containerId) {
+            document.getElementById(containerId).innerHTML = '';
+        }
+
+        function checkCriticalIssues() {
+            clearResults('critical-issues');
+            addResult('critical-issues', 'info', '🔍 Checking for critical JavaScript issues...');
+
+            // Check for duplicate script tags
+            const scripts = document.querySelectorAll('script[src*="app.js"]');
+            if (scripts.length > 1) {
+                addResult('critical-issues', 'critical', `❌ CRITICAL: Duplicate script tags found (${scripts.length})`, 
+                    'Multiple app.js scripts can cause conflicting event listeners and break functionality');
+            } else {
+                addResult('critical-issues', 'success', '✅ No duplicate script tags found');
+            }
+
+            // Check for JavaScript errors in console
+            const hasErrors = errorLog.filter(log => log.type === 'error').length > 0;
+            if (hasErrors) {
+                addResult('critical-issues', 'error', '❌ JavaScript errors detected in console', 
+                    'Check Console Error Monitor section for details');
+            } else {
+                addResult('critical-issues', 'success', '✅ No JavaScript errors detected');
+            }
+
+            // Check if main navigation elements exist
+            const navLinks = document.querySelectorAll('[data-target]');
+            if (navLinks.length === 0) {
+                addResult('critical-issues', 'critical', '❌ CRITICAL: No navigation elements found', 
+                    'Navigation buttons with data-target attributes are missing');
+            } else {
+                addResult('critical-issues', 'success', `✅ Found ${navLinks.length} navigation elements`);
+            }
+
+            // Check if event listeners are attached
+            let hasEventListeners = false;
+            navLinks.forEach(link => {
+                const events = getEventListeners ? getEventListeners(link) : null;
+                if (events && Object.keys(events).length > 0) {
+                    hasEventListeners = true;
+                }
+            });
+
+            if (!hasEventListeners && navLinks.length > 0) {
+                addResult('critical-issues', 'critical', '❌ CRITICAL: Event listeners not attached to navigation', 
+                    'Navigation elements exist but have no click event listeners');
+            } else if (hasEventListeners) {
+                addResult('critical-issues', 'success', '✅ Event listeners appear to be attached');
+            }
+        }
+
+        function analyzeScriptLoading() {
+            clearResults('script-analysis');
+            addResult('script-analysis', 'info', '📊 Analyzing script loading...');
+
+            const scripts = document.querySelectorAll('script');
+            const moduleScripts = document.querySelectorAll('script[type="module"]');
+            const appScripts = document.querySelectorAll('script[src*="app"]');
+
+            addResult('script-analysis', 'info', `Total scripts: ${scripts.length}`);
+            addResult('script-analysis', 'info', `Module scripts: ${moduleScripts.length}`);
+            addResult('script-analysis', 'info', `App-related scripts: ${appScripts.length}`);
+
+            // List all scripts
+            const scriptDetails = Array.from(scripts).map(script => ({
+                src: script.src || 'inline',
+                type: script.type || 'text/javascript',
+                async: script.async,
+                defer: script.defer,
+                module: script.type === 'module'
+            }));
+
+            addResult('script-analysis', 'info', 'Script details:', JSON.stringify(scriptDetails, null, 2));
+
+            // Check for loading errors
+            scripts.forEach((script, index) => {
+                if (script.src) {
+                    script.addEventListener('error', () => {
+                        addResult('script-analysis', 'error', `❌ Script loading failed: ${script.src}`);
+                    });
+                    script.addEventListener('load', () => {
+                        addResult('script-analysis', 'success', `✅ Script loaded: ${script.src}`);
+                    });
+                }
+            });
+        }
+
+        function testEventListeners() {
+            clearResults('event-listener-tests');
+            addResult('event-listener-tests', 'info', '🎪 Testing event listeners...');
+
+            // Test navigation links
+            const navLinks = document.querySelectorAll('[data-target]');
+            addResult('event-listener-tests', 'info', `Found ${navLinks.length} navigation elements`);
+
+            navLinks.forEach((link, index) => {
+                const target = link.getAttribute('data-target');
+                
+                // Try to trigger click event
+                try {
+                    const clickEvent = new MouseEvent('click', {
+                        bubbles: true,
+                        cancelable: true,
+                        view: window
+                    });
+                    
+                    let eventFired = false;
+                    const testHandler = () => { eventFired = true; };
+                    link.addEventListener('click', testHandler, { once: true });
+                    
+                    link.dispatchEvent(clickEvent);
+                    
+                    setTimeout(() => {
+                        if (eventFired) {
+                            addResult('event-listener-tests', 'success', `✅ Event listener working for: ${target}`);
+                        } else {
+                            addResult('event-listener-tests', 'error', `❌ Event listener not working for: ${target}`);
+                        }
+                    }, 100);
+                    
+                } catch (error) {
+                    addResult('event-listener-tests', 'error', `❌ Error testing ${target}: ${error.message}`);
+                }
+            });
+
+            // Test buttons
+            const buttons = document.querySelectorAll('button');
+            addResult('event-listener-tests', 'info', `Found ${buttons.length} buttons`);
+        }
+
+        function analyzeNetworkRequests() {
+            clearResults('network-analysis');
+            addResult('network-analysis', 'info', '📡 Analyzing network requests...');
+            
+            // Check if Performance API is available
+            if (window.performance && window.performance.getEntriesByType) {
+                const resources = window.performance.getEntriesByType('resource');
+                const scripts = resources.filter(r => r.name.includes('.js'));
+                const stylesheets = resources.filter(r => r.name.includes('.css'));
+                const images = resources.filter(r => r.name.match(/\.(jpg|jpeg|png|gif|svg)$/i));
+                
+                addResult('network-analysis', 'info', `JavaScript files loaded: ${scripts.length}`);
+                addResult('network-analysis', 'info', `CSS files loaded: ${stylesheets.length}`);
+                addResult('network-analysis', 'info', `Images loaded: ${images.length}`);
+                
+                // Check for failed requests
+                const failedRequests = resources.filter(r => r.transferSize === 0 && r.decodedBodySize === 0);
+                if (failedRequests.length > 0) {
+                    addResult('network-analysis', 'error', `❌ ${failedRequests.length} failed requests detected`);
+                    failedRequests.forEach(req => {
+                        addResult('network-analysis', 'error', `Failed: ${req.name}`);
+                    });
+                } else {
+                    addResult('network-analysis', 'success', '✅ No failed requests detected');
+                }
+            } else {
+                addResult('network-analysis', 'warning', '⚠️ Performance API not available');
+            }
+        }
+
+        function testModuleLoading() {
+            clearResults('module-loading');
+            addResult('module-loading', 'info', '🔗 Testing module loading...');
+
+            // Check if ES6 modules are supported
+            if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+                addResult('module-loading', 'success', '✅ ES6 modules supported');
+            } else {
+                addResult('module-loading', 'error', '❌ ES6 modules not supported');
+            }
+
+            // Test dynamic import
+            try {
+                const testImport = import('./js/data.js').then(() => {
+                    addResult('module-loading', 'success', '✅ Dynamic import working');
+                }).catch(error => {
+                    addResult('module-loading', 'error', `❌ Dynamic import failed: ${error.message}`);
+                });
+            } catch (error) {
+                addResult('module-loading', 'error', `❌ Dynamic import not supported: ${error.message}`);
+            }
+        }
+
+        function startErrorMonitoring() {
+            isMonitoring = true;
+            errorLog = [];
+            addResult('error-monitor', 'info', '👁️ Error monitoring started...');
+            
+            // Also capture unhandled promise rejections
+            window.addEventListener('unhandledrejection', event => {
+                if (isMonitoring) {
+                    errorLog.push({
+                        type: 'promise-rejection',
+                        timestamp: new Date().toISOString(),
+                        message: event.reason.toString()
+                    });
+                    updateErrorMonitor();
+                }
+            });
+        }
+
+        function clearErrorLog() {
+            errorLog = [];
+            updateErrorMonitor();
+        }
+
+        function updateErrorMonitor() {
+            const container = document.getElementById('error-monitor');
+            if (errorLog.length === 0) {
+                container.innerHTML = '<div class="test-result success">✅ No errors detected</div>';
+                return;
+            }
+
+            const errorHtml = errorLog.slice(-10).map(log => `
+                <div class="test-result ${log.type === 'error' ? 'error' : 'warning'}">
+                    <strong>[${log.timestamp}] ${log.type.toUpperCase()}:</strong> ${log.message}
+                </div>
+            `).join('');
+
+            container.innerHTML = errorHtml;
+        }
+
+        function testInteractiveElements() {
+            clearResults('interaction-tests');
+            addResult('interaction-tests', 'info', '🖱️ Testing interactive elements...');
+
+            // Test if elements are clickable
+            const testElements = [
+                { selector: '[data-target="quiz"]', name: 'Quiz button' },
+                { selector: '[data-target="learn"]', name: 'Learn button' },
+                { selector: '[data-target="leaderboard"]', name: 'Leaderboard button' },
+                { selector: '#burger', name: 'Mobile menu button' }
+            ];
+
+            testElements.forEach(test => {
+                const element = document.querySelector(test.selector);
+                if (element) {
+                    const style = window.getComputedStyle(element);
+                    const isClickable = style.pointerEvents !== 'none' && 
+                                       style.display !== 'none' && 
+                                       style.visibility !== 'hidden';
+                    
+                    if (isClickable) {
+                        addResult('interaction-tests', 'success', `✅ ${test.name} is clickable`);
+                    } else {
+                        addResult('interaction-tests', 'error', `❌ ${test.name} is not clickable`);
+                    }
+                } else {
+                    addResult('interaction-tests', 'error', `❌ ${test.name} not found`);
+                }
+            });
+        }
+
+        // Auto-start monitoring on page load
+        window.addEventListener('load', () => {
+            startErrorMonitoring();
+            addResult('error-monitor', 'info', '🔧 JavaScript Debug Tool initialized');
+        });
+    </script>
+</body>
+</html>

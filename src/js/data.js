@@ -80,7 +80,29 @@ async function loadLearningData() {
 // Initialize data loading
 export async function initializeData() {
     await Promise.all([loadQuizData(), loadLearningData(), initializeLeaderboardData()]);
+    console.log('Data initialization completed. Quiz data keys:', Object.keys(quizData));
+    console.log('Quiz data structure check:', {
+        hasTimeLimit: !!quizData['time-limited'],
+        hasImageBased: !!quizData['image-based'],
+        hasAll: !!quizData['all'],
+        totalKeys: Object.keys(quizData).length
+    });
     return { quizData, learningData };
+}
+
+// Getter functions to ensure data is always accessible
+export function getQuizData() {
+    return quizData;
+}
+
+export function getLearningData() {
+    return learningData;
+}
+
+// Check if quiz data is loaded and valid
+export function isQuizDataLoaded() {
+    return quizData && Object.keys(quizData).length > 0 &&
+           (quizData['time-limited'] || quizData['image-based'] || quizData.questions);
 }
 
 // Refresh quiz data (for admin changes)

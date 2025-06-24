@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TerraTüftler Data Loading Test</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-result { 
+            margin: 10px 0; 
+            padding: 10px; 
+            border-radius: 5px; 
+            font-family: monospace;
+        }
+        .success { 
+            background-color: #d4edda; 
+            color: #155724; 
+            border: 1px solid #c3e6cb; 
+        }
+        .error { 
+            background-color: #f8d7da; 
+            color: #721c24; 
+            border: 1px solid #f5c6cb; 
+        }
+        .warning { 
+            background-color: #fff3cd; 
+            color: #856404; 
+            border: 1px solid #ffeaa7; 
+        }
+        .info { 
+            background-color: #d1ecf1; 
+            color: #0c5460; 
+            border: 1px solid #bee5eb; 
+        }
+        pre { 
+            background: #f8f9fa; 
+            padding: 10px; 
+            border-radius: 5px; 
+            overflow-x: auto; 
+            max-height: 200px;
+            font-size: 12px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 TerraTüftler Data Loading Test</h1>
+        <p>This test simulates the exact data loading process used by TerraTüftler.</p>
+        
+        <button onclick="runFullTest()">🚀 Run Complete Data Loading Test</button>
+        <button onclick="clearResults()">🗑️ Clear Results</button>
+        
+        <div id="test-results"></div>
+    </div>
+
+    <script type="module">
+        let testResults = [];
+
+        function addResult(type, message, details = null) {
+            const result = { type, message, details, timestamp: new Date().toISOString() };
+            testResults.push(result);
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            const container = document.getElementById('test-results');
+            container.innerHTML = testResults.map(result => `
+                <div class="test-result ${result.type}">
+                    <strong>[${result.timestamp}] ${result.message}</strong>
+                    ${result.details ? `<pre>${result.details}</pre>` : ''}
+                </div>
+            `).join('');
+        }
+
+        function clearResults() {
+            testResults = [];
+            updateDisplay();
+        }
+
+        // Simulate the exact data loading process from TerraTüftler
+        async function runFullTest() {
+            clearResults();
+            addResult('info', '🔄 Starting TerraTüftler data loading simulation...');
+
+            try {
+                // Step 1: Environment Detection
+                const isVercel = window.location.hostname.includes('vercel.app');
+                const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+                
+                addResult('info', `Environment: ${isVercel ? 'Vercel' : isLocalhost ? 'Localhost' : 'Other'} (${window.location.hostname})`);
+
+                // Step 2: Backend Availability Check (should be false on Vercel)
+                let backendAvailable = false;
+                if (!isVercel) {
+                    try {
+                        const controller = new AbortController();
+                        const timeoutId = setTimeout(() => controller.abort(), 2000);
+                        
+                        await fetch('/api/quiz-data', { signal: controller.signal });
+                        clearTimeout(timeoutId);
+                        backendAvailable = true;
+                        addResult('success', '✅ Backend API is available');
+                    } catch (error) {
+                        addResult('info', '📡 Backend API not available (expected for static deployment)');
+                    }
+                } else {
+                    addResult('info', '📡 Skipping backend check for Vercel deployment');
+                }
+
+                // Step 3: Load Quiz Data (main test)
+                addResult('info', '📊 Loading quiz data from static file...');
+                const quizResponse = await fetch('/data/quizData.json');
+                
+                addResult('info', `Quiz data response status: ${quizResponse.status} ${quizResponse.statusText}`);
+                
+                if (!quizResponse.ok) {
+                    throw new Error(`HTTP error! status: ${quizResponse.status}`);
+                }
+
+                const contentType = quizResponse.headers.get('content-type');
+                addResult('info', `Content-Type: ${contentType}`);
+                
+                if (!contentType || !contentType.includes('application/json')) {
+                    const text = await quizResponse.text();
+                    addResult('error', 'Invalid content type', `Expected JSON, got: ${contentType}\nResponse: ${text.substring(0, 200)}`);
+                    throw new Error('Invalid JSON response');
+                }
+
+                const quizData = await quizResponse.json();
+                addResult('success', '✅ Quiz data loaded successfully');
+
+                // Step 4: Validate Quiz Data Structure
+                const validation = validateQuizDataStructure(quizData);
+                if (validation.isValid) {
+                    addResult('success', '✅ Quiz data structure is valid', JSON.stringify(validation.summary, null, 2));
+                } else {
+                    addResult('error', '❌ Quiz data structure validation failed', validation.errors.join('\n'));
+                }
+
+                // Step 5: Load Learning Data
+                addResult('info', '📚 Loading learning data...');
+                const learningResponse = await fetch('/data/learningData.json');
+                if (learningResponse.ok) {
+                    const learningData = await learningResponse.json();
+                    addResult('success', `✅ Learning data loaded (${Object.keys(learningData).length} keys)`);
+                } else {
+                    addResult('warning', `⚠️ Learning data failed: ${learningResponse.status}`);
+                }
+
+                // Step 6: Load Leaderboard Data
+                addResult('info', '🏆 Loading leaderboard data...');
+                const leaderboardResponse = await fetch('/data/leaderboardData.json');
+                if (leaderboardResponse.ok) {
+                    const leaderboardData = await leaderboardResponse.json();
+                    addResult('success', `✅ Leaderboard data loaded (${Object.keys(leaderboardData).length} keys)`);
+                } else {
+                    addResult('warning', `⚠️ Leaderboard data failed: ${leaderboardResponse.status}`);
+                }
+
+                // Step 7: Test Quiz Data Validation Function
+                const isDataLoaded = quizData && Object.keys(quizData).length > 0 && 
+                    (quizData['time-limited'] || quizData['image-based'] || quizData.questions);
+                
+                if (isDataLoaded) {
+                    addResult('success', '✅ Quiz data validation passed - data is ready for use');
+                } else {
+                    addResult('error', '❌ Quiz data validation failed - data not ready for use');
+                }
+
+                addResult('success', '🎉 Data loading test completed successfully!');
+
+            } catch (error) {
+                addResult('error', `❌ Data loading test failed: ${error.message}`, error.stack);
+            }
+        }
+
+        function validateQuizDataStructure(data) {
+            const errors = [];
+            const summary = {};
+
+            if (typeof data !== 'object' || data === null) {
+                errors.push('Data is not a valid object');
+                return { isValid: false, errors, summary };
+            }
+
+            // Check for expected top-level keys
+            const topLevelKeys = Object.keys(data);
+            summary.topLevelKeys = topLevelKeys;
+            summary.hasTimeLimit = !!data['time-limited'];
+            summary.hasImageBased = !!data['image-based'];
+            summary.hasAll = !!data['all'];
+            summary.hasQuestions = !!data.questions;
+
+            // Count questions in each mode
+            let totalQuestions = 0;
+            const questionCounts = {};
+
+            topLevelKeys.forEach(mode => {
+                if (typeof data[mode] === 'object' && data[mode] !== null) {
+                    if (Array.isArray(data[mode])) {
+                        // Handle 'all' array
+                        questionCounts[mode] = data[mode].length;
+                        totalQuestions += data[mode].length;
+                    } else {
+                        // Handle mode objects with categories
+                        const categories = Object.keys(data[mode]);
+                        questionCounts[mode] = {};
+                        categories.forEach(category => {
+                            if (Array.isArray(data[mode][category])) {
+                                questionCounts[mode][category] = data[mode][category].length;
+                                totalQuestions += data[mode][category].length;
+                            }
+                        });
+                    }
+                }
+            });
+
+            summary.questionCounts = questionCounts;
+            summary.totalQuestions = totalQuestions;
+
+            // Validation rules
+            if (totalQuestions === 0) {
+                errors.push('No questions found in any category');
+            }
+
+            if (!summary.hasTimeLimit && !summary.hasImageBased && !summary.hasQuestions) {
+                errors.push('No valid quiz modes found');
+            }
+
+            return {
+                isValid: errors.length === 0,
+                errors,
+                summary
+            };
+        }
+
+        // Make functions globally available
+        window.runFullTest = runFullTest;
+        window.clearResults = clearResults;
+
+        // Auto-run test on page load
+        window.addEventListener('load', () => {
+            addResult('info', '🔍 TerraTüftler Data Loading Test initialized');
+            addResult('info', 'Click "Run Complete Data Loading Test" to start');
+        });
+    </script>
+</body>
+</html>

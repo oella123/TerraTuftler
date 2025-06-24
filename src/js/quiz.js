@@ -1,4 +1,4 @@
-import { quizData } from './data.js';
+import { quizData, getQuizData, isQuizDataLoaded } from './data.js';
 import { playSound } from './theme.js';
 import { showSection, showTemporaryFeedback, shuffleArray, appState } from './app.js'; // Assuming app.js exports these
 import { getLeaderboard, saveLeaderboardEntry, clearLeaderboardCategory } from './leaderboardData.js';
@@ -142,10 +142,11 @@ export function showQuizCategories(type) {
     // Use the same data source logic as startQuiz
     // Use unified questions data structure if available, otherwise fall back to legacy structure
     let categories = [];
+    const currentQuizData = getQuizData();
 
-    if (quizData.questions) {
+    if (currentQuizData.questions) {
         // NEW UNIFIED APPROACH
-        categories = Object.keys(quizData.questions);
+        categories = Object.keys(currentQuizData.questions);
     } else {
         // LEGACY APPROACH
         let dataSource = type;
@@ -153,14 +154,14 @@ export function showQuizCategories(type) {
             dataSource = 'image-based';
         }
 
-        if (!quizData[dataSource]) {
+        if (!currentQuizData[dataSource]) {
             console.error(`Quiz data source "${dataSource}" not found in quizData.`);
             quizCategoryOptionsContainer.innerHTML = '<p>Fehler: Quiztyp nicht gefunden.</p>';
             showSection('quiz-category');
             return;
         }
 
-        categories = Object.keys(quizData[dataSource]);
+        categories = Object.keys(currentQuizData[dataSource]);
     }
     if (categories.length === 0) {
         quizCategoryOptionsContainer.innerHTML = '<p>Keine Kategorien für diesen Modus verfügbar.</p>';
@@ -187,10 +188,11 @@ export function startQuiz(type, category) {
     // For time-limited quiz, use image-based data for landscape recognition
     // Use unified questions data structure if available, otherwise fall back to legacy structure
     let questionsData = [];
+    const currentQuizData = getQuizData();
 
-    if (quizData.questions && quizData.questions[category]) {
+    if (currentQuizData.questions && currentQuizData.questions[category]) {
         // NEW UNIFIED APPROACH
-        questionsData = quizData.questions[category];
+        questionsData = currentQuizData.questions[category];
     } else {
         // LEGACY APPROACH
         let dataSource = type;
@@ -198,13 +200,13 @@ export function startQuiz(type, category) {
             dataSource = 'image-based';
         }
 
-        if (!quizData[dataSource]?.[category] || quizData[dataSource][category].length === 0) {
+        if (!currentQuizData[dataSource]?.[category] || currentQuizData[dataSource][category].length === 0) {
             alert("Fehler: Quiz konnte nicht geladen werden. Kategorie oder Typ ungültig.");
             showSection('quiz-category');
             return;
         }
 
-        questionsData = quizData[dataSource][category];
+        questionsData = currentQuizData[dataSource][category];
     }
 
     if (questionsData.length === 0) {
@@ -330,7 +332,9 @@ function loadQuestion() {
     }
 
     if (questionImageElement && currentQuestion.image) {
-        questionImageElement.src = currentQuestion.image;
+        // Ensure image path starts with / for proper loading
+        const imagePath = currentQuestion.image.startsWith('/') ? currentQuestion.image : `/${currentQuestion.image}`;
+        questionImageElement.src = imagePath;
         questionImageElement.style.display = 'block';
         // Set appropriate alt text based on whether question text exists
         if (currentQuestion.question) {
@@ -813,10 +817,12 @@ function startImagePhaseTimer() {
 
 /** Gets the total number of questions available in a specific category and mode. */
 function getTotalQuestionsInCategory(mode, category) {
+    const currentQuizData = getQuizData();
+
     // Use unified questions data structure if available, otherwise fall back to legacy structure
-    if (quizData.questions && quizData.questions[category]) {
+    if (currentQuizData.questions && currentQuizData.questions[category]) {
         // NEW UNIFIED APPROACH
-        return quizData.questions[category].length;
+        return currentQuizData.questions[category].length;
     } else {
         // LEGACY APPROACH
         let dataSource = mode;
@@ -824,11 +830,11 @@ function getTotalQuestionsInCategory(mode, category) {
             dataSource = 'image-based';
         }
 
-        if (!quizData[dataSource] || !quizData[dataSource][category]) {
+        if (!currentQuizData[dataSource] || !currentQuizData[dataSource][category]) {
             return 0;
         }
 
-        return quizData[dataSource][category].length;
+        return currentQuizData[dataSource][category].length;
     }
 }
 

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TerraTüftler Image Debug Tool</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-result { 
+            margin: 10px 0; 
+            padding: 10px; 
+            border-radius: 5px; 
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .success { 
+            background-color: #d4edda; 
+            color: #155724; 
+            border: 1px solid #c3e6cb; 
+        }
+        .error { 
+            background-color: #f8d7da; 
+            color: #721c24; 
+            border: 1px solid #f5c6cb; 
+        }
+        .warning { 
+            background-color: #fff3cd; 
+            color: #856404; 
+            border: 1px solid #ffeaa7; 
+        }
+        .info { 
+            background-color: #d1ecf1; 
+            color: #0c5460; 
+            border: 1px solid #bee5eb; 
+        }
+        pre { 
+            background: #f8f9fa; 
+            padding: 10px; 
+            border-radius: 5px; 
+            overflow-x: auto; 
+            max-height: 200px;
+            font-size: 11px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .image-test {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            max-width: 200px;
+        }
+        .image-test img {
+            max-width: 150px;
+            max-height: 100px;
+            border: 1px solid #ccc;
+        }
+        .image-test .status {
+            margin-top: 5px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .image-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🖼️ TerraTüftler Image Debug Tool</h1>
+        <p>Comprehensive tool to diagnose and fix image loading issues in the TerraTüftler application.</p>
+        
+        <div class="test-section">
+            <h2>📊 Image Path Analysis</h2>
+            <button onclick="analyzeImagePaths()">🔍 Analyze Image Paths</button>
+            <div id="path-analysis"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>🌐 Direct Image URL Testing</h2>
+            <button onclick="testImageUrls()">🔗 Test Image URLs</button>
+            <div id="url-testing"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>📁 Asset Directory Check</h2>
+            <button onclick="checkAssetDirectory()">📂 Check Assets</button>
+            <div id="asset-check"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>🎯 Quiz Data Image Validation</h2>
+            <button onclick="validateQuizImages()">✅ Validate Quiz Images</button>
+            <div id="quiz-validation"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>🖼️ Visual Image Test</h2>
+            <button onclick="visualImageTest()">👁️ Visual Test</button>
+            <div id="visual-test"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>🔧 Build Process Check</h2>
+            <button onclick="checkBuildProcess()">⚙️ Check Build</button>
+            <div id="build-check"></div>
+        </div>
+    </div>
+
+    <script>
+        function addResult(containerId, type, message, details = null) {
+            const container = document.getElementById(containerId);
+            const div = document.createElement('div');
+            div.className = `test-result ${type}`;
+            div.innerHTML = `
+                <strong>${message}</strong>
+                ${details ? `<pre>${details}</pre>` : ''}
+            `;
+            container.appendChild(div);
+        }
+
+        function clearResults(containerId) {
+            document.getElementById(containerId).innerHTML = '';
+        }
+
+        async function analyzeImagePaths() {
+            clearResults('path-analysis');
+            addResult('path-analysis', 'info', '🔍 Analyzing image paths in quiz data...');
+
+            try {
+                const response = await fetch('/data/quizData.json');
+                const quizData = await response.json();
+                
+                const imagePaths = new Set();
+                const pathAnalysis = {
+                    totalImages: 0,
+                    uniquePaths: 0,
+                    pathFormats: {},
+                    categories: {}
+                };
+
+                // Analyze all image paths
+                function analyzeSection(section, sectionName) {
+                    if (typeof section === 'object' && section !== null) {
+                        Object.keys(section).forEach(key => {
+                            if (Array.isArray(section[key])) {
+                                section[key].forEach(item => {
+                                    if (item.image) {
+                                        pathAnalysis.totalImages++;
+                                        imagePaths.add(item.image);
+                                        
+                                        // Analyze path format
+                                        const pathParts = item.image.split('/');
+                                        const format = pathParts.slice(0, -1).join('/');
+                                        pathAnalysis.pathFormats[format] = (pathAnalysis.pathFormats[format] || 0) + 1;
+                                        
+                                        // Track categories
+                                        if (pathParts.length >= 3) {
+                                            const category = pathParts[2];
+                                            pathAnalysis.categories[category] = (pathAnalysis.categories[category] || 0) + 1;
+                                        }
+                                    }
+                                });
+                            } else {
+                                analyzeSection(section[key], key);
+                            }
+                        });
+                    }
+                }
+
+                Object.keys(quizData).forEach(mode => {
+                    analyzeSection(quizData[mode], mode);
+                });
+
+                pathAnalysis.uniquePaths = imagePaths.size;
+
+                addResult('path-analysis', 'success', `✅ Found ${pathAnalysis.totalImages} total images, ${pathAnalysis.uniquePaths} unique paths`);
+                addResult('path-analysis', 'info', 'Path format analysis:', JSON.stringify(pathAnalysis.pathFormats, null, 2));
+                addResult('path-analysis', 'info', 'Category distribution:', JSON.stringify(pathAnalysis.categories, null, 2));
+
+                // Check for common path issues
+                const samplePaths = Array.from(imagePaths).slice(0, 5);
+                addResult('path-analysis', 'info', 'Sample image paths:', samplePaths.join('\n'));
+
+            } catch (error) {
+                addResult('path-analysis', 'error', `❌ Failed to analyze paths: ${error.message}`);
+            }
+        }
+
+        async function testImageUrls() {
+            clearResults('url-testing');
+            addResult('url-testing', 'info', '🔗 Testing direct image URL access...');
+
+            try {
+                const response = await fetch('/data/quizData.json');
+                const quizData = await response.json();
+                
+                const imagePaths = new Set();
+                
+                // Collect unique image paths
+                function collectPaths(section) {
+                    if (typeof section === 'object' && section !== null) {
+                        Object.keys(section).forEach(key => {
+                            if (Array.isArray(section[key])) {
+                                section[key].forEach(item => {
+                                    if (item.image) {
+                                        imagePaths.add(item.image);
+                                    }
+                                });
+                            } else {
+                                collectPaths(section[key]);
+                            }
+                        });
+                    }
+                }
+
+                Object.keys(quizData).forEach(mode => {
+                    collectPaths(quizData[mode]);
+                });
+
+                // Test first 10 unique paths
+                const pathsToTest = Array.from(imagePaths).slice(0, 10);
+                addResult('url-testing', 'info', `Testing ${pathsToTest.length} image URLs...`);
+
+                let successCount = 0;
+                let failCount = 0;
+
+                for (const path of pathsToTest) {
+                    try {
+                        const imageResponse = await fetch(`/${path}`);
+                        if (imageResponse.ok) {
+                            addResult('url-testing', 'success', `✅ ${path} - Status: ${imageResponse.status}`);
+                            successCount++;
+                        } else {
+                            addResult('url-testing', 'error', `❌ ${path} - Status: ${imageResponse.status}`);
+                            failCount++;
+                        }
+                    } catch (error) {
+                        addResult('url-testing', 'error', `❌ ${path} - Error: ${error.message}`);
+                        failCount++;
+                    }
+                }
+
+                addResult('url-testing', 'info', `Summary: ${successCount} successful, ${failCount} failed`);
+
+            } catch (error) {
+                addResult('url-testing', 'error', `❌ Failed to test URLs: ${error.message}`);
+            }
+        }
+
+        async function checkAssetDirectory() {
+            clearResults('asset-check');
+            addResult('asset-check', 'info', '📂 Checking asset directory structure...');
+
+            // Test common asset paths
+            const testPaths = [
+                'assets/images/',
+                'assets/images/Bollards/',
+                'assets/images/Chevrons/',
+                'assets/images/Google Cars/',
+                'assets/images/Poles/',
+                'assets/images/Other Signs/'
+            ];
+
+            for (const path of testPaths) {
+                try {
+                    const response = await fetch(`/${path}`);
+                    if (response.ok) {
+                        addResult('asset-check', 'success', `✅ Directory accessible: ${path}`);
+                    } else {
+                        addResult('asset-check', 'error', `❌ Directory not accessible: ${path} (${response.status})`);
+                    }
+                } catch (error) {
+                    addResult('asset-check', 'error', `❌ Directory test failed: ${path} - ${error.message}`);
+                }
+            }
+        }
+
+        async function validateQuizImages() {
+            clearResults('quiz-validation');
+            addResult('quiz-validation', 'info', '✅ Validating quiz images...');
+
+            try {
+                const response = await fetch('/data/quizData.json');
+                const quizData = await response.json();
+                
+                let totalQuestions = 0;
+                let questionsWithImages = 0;
+                let validImages = 0;
+                let invalidImages = 0;
+
+                async function validateSection(section, sectionName) {
+                    if (typeof section === 'object' && section !== null) {
+                        for (const key of Object.keys(section)) {
+                            if (Array.isArray(section[key])) {
+                                for (const item of section[key]) {
+                                    totalQuestions++;
+                                    if (item.image) {
+                                        questionsWithImages++;
+                                        try {
+                                            const imgResponse = await fetch(`/${item.image}`);
+                                            if (imgResponse.ok) {
+                                                validImages++;
+                                            } else {
+                                                invalidImages++;
+                                                addResult('quiz-validation', 'warning', `⚠️ Invalid image: ${item.image}`);
+                                            }
+                                        } catch (error) {
+                                            invalidImages++;
+                                            addResult('quiz-validation', 'error', `❌ Image error: ${item.image} - ${error.message}`);
+                                        }
+                                    }
+                                }
+                            } else {
+                                await validateSection(section[key], key);
+                            }
+                        }
+                    }
+                }
+
+                for (const mode of Object.keys(quizData)) {
+                    await validateSection(quizData[mode], mode);
+                }
+
+                addResult('quiz-validation', 'info', `Total questions: ${totalQuestions}`);
+                addResult('quiz-validation', 'info', `Questions with images: ${questionsWithImages}`);
+                addResult('quiz-validation', 'success', `Valid images: ${validImages}`);
+                addResult('quiz-validation', 'error', `Invalid images: ${invalidImages}`);
+
+                const validationRate = questionsWithImages > 0 ? (validImages / questionsWithImages * 100).toFixed(1) : 0;
+                addResult('quiz-validation', 'info', `Image validation rate: ${validationRate}%`);
+
+            } catch (error) {
+                addResult('quiz-validation', 'error', `❌ Validation failed: ${error.message}`);
+            }
+        }
+
+        async function visualImageTest() {
+            clearResults('visual-test');
+            addResult('visual-test', 'info', '👁️ Running visual image test...');
+
+            try {
+                const response = await fetch('/data/quizData.json');
+                const quizData = await response.json();
+                
+                const imagePaths = new Set();
+                
+                // Collect sample images
+                function collectSamplePaths(section) {
+                    if (typeof section === 'object' && section !== null) {
+                        Object.keys(section).forEach(key => {
+                            if (Array.isArray(section[key])) {
+                                section[key].slice(0, 2).forEach(item => { // Only first 2 from each category
+                                    if (item.image) {
+                                        imagePaths.add(item.image);
+                                    }
+                                });
+                            } else {
+                                collectSamplePaths(section[key]);
+                            }
+                        });
+                    }
+                }
+
+                Object.keys(quizData).forEach(mode => {
+                    collectSamplePaths(quizData[mode]);
+                });
+
+                const container = document.getElementById('visual-test');
+                const gridDiv = document.createElement('div');
+                gridDiv.className = 'image-grid';
+                container.appendChild(gridDiv);
+
+                // Test first 12 images visually
+                const pathsToTest = Array.from(imagePaths).slice(0, 12);
+                
+                pathsToTest.forEach(path => {
+                    const testDiv = document.createElement('div');
+                    testDiv.className = 'image-test';
+                    
+                    const img = document.createElement('img');
+                    img.src = `/${path}`;
+                    img.alt = path;
+                    
+                    const statusDiv = document.createElement('div');
+                    statusDiv.className = 'status';
+                    statusDiv.textContent = 'Loading...';
+                    
+                    const pathDiv = document.createElement('div');
+                    pathDiv.style.fontSize = '10px';
+                    pathDiv.style.wordBreak = 'break-all';
+                    pathDiv.textContent = path;
+                    
+                    img.onload = () => {
+                        statusDiv.textContent = '✅ Loaded';
+                        statusDiv.style.color = 'green';
+                    };
+                    
+                    img.onerror = () => {
+                        statusDiv.textContent = '❌ Failed';
+                        statusDiv.style.color = 'red';
+                        img.style.display = 'none';
+                    };
+                    
+                    testDiv.appendChild(img);
+                    testDiv.appendChild(statusDiv);
+                    testDiv.appendChild(pathDiv);
+                    gridDiv.appendChild(testDiv);
+                });
+
+                addResult('visual-test', 'info', `Testing ${pathsToTest.length} images visually...`);
+
+            } catch (error) {
+                addResult('visual-test', 'error', `❌ Visual test failed: ${error.message}`);
+            }
+        }
+
+        function checkBuildProcess() {
+            clearResults('build-check');
+            addResult('build-check', 'info', '⚙️ Checking build process configuration...');
+
+            // Check if we're on the built version
+            const isBuilt = window.location.protocol === 'https:' || window.location.hostname !== 'localhost';
+            
+            if (isBuilt) {
+                addResult('build-check', 'info', '🌐 Running on deployed/built version');
+                addResult('build-check', 'info', 'Build process should have copied assets to dist/assets/');
+            } else {
+                addResult('build-check', 'info', '🏠 Running on development server');
+                addResult('build-check', 'info', 'Assets should be served from src/assets/');
+            }
+
+            // Check Vite configuration expectations
+            addResult('build-check', 'info', 'Expected build process:');
+            addResult('build-check', 'info', '1. Copy src/assets/images/ to dist/assets/images/');
+            addResult('build-check', 'info', '2. Copy src/data/*.json to dist/data/');
+            addResult('build-check', 'info', '3. Process and bundle JS/CSS files');
+            
+            // Test if assets are in expected locations
+            const expectedPaths = [
+                'assets/images/Bollards/bollardBE.jpg',
+                'assets/images/Chevrons/chevronFR.jpg',
+                'data/quizData.json'
+            ];
+
+            expectedPaths.forEach(async (path) => {
+                try {
+                    const response = await fetch(`/${path}`);
+                    if (response.ok) {
+                        addResult('build-check', 'success', `✅ Found: ${path}`);
+                    } else {
+                        addResult('build-check', 'error', `❌ Missing: ${path} (${response.status})`);
+                    }
+                } catch (error) {
+                    addResult('build-check', 'error', `❌ Error checking ${path}: ${error.message}`);
+                }
+            });
+        }
+
+        // Auto-run basic checks on page load
+        window.addEventListener('load', () => {
+            addResult('path-analysis', 'info', '🖼️ Image Debug Tool initialized');
+            addResult('path-analysis', 'info', 'Click buttons above to run specific tests');
+        });
+    </script>
+</body>
+</html>

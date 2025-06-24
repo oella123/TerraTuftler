@@ -355,7 +355,7 @@ nav {
     border-radius: 0 0 var(--radius) var(--radius);
     /* Earth panorama background with lighter overlay for vibrant visibility */
     background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25)),
-                url('../assets/images/design/4k-earth-panorama-8l3t9nkefmdx7jfo.jpg') center/cover no-repeat;
+                url('/assets/images/design/4k-earth-panorama-8l3t9nkefmdx7jfo.jpg') center/cover no-repeat;
     margin-bottom: 2rem;
     overflow: hidden; /* Contain background */
     min-height: 400px; /* Ensure adequate height for the panorama */

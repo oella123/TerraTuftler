@@ -1,4 +1,4 @@
-import { quizData, learningData, initializeData } from './data.js';
+import { quizData, learningData, initializeData, getQuizData, getLearningData, isQuizDataLoaded } from './data.js';
 import { themeState, setTheme, loadSettings, toggleSound, playSound } from './theme.js';
 import { quizState, cacheQuizDOMElements, resetQuizState, showQuizCategories, startQuiz, checkAnswer, nextQuestion, previousQuestion, finishQuiz, displayLeaderboard, clearLeaderboard } from './quiz.js';
 import { initializeAdmin, cacheAdminDOMElements } from './admin.js';
@@ -250,6 +250,7 @@ function updateLeaderboardCategories() {
 
     const mode = leaderboardModeSelect.value;
     leaderboardCategorySelect.innerHTML = '';
+    const currentQuizData = getQuizData();
 
     // Get categories for the selected mode (using same logic as quiz.js)
     let dataSource = mode;
@@ -257,9 +258,9 @@ function updateLeaderboardCategories() {
         dataSource = 'image-based';
     }
 
-    if (!quizData[dataSource]) return;
+    if (!currentQuizData[dataSource]) return;
 
-    const allCategories = Object.keys(quizData[dataSource]);
+    const allCategories = Object.keys(currentQuizData[dataSource]);
     let categories;
 
     // Show ALL categories for both modes - no filtering needed for leaderboard
@@ -502,7 +503,8 @@ function renderLearningContent(category = 'all') {
         return;
     }
 
-    if (!quizData) {
+    const currentQuizData = getQuizData();
+    if (!isQuizDataLoaded()) {
         console.error('Quiz data not available for learning content');
         learnContentGrid.innerHTML = '<p class="no-content">Lerndaten konnten nicht geladen werden.</p>';
         return;
@@ -512,13 +514,13 @@ function renderLearningContent(category = 'all') {
 
     try {
         // Use unified questions data structure if available, otherwise fall back to legacy structure
-        if (quizData.questions) {
+        if (currentQuizData.questions) {
             // NEW UNIFIED APPROACH - eliminates duplicates
             if (category === 'all') {
                 // Show content from all categories
-                Object.keys(quizData.questions).forEach(cat => {
-                    if (cat !== 'all' && quizData.questions[cat]) {
-                        const categoryData = quizData.questions[cat];
+                Object.keys(currentQuizData.questions).forEach(cat => {
+                    if (cat !== 'all' && currentQuizData.questions[cat]) {
+                        const categoryData = currentQuizData.questions[cat];
                         if (Array.isArray(categoryData)) {
                             categoryData.forEach(item => {
                                 // Only include items with images for learning reference
@@ -535,8 +537,8 @@ function renderLearningContent(category = 'all') {
                 });
             } else {
                 // Show content from specific category
-                if (quizData.questions[category] && Array.isArray(quizData.questions[category])) {
-                    quizData.questions[category].forEach(item => {
+                if (currentQuizData.questions[category] && Array.isArray(currentQuizData.questions[category])) {
+                    currentQuizData.questions[category].forEach(item => {
                         // Only include items with images for learning reference
                         if (item.image) {
                             contentToShow.push({
@@ -556,10 +558,10 @@ function renderLearningContent(category = 'all') {
             if (category === 'all') {
                 // Show content from all categories across selected data sources
                 dataSources.forEach(dataSource => {
-                    if (quizData[dataSource]) {
-                        Object.keys(quizData[dataSource]).forEach(cat => {
-                            if (cat !== 'all' && quizData[dataSource][cat]) {
-                                const categoryData = quizData[dataSource][cat];
+                    if (currentQuizData[dataSource]) {
+                        Object.keys(currentQuizData[dataSource]).forEach(cat => {
+                            if (cat !== 'all' && currentQuizData[dataSource][cat]) {
+                                const categoryData = currentQuizData[dataSource][cat];
                                 if (Array.isArray(categoryData)) {
                                     categoryData.forEach(item => {
                                         // Only include items with images and avoid duplicates
@@ -580,8 +582,8 @@ function renderLearningContent(category = 'all') {
             } else {
                 // Show content from specific category
                 dataSources.forEach(dataSource => {
-                    if (quizData[dataSource] && quizData[dataSource][category] && Array.isArray(quizData[dataSource][category])) {
-                        quizData[dataSource][category].forEach(item => {
+                    if (currentQuizData[dataSource] && currentQuizData[dataSource][category] && Array.isArray(currentQuizData[dataSource][category])) {
+                        currentQuizData[dataSource][category].forEach(item => {
                             // Only include items with images and avoid duplicates
                             if (item.image && !seenImages.has(item.image)) {
                                 seenImages.add(item.image);
@@ -642,8 +644,11 @@ function createLearningReferenceItem(item) {
     const itemElement = document.createElement('div');
     itemElement.className = 'learn-reference-item';
 
-    // Handle missing images gracefully
-    const imageUrl = item.image || 'https://placehold.co/400x200/bdc3c7/2c3e50?text=Kein+Bild';
+    // Handle missing images gracefully and ensure proper path formatting
+    let imageUrl = item.image || 'https://placehold.co/400x200/bdc3c7/2c3e50?text=Kein+Bild';
+    if (item.image && !item.image.startsWith('http') && !item.image.startsWith('/')) {
+        imageUrl = `/${item.image}`;
+    }
 
     // Format category name for display
     const categoryDisplayName = item.category.charAt(0).toUpperCase() + item.category.slice(1).replace(/_/g, ' ');
@@ -733,9 +738,17 @@ function setupEventListeners() {
             button.addEventListener('click', () => {
                 const quizType = button.dataset.quizType;
                 if (quizType) {
-                    // Check if quiz data is loaded
-                    if (!quizData || Object.keys(quizData).length === 0) {
-                        showTemporaryFeedback('Quiz-Daten werden noch geladen. Bitte warten Sie einen Moment.', 'warning');
+                    // Check if quiz data is loaded using the validation function
+                    const currentQuizData = getQuizData();
+                    if (!isQuizDataLoaded()) {
+                        console.error('Quiz data validation failed:', {
+                            quizData: currentQuizData,
+                            keys: Object.keys(currentQuizData),
+                            hasTimeLimit: !!currentQuizData['time-limited'],
+                            hasImageBased: !!currentQuizData['image-based'],
+                            hasQuestions: !!currentQuizData.questions
+                        });
+                        showTemporaryFeedback('Quiz-Daten konnten nicht geladen werden. Bitte laden Sie die Seite neu.', 'error');
                         return;
                     }
 
@@ -896,12 +909,23 @@ function setupEventListeners() {
 
 // --- Initialization ---
 
-document.addEventListener('DOMContentLoaded', async () => {
-    console.log("DOM fully loaded and parsed.");
+// Prevent multiple initialization
+let isInitialized = false;
 
-    // Initialize data first
-    await initializeData();
-    console.log("Data initialized successfully");
+document.addEventListener('DOMContentLoaded', async () => {
+    // Prevent duplicate initialization
+    if (isInitialized) {
+        console.warn('⚠️ TerraTüftler already initialized, skipping duplicate initialization');
+        return;
+    }
+
+    console.log("🚀 TerraTüftler DOM fully loaded and parsed - starting initialization...");
+    isInitialized = true;
+
+    try {
+        // Initialize data first
+        await initializeData();
+        console.log("✅ Data initialized successfully");
 
     // Cache DOM elements first
     cacheAppDOMElements();
@@ -927,7 +951,12 @@ document.addEventListener('DOMContentLoaded', async () => {
      // Pre-select default time limit in dropdown if it exists
      if(timeLimitSelect) timeLimitSelect.value = String(quizState.selectedTimeLimit);
 
-    console.log("TerraTüftler App Initialized.");
+        console.log("🎉 TerraTüftler App Initialized successfully!");
 
-    // Quiz data loaded and application ready
+        // Quiz data loaded and application ready
+    } catch (error) {
+        console.error('❌ Failed to initialize TerraTüftler:', error);
+        showTemporaryFeedback('Fehler beim Laden der Anwendung. Bitte laden Sie die Seite neu.', 'error');
+        isInitialized = false; // Reset flag on error to allow retry
+    }
 });

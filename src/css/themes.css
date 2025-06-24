@@ -80,7 +80,7 @@ body.theme-dark {
 body.theme-standard .hero,
 body:not(.theme-dark) .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)),
-                url('../assets/images/design/4k-earth-panorama-8l3t9nkefmdx7jfo.jpg') center/cover no-repeat;
+                url('/assets/images/design/4k-earth-panorama-8l3t9nkefmdx7jfo.jpg') center/cover no-repeat;
     background-attachment: fixed;
 }
 
@@ -205,7 +205,7 @@ body.theme-dark .btn:disabled { background-color: #4a5568; color: #a0aec0; filte
 /* Dark theme specific overrides - balanced for Earth panorama visibility */
 body.theme-dark .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
-                url('../assets/images/design/4k-earth-panorama-8l3t9nkefmdx7jfo.jpg') center/cover no-repeat;
+                url('/assets/images/design/4k-earth-panorama-8l3t9nkefmdx7jfo.jpg') center/cover no-repeat;
     background-attachment: fixed;
 }
 
