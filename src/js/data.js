@@ -23,22 +23,44 @@ async function loadQuizData() {
             }
         }
 
-        // Fallback to static file loading
-        const response = await fetch('/data/quizData.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+        // Fallback to static file loading with multiple URL attempts
+        const fallbackUrls = [
+            '/data/quizData.json',
+            './data/quizData.json',
+            '../data/quizData.json'
+        ];
+
+        let lastError = null;
+        for (const url of fallbackUrls) {
+            try {
+                console.log(`🔄 Attempting to load quiz data from: ${url}`);
+                const response = await fetch(url);
+
+                if (!response.ok) {
+                    lastError = new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    console.warn(`⚠️ Failed to load from ${url}: ${lastError.message}`);
+                    continue;
+                }
+
+                const contentType = response.headers.get('content-type');
+                if (!contentType || !contentType.includes('application/json')) {
+                    lastError = new Error(`Invalid content type: ${contentType}`);
+                    console.warn(`⚠️ Invalid content type from ${url}: ${contentType}`);
+                    continue;
+                }
+
+                quizData = await response.json();
+                console.log(`✅ Quiz data loaded successfully from: ${url}`);
+                return; // Exit function on success
+
+            } catch (error) {
+                lastError = error;
+                console.warn(`⚠️ Error loading from ${url}:`, error.message);
+            }
         }
 
-        const contentType = response.headers.get('content-type');
-        if (!contentType || !contentType.includes('application/json')) {
-            console.warn('Response is not JSON, content-type:', contentType);
-            const text = await response.text();
-            console.error('Response text:', text.substring(0, 200));
-            throw new Error('Invalid JSON response');
-        }
-
-        quizData = await response.json();
-        console.log('Quiz data loaded from static file');
+        // If all fallbacks failed, throw the last error
+        throw lastError || new Error('All fallback URLs failed');
     } catch (error) {
         console.error('Failed to load quiz data:', error);
         // Provide fallback empty data structure
@@ -54,21 +76,44 @@ async function loadQuizData() {
 // Load learning data
 async function loadLearningData() {
     try {
-        const response = await fetch('/data/learningData.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+        // Try multiple fallback locations for learning data
+        const fallbackUrls = [
+            '/data/learningData.json',
+            './data/learningData.json',
+            '../data/learningData.json'
+        ];
+
+        let lastError = null;
+        for (const url of fallbackUrls) {
+            try {
+                console.log(`🔄 Attempting to load learning data from: ${url}`);
+                const response = await fetch(url);
+
+                if (!response.ok) {
+                    lastError = new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    console.warn(`⚠️ Failed to load learning data from ${url}: ${lastError.message}`);
+                    continue;
+                }
+
+                const contentType = response.headers.get('content-type');
+                if (!contentType || !contentType.includes('application/json')) {
+                    lastError = new Error(`Invalid content type: ${contentType}`);
+                    console.warn(`⚠️ Invalid content type for learning data from ${url}: ${contentType}`);
+                    continue;
+                }
+
+                learningData = await response.json();
+                console.log(`✅ Learning data loaded successfully from: ${url}`);
+                return; // Exit function on success
+
+            } catch (error) {
+                lastError = error;
+                console.warn(`⚠️ Error loading learning data from ${url}:`, error.message);
+            }
         }
 
-        const contentType = response.headers.get('content-type');
-        if (!contentType || !contentType.includes('application/json')) {
-            console.warn('Learning data response is not JSON, content-type:', contentType);
-            const text = await response.text();
-            console.error('Response text:', text.substring(0, 200));
-            throw new Error('Invalid JSON response for learning data');
-        }
-
-        learningData = await response.json();
-        console.log('Learning data loaded successfully');
+        // If all fallbacks failed, throw the last error
+        throw lastError || new Error('All learning data fallback URLs failed');
     } catch (error) {
         console.error('Failed to load learning data:', error);
         // Provide fallback empty data structure

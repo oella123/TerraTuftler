@@ -1,5 +1,7 @@
 {
   "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "builds": [
     {
       "src": "package.json",
@@ -10,6 +12,30 @@
     }
   ],
   "routes": [
+    {
+      "src": "/data/quizData.json",
+      "dest": "/data/quizData.json",
+      "headers": {
+        "Content-Type": "application/json",
+        "Cache-Control": "public, max-age=3600"
+      }
+    },
+    {
+      "src": "/data/learningData.json",
+      "dest": "/data/learningData.json",
+      "headers": {
+        "Content-Type": "application/json",
+        "Cache-Control": "public, max-age=3600"
+      }
+    },
+    {
+      "src": "/data/leaderboardData.json",
+      "dest": "/data/leaderboardData.json",
+      "headers": {
+        "Content-Type": "application/json",
+        "Cache-Control": "public, max-age=3600"
+      }
+    },
     {
       "src": "/data/(.*)",
       "dest": "/data/$1",

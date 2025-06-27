@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TerraTüftler Vercel Deployment Debug</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-result { 
+            margin: 10px 0; 
+            padding: 10px; 
+            border-radius: 5px; 
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .success { 
+            background-color: #d4edda; 
+            color: #155724; 
+            border: 1px solid #c3e6cb; 
+        }
+        .error { 
+            background-color: #f8d7da; 
+            color: #721c24; 
+            border: 1px solid #f5c6cb; 
+        }
+        .warning { 
+            background-color: #fff3cd; 
+            color: #856404; 
+            border: 1px solid #ffeaa7; 
+        }
+        .info { 
+            background-color: #d1ecf1; 
+            color: #0c5460; 
+            border: 1px solid #bee5eb; 
+        }
+        .critical {
+            background-color: #dc3545;
+            color: white;
+            font-weight: bold;
+        }
+        pre { 
+            background: #f8f9fa; 
+            padding: 10px; 
+            border-radius: 5px; 
+            overflow-x: auto; 
+            max-height: 200px;
+            font-size: 11px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .auto-test {
+            background: #28a745;
+        }
+        .auto-test:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 TerraTüftler Vercel Deployment Debug</h1>
+        <p>Comprehensive debugging tool for Vercel deployment issues - specifically targeting the quiz data loading problem.</p>
+        
+        <div class="test-section">
+            <h2>🎯 Automatic Full Diagnosis</h2>
+            <button class="auto-test" onclick="runFullDiagnosis()">🔍 Run Complete Diagnosis</button>
+            <div id="full-diagnosis"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>🌐 Environment Detection</h2>
+            <button onclick="detectEnvironment()">📍 Detect Environment</button>
+            <div id="environment-info"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>📊 Data File Accessibility Test</h2>
+            <button onclick="testDataFiles()">📁 Test Data Files</button>
+            <div id="data-file-tests"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>🔄 Data Loading Simulation</h2>
+            <button onclick="simulateDataLoading()">⚙️ Simulate Loading</button>
+            <div id="loading-simulation"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>🧪 JavaScript Execution Test</h2>
+            <button onclick="testJavaScriptExecution()">🔧 Test JS Execution</button>
+            <div id="js-execution"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>📡 Network Analysis</h2>
+            <button onclick="analyzeNetworkRequests()">🌐 Analyze Network</button>
+            <div id="network-analysis"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>🔍 Cache Investigation</h2>
+            <button onclick="investigateCache()">💾 Check Cache</button>
+            <div id="cache-investigation"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>📋 Console Error Monitor</h2>
+            <button onclick="startErrorMonitoring()">👁️ Monitor Errors</button>
+            <button onclick="clearErrorLog()">🗑️ Clear Log</button>
+            <div id="error-monitor"></div>
+        </div>
+    </div>
+
+    <script>
+        let errorLog = [];
+        let isMonitoring = false;
+
+        // Capture console errors
+        const originalError = console.error;
+        const originalWarn = console.warn;
+
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            if (isMonitoring) {
+                errorLog.push({
+                    type: 'error',
+                    timestamp: new Date().toISOString(),
+                    message: args.join(' ')
+                });
+                updateErrorMonitor();
+            }
+        };
+
+        console.warn = function(...args) {
+            originalWarn.apply(console, args);
+            if (isMonitoring) {
+                errorLog.push({
+                    type: 'warning',
+                    timestamp: new Date().toISOString(),
+                    message: args.join(' ')
+                });
+                updateErrorMonitor();
+            }
+        };
+
+        function addResult(containerId, type, message, details = null) {
+            const container = document.getElementById(containerId);
+            const div = document.createElement('div');
+            div.className = `test-result ${type}`;
+            div.innerHTML = `
+                <strong>${message}</strong>
+                ${details ? `<pre>${details}</pre>` : ''}
+            `;
+            container.appendChild(div);
+        }
+
+        function clearResults(containerId) {
+            document.getElementById(containerId).innerHTML = '';
+        }
+
+        async function runFullDiagnosis() {
+            clearResults('full-diagnosis');
+            addResult('full-diagnosis', 'info', '🔍 Starting comprehensive Vercel deployment diagnosis...');
+
+            // Run all tests in sequence
+            await detectEnvironment();
+            await testDataFiles();
+            await simulateDataLoading();
+            await testJavaScriptExecution();
+            await analyzeNetworkRequests();
+            await investigateCache();
+
+            addResult('full-diagnosis', 'success', '✅ Full diagnosis completed - check individual sections for details');
+        }
+
+        async function detectEnvironment() {
+            clearResults('environment-info');
+            addResult('environment-info', 'info', '📍 Detecting deployment environment...');
+
+            const env = {
+                hostname: window.location.hostname,
+                protocol: window.location.protocol,
+                port: window.location.port,
+                pathname: window.location.pathname,
+                userAgent: navigator.userAgent,
+                isVercel: window.location.hostname.includes('vercel.app'),
+                isLocalhost: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1',
+                timestamp: new Date().toISOString()
+            };
+
+            if (env.isVercel) {
+                addResult('environment-info', 'success', '✅ Running on Vercel deployment');
+            } else if (env.isLocalhost) {
+                addResult('environment-info', 'warning', '⚠️ Running on localhost - not production environment');
+            } else {
+                addResult('environment-info', 'info', `ℹ️ Running on: ${env.hostname}`);
+            }
+
+            addResult('environment-info', 'info', 'Environment details:', JSON.stringify(env, null, 2));
+        }
+
+        async function testDataFiles() {
+            clearResults('data-file-tests');
+            addResult('data-file-tests', 'info', '📁 Testing data file accessibility...');
+
+            const dataFiles = [
+                'quizData.json',
+                'learningData.json',
+                'leaderboardData.json'
+            ];
+
+            let successCount = 0;
+            let failCount = 0;
+
+            for (const file of dataFiles) {
+                try {
+                    const response = await fetch(`/data/${file}`);
+                    const contentType = response.headers.get('content-type');
+                    
+                    if (response.ok) {
+                        const text = await response.text();
+                        try {
+                            const data = JSON.parse(text);
+                            addResult('data-file-tests', 'success', 
+                                `✅ ${file} - Status: ${response.status}, Size: ${text.length} chars, Keys: ${Object.keys(data).length}`);
+                            successCount++;
+                        } catch (parseError) {
+                            addResult('data-file-tests', 'error', 
+                                `❌ ${file} - JSON Parse Error: ${parseError.message}`);
+                            failCount++;
+                        }
+                    } else {
+                        addResult('data-file-tests', 'critical', 
+                            `❌ ${file} - HTTP ${response.status}: ${response.statusText}`);
+                        failCount++;
+                    }
+                } catch (error) {
+                    addResult('data-file-tests', 'critical', 
+                        `❌ ${file} - Network Error: ${error.message}`);
+                    failCount++;
+                }
+            }
+
+            if (failCount > 0) {
+                addResult('data-file-tests', 'critical', 
+                    `🚨 CRITICAL: ${failCount} data files failed to load - this explains the quiz loading error!`);
+            } else {
+                addResult('data-file-tests', 'success', 
+                    `✅ All ${successCount} data files loaded successfully`);
+            }
+        }
+
+        async function simulateDataLoading() {
+            clearResults('loading-simulation');
+            addResult('loading-simulation', 'info', '⚙️ Simulating TerraTüftler data loading process...');
+
+            try {
+                // Step 1: Check if data loading functions exist
+                if (typeof window.initializeData === 'function') {
+                    addResult('loading-simulation', 'success', '✅ initializeData function is available');
+                } else {
+                    addResult('loading-simulation', 'error', '❌ initializeData function not found');
+                }
+
+                // Step 2: Try to load quiz data directly
+                const quizResponse = await fetch('/data/quizData.json');
+                if (!quizResponse.ok) {
+                    addResult('loading-simulation', 'critical', 
+                        `🚨 CRITICAL: Cannot load quiz data - HTTP ${quizResponse.status}`);
+                    return;
+                }
+
+                const quizData = await quizResponse.json();
+                
+                // Step 3: Validate data structure
+                const isValid = quizData && Object.keys(quizData).length > 0 && 
+                    (quizData['time-limited'] || quizData['image-based'] || quizData.questions);
+
+                if (isValid) {
+                    addResult('loading-simulation', 'success', 
+                        `✅ Quiz data structure is valid - ${Object.keys(quizData).length} top-level keys`);
+                } else {
+                    addResult('loading-simulation', 'error', 
+                        '❌ Quiz data structure is invalid or empty');
+                }
+
+                // Step 4: Test data validation function
+                if (typeof window.isQuizDataLoaded === 'function') {
+                    const validationResult = window.isQuizDataLoaded();
+                    addResult('loading-simulation', validationResult ? 'success' : 'error', 
+                        `Data validation result: ${validationResult}`);
+                } else {
+                    addResult('loading-simulation', 'warning', 
+                        '⚠️ isQuizDataLoaded function not available for testing');
+                }
+
+            } catch (error) {
+                addResult('loading-simulation', 'critical', 
+                    `🚨 CRITICAL: Data loading simulation failed: ${error.message}`);
+            }
+        }
+
+        async function testJavaScriptExecution() {
+            clearResults('js-execution');
+            addResult('js-execution', 'info', '🔧 Testing JavaScript execution environment...');
+
+            // Test basic JavaScript features
+            const tests = [
+                {
+                    name: 'ES6 Modules',
+                    test: () => typeof Symbol !== 'undefined' && Symbol.toStringTag
+                },
+                {
+                    name: 'Fetch API',
+                    test: () => typeof fetch === 'function'
+                },
+                {
+                    name: 'Promises',
+                    test: () => typeof Promise === 'function'
+                },
+                {
+                    name: 'Async/Await',
+                    test: () => {
+                        try {
+                            eval('(async () => {})');
+                            return true;
+                        } catch (e) {
+                            return false;
+                        }
+                    }
+                },
+                {
+                    name: 'DOM Ready',
+                    test: () => document.readyState === 'complete' || document.readyState === 'interactive'
+                }
+            ];
+
+            tests.forEach(test => {
+                try {
+                    const result = test.test();
+                    addResult('js-execution', result ? 'success' : 'error', 
+                        `${result ? '✅' : '❌'} ${test.name}: ${result}`);
+                } catch (error) {
+                    addResult('js-execution', 'error', 
+                        `❌ ${test.name}: Error - ${error.message}`);
+                }
+            });
+
+            // Test if TerraTüftler specific functions are loaded
+            const ttFunctions = [
+                'initializeData',
+                'isQuizDataLoaded',
+                'getQuizData',
+                'showSection'
+            ];
+
+            ttFunctions.forEach(funcName => {
+                const exists = typeof window[funcName] === 'function';
+                addResult('js-execution', exists ? 'success' : 'warning', 
+                    `${exists ? '✅' : '⚠️'} ${funcName}: ${exists ? 'Available' : 'Not found'}`);
+            });
+        }
+
+        async function analyzeNetworkRequests() {
+            clearResults('network-analysis');
+            addResult('network-analysis', 'info', '🌐 Analyzing network requests...');
+
+            if (window.performance && window.performance.getEntriesByType) {
+                const resources = window.performance.getEntriesByType('resource');
+                const scripts = resources.filter(r => r.name.includes('.js'));
+                const stylesheets = resources.filter(r => r.name.includes('.css'));
+                const dataFiles = resources.filter(r => r.name.includes('/data/'));
+                
+                addResult('network-analysis', 'info', `JavaScript files loaded: ${scripts.length}`);
+                addResult('network-analysis', 'info', `CSS files loaded: ${stylesheets.length}`);
+                addResult('network-analysis', 'info', `Data files requested: ${dataFiles.length}`);
+                
+                // Check for failed requests
+                const failedRequests = resources.filter(r => 
+                    r.transferSize === 0 && r.decodedBodySize === 0 && r.duration > 0
+                );
+                
+                if (failedRequests.length > 0) {
+                    addResult('network-analysis', 'error', 
+                        `❌ ${failedRequests.length} failed requests detected`);
+                    failedRequests.forEach(req => {
+                        addResult('network-analysis', 'error', `Failed: ${req.name}`);
+                    });
+                } else {
+                    addResult('network-analysis', 'success', '✅ No failed requests detected');
+                }
+
+                // Analyze data file requests specifically
+                if (dataFiles.length === 0) {
+                    addResult('network-analysis', 'critical', 
+                        '🚨 CRITICAL: No data file requests detected - data loading not attempted');
+                } else {
+                    dataFiles.forEach(req => {
+                        const status = req.transferSize > 0 ? 'Success' : 'Failed';
+                        addResult('network-analysis', req.transferSize > 0 ? 'success' : 'error', 
+                            `${status}: ${req.name} (${req.transferSize} bytes)`);
+                    });
+                }
+            } else {
+                addResult('network-analysis', 'warning', '⚠️ Performance API not available');
+            }
+        }
+
+        async function investigateCache() {
+            clearResults('cache-investigation');
+            addResult('cache-investigation', 'info', '💾 Investigating cache issues...');
+
+            // Test cache-busting requests
+            const timestamp = Date.now();
+            const testUrls = [
+                `/data/quizData.json?t=${timestamp}`,
+                `/data/learningData.json?t=${timestamp}`,
+                `/data/leaderboardData.json?t=${timestamp}`
+            ];
+
+            for (const url of testUrls) {
+                try {
+                    const response = await fetch(url, {
+                        cache: 'no-cache',
+                        headers: {
+                            'Cache-Control': 'no-cache',
+                            'Pragma': 'no-cache'
+                        }
+                    });
+                    
+                    const cacheStatus = response.headers.get('cache-control') || 'Not specified';
+                    const age = response.headers.get('age') || 'Not specified';
+                    
+                    addResult('cache-investigation', response.ok ? 'success' : 'error', 
+                        `${response.ok ? '✅' : '❌'} ${url.split('?')[0]} - Status: ${response.status}, Cache: ${cacheStatus}, Age: ${age}`);
+                } catch (error) {
+                    addResult('cache-investigation', 'error', 
+                        `❌ Cache test failed for ${url}: ${error.message}`);
+                }
+            }
+
+            // Check if service worker is interfering
+            if ('serviceWorker' in navigator) {
+                const registrations = await navigator.serviceWorker.getRegistrations();
+                if (registrations.length > 0) {
+                    addResult('cache-investigation', 'warning', 
+                        `⚠️ ${registrations.length} service worker(s) detected - may affect caching`);
+                } else {
+                    addResult('cache-investigation', 'success', '✅ No service workers detected');
+                }
+            }
+        }
+
+        function startErrorMonitoring() {
+            isMonitoring = true;
+            errorLog = [];
+            addResult('error-monitor', 'info', '👁️ Error monitoring started...');
+            
+            window.addEventListener('unhandledrejection', event => {
+                if (isMonitoring) {
+                    errorLog.push({
+                        type: 'promise-rejection',
+                        timestamp: new Date().toISOString(),
+                        message: event.reason.toString()
+                    });
+                    updateErrorMonitor();
+                }
+            });
+        }
+
+        function clearErrorLog() {
+            errorLog = [];
+            updateErrorMonitor();
+        }
+
+        function updateErrorMonitor() {
+            const container = document.getElementById('error-monitor');
+            if (errorLog.length === 0) {
+                container.innerHTML = '<div class="test-result success">✅ No errors detected</div>';
+                return;
+            }
+
+            const errorHtml = errorLog.slice(-10).map(log => `
+                <div class="test-result ${log.type === 'error' ? 'error' : 'warning'}">
+                    <strong>[${log.timestamp}] ${log.type.toUpperCase()}:</strong> ${log.message}
+                </div>
+            `).join('');
+
+            container.innerHTML = errorHtml;
+        }
+
+        // Auto-start monitoring and run basic checks on page load
+        window.addEventListener('load', () => {
+            startErrorMonitoring();
+            addResult('error-monitor', 'info', '🚀 Vercel Deployment Debug Tool initialized');
+            
+            // Auto-run full diagnosis after a short delay
+            setTimeout(() => {
+                runFullDiagnosis();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
